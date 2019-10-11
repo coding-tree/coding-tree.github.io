@@ -1,0 +1,10 @@
+footer {
+  margin: 2rem 0;
+  display: flex;
+  justify-content: center;
+  color: $white-color;
+  font: {
+    size: 0.5rem;
+    family: $body-font;
+  }
+}

@@ -1,0 +1,48 @@
+#faq {
+  margin-bottom: 2.5rem;
+  .container {
+    color: $white-color;
+    h1 {
+      margin-bottom: 1rem;
+      font: {
+        family: $header-font;
+        size: 2rem;
+      }
+    }
+  }
+  .faq {
+    // display: flex;
+    &-icon {
+      display: flex;
+      align-items: center;
+      font-size: 0.5rem;
+      transform-origin: center center;
+    }
+    &-description {
+      max-height: 0;
+      overflow: hidden;
+      text-align: justify;
+      margin-left: 1.5rem;
+      font: {
+        size: 1rem;
+        family: $body-font;
+      }
+    }
+    &-title {
+      margin-left: 1rem;
+      background-color: transparent;
+      border: none;
+      color: $white-color;
+      font: {
+        size: 1.6rem;
+        family: $header-font;
+      }
+      &:focus {
+        outline: none;
+      }
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
