@@ -1,52 +1,53 @@
 import React, {useRef, useEffect, useState} from 'react';
-import treeLeft from './tree_left.svg';
-import treeRight from './tree_right.svg';
 import ReactResizeDetector from 'react-resize-detector';
 import {useSpring, animated} from 'react-spring';
 import Lottie from 'react-lottie';
-import * as animation from './background.json';
+import * as background from './background.json';
+import * as backgroundMedium from './background-1200.json';
 import * as tree from './tree.json';
+import * as treeMedium from './tree-1200.json';
+
+// Components
+import Faq from '../Faq';
+import Footer from '../Footer';
 
 function Home() {
-  const [isLoading, setLoading] = useState(true);
   const [height, setHeight] = useState(null);
+  const [documentWidth, setWidth] = useState(null);
   const backgroundImg = useRef(null);
-
-  const awaitImage = () => {
-    setLoading(false);
-  };
 
   const resize = () => {
     setHeight(backgroundImg.current.el.offsetHeight);
   };
 
-  const bodymovinOptions = {
+  const backgroundOptions = {
     loop: true,
     autoplay: true,
-    animationData: animation.default,
-    rendererSettings: {
-      // preserveAspectRatio: 'none',
-      className: 'sun',
-    },
+    animationData: background.default,
+  };
+  const backgroundMediumOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: backgroundMedium.default,
   };
 
   useEffect(() => {
-    if (!isLoading) {
-      setHeight(backgroundImg.current.el.offsetHeight);
-    }
+    setWidth(document.body.clientWidth);
+    setHeight(backgroundImg.current.el.offsetHeight);
   });
 
   const treeOptions = {
     loop: true,
     autoplay: true,
     animationData: tree.default,
-    rendered: 'svg',
-
-    rendererSettings: {
-      progressiveLoad: false,
-      className: 'tree',
-    },
   };
+  const treeMediumOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: treeMedium.default,
+  };
+
+  const checkLarge = documentWidth > 1200;
 
   return (
     <main>
@@ -65,36 +66,28 @@ function Home() {
               voluptates fuga eligendi.
             </div>
 
-            <TreeButton top="32%" left="30%"></TreeButton>
-            <TreeButton top="45.5%" right="31.5%" isLeft={false}></TreeButton>
-            <TreeButton top="59%" left="33%"></TreeButton>
-            <TreeButton top="71.5%" right="28%" isLeft={false}></TreeButton>
+            <TreeButton top={checkLarge ? '32.5%' : '43%'} left="28%"></TreeButton>
+            <TreeButton top={checkLarge ? '44.5%' : '52.5%'} right="32%" isLeft={false}></TreeButton>
+            <TreeButton top={checkLarge ? '56.5%' : '63%'} left="31%"></TreeButton>
+            <TreeButton top={checkLarge ? '66.7%' : '71.5%'} right="29%" isLeft={false}></TreeButton>
           </div>
         </header>
         <div className="background">
           <Lottie
-            onLoad={awaitImage}
             ref={backgroundImg}
             isClickToPauseDisabled={true}
             speed={1}
-            options={bodymovinOptions}
-          ></Lottie>
+            options={documentWidth > 1200 ? backgroundOptions : backgroundMediumOptions}></Lottie>
         </div>
         <Lottie
-          onLoad={awaitImage}
-          // ref={backgroundImg}
           style={{position: 'absolute', top: '0px', height: 'auto', zIndex: '-1'}}
           isClickToPauseDisabled={true}
           speed={1}
-          options={treeOptions}
-        ></Lottie>
-        {/* <TreeLeft height={height}></TreeLeft> */}
-
-        {/* <div style={{height}} className="tree-right">
-          <img className="tree-right-image" src={treeRight} alt="" />
-        </div> */}
+          options={documentWidth > 1200 ? treeOptions : treeMediumOptions}></Lottie>
       </div>
 
+      <Faq></Faq>
+      <Footer></Footer>
       <ReactResizeDetector handleWidth handleHeight onResize={resize} />
     </main>
   );
@@ -103,6 +96,7 @@ function Home() {
 function TreeButton({top, left = 'initial', right = 'initial', isLeft = true}) {
   const [isVisible, setVisibility] = useState(false);
   const [key, setKey] = useState(0);
+
   const descAnimation = useSpring({
     width: isVisible ? '420px' : '0px',
     paddingLeft: isVisible ? '20px' : '0px',
@@ -111,37 +105,34 @@ function TreeButton({top, left = 'initial', right = 'initial', isLeft = true}) {
   });
   const buttonAnimation = useSpring({
     backgroundColor: !isVisible ? '#4b1220' : '#fff',
-    config: {duration: 1000},
-    // onRest: () => !isVisible && setKey(key + 1),
+    transform: key % 2 === 0 ? 'scale(1.2)' : 'scale(1)',
+    config: {duration: 1200},
+    onRest: () => !isVisible && setKey(key + 1),
   });
   const arrowAnimation = useSpring({
     height: isVisible ? '36px' : '0px',
     opacity: isVisible ? 1 : 0,
     delay: isVisible ? 0 : 700,
     config: {duration: 300},
-    // config: {delay: isVisible ? 2000 : 0},
   });
   const containerAnimation = useSpring({
     zIndex: isVisible ? 100 : 0,
-    config: {duration: 300},
+    config: {duration: 500},
   });
 
   return (
     <animated.div
-      style={{...containerAnimation, top, left, right, transform: !isLeft && 'rotateZ(-180deg)'}}
-      className="hover-container"
-    >
+      style={{top, left, right, transform: !isLeft && 'rotateZ(-180deg)', ...containerAnimation}}
+      className="hover-container">
       <React.Fragment>
         <animated.button
-          style={{transform: 'scale(1.3)', ...buttonAnimation}}
+          style={buttonAnimation}
           onMouseLeave={() => setVisibility(false)}
           onMouseEnter={() => setVisibility(true)}
-          className="hover"
-        ></animated.button>
+          className="hover"></animated.button>
         <animated.div
           style={{...arrowAnimation, transform: isLeft ? 'rotateZ(-135deg)' : 'rotateZ(-45deg)'}}
-          className="arrow"
-        ></animated.div>
+          className="arrow"></animated.div>
       </React.Fragment>
 
       <animated.div
@@ -151,9 +142,10 @@ function TreeButton({top, left = 'initial', right = 'initial', isLeft = true}) {
           bottom: !isLeft && '-7px',
           top: !isLeft && 'initial',
         }}
-        className="hover-description"
-      >
+        className="hover-description">
+        {/* TITLE */}
         <h3>Lorem Ipsum Sit Dolores</h3>
+        {/* DESCRIPTION */}
         <p>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore ducimus maxime eligendi aperiam
           exercitationem ex cumque distinctio numquam facilis ut, necessitatibus amet porro laborum quis similique saepe
@@ -166,14 +158,6 @@ function TreeButton({top, left = 'initial', right = 'initial', isLeft = true}) {
         </p>
       </animated.div>
     </animated.div>
-  );
-}
-
-function TreeLeft({height}) {
-  return (
-    <div style={{height}} className="tree-left">
-      <img className="tree-left-image" src={treeLeft} alt="" />
-    </div>
   );
 }
 

@@ -1,21 +1,28 @@
-import React from 'react';
+import React, {lazy, Suspense} from 'react';
+import {Switch, Route, Redirect} from 'react-router-dom';
+
+// Styles
 import './styles/main.scss';
-import Home from './components/Home/Home';
-import Faq from './components/Faq';
-import Footer from './components/Footer';
-import {Switch, Route} from 'react-router-dom';
-import Test from './components/Test/Test';
+
+// Components
+const Home = lazy(() => import('./components/Home/Home'));
+const NotFound = lazy(() => import('./components/NotFound'));
 
 function App() {
   return (
     <React.Fragment>
-      <Switch>
-        <Route exact strict path="/" component={Test}></Route>
-        <Route exact strict path="/home" component={Home}></Route>
-      </Switch>
-      {/* <Home></Home> */}
-      {/* <Faq></Faq> */}
-      <Footer></Footer>
+      <Suspense
+        fallback={
+          <div>
+            <h1>Loading...</h1>
+          </div>
+        }>
+        <Switch>
+          <Route exact strict path="/" component={Home}></Route>
+          <Route exact strict path="/404" component={NotFound}></Route>
+          <Redirect to="/404"></Redirect>
+        </Switch>
+      </Suspense>
     </React.Fragment>
   );
 }

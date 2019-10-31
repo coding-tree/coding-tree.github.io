@@ -1,7 +1,9 @@
 #faq {
+  margin-top: -8rem;
   margin-bottom: 2.5rem;
   .container {
     color: $white-color;
+    max-width: 1200px;
     h1 {
       margin-bottom: 1rem;
       font: {
@@ -11,7 +13,6 @@
     }
   }
   .faq {
-    // display: flex;
     &-icon {
       display: flex;
       align-items: center;
@@ -24,7 +25,7 @@
       text-align: justify;
       margin-left: 1.5rem;
       font: {
-        size: 1rem;
+        size: 1.3rem;
         family: $body-font;
       }
     }
@@ -42,6 +43,34 @@
       }
       &:hover {
         cursor: pointer;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1600px) {
+  #faq {
+    margin-top: -4rem;
+    > .container {
+      max-width: 1000px;
+    }
+    .faq {
+      &-description {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  #faq {
+    margin-top: -2rem;
+    > .container {
+      max-width: 80%;
+    }
+    .faq {
+      &-description {
+        max-width: 100%;
       }
     }
   }
