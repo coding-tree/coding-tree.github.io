@@ -15,9 +15,8 @@ function Faq() {
 
 function FaqItem() {
   const [isVisible, toggleVisibility] = useState(false);
-
   const animatedDesc = useSpring({
-    maxHeight: isVisible ? '300px' : '0px',
+    maxHeight: isVisible ? '400px' : '0px',
     config: {easing: 'ease-in-out'},
     padding: isVisible ? '20px 0px' : '0px 0px',
   });

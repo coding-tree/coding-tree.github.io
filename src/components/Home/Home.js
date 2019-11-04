@@ -3,9 +3,15 @@ import ReactResizeDetector from 'react-resize-detector';
 import {useSpring, animated} from 'react-spring';
 import Lottie from 'react-lottie';
 import * as background from './background.json';
-import * as backgroundMedium from './background-1200.json';
+import * as backgroundLarge from './background-large.json';
+import * as backgroundMedium from './background-medium.json';
+import * as backgroundMobile from './background-mobile.json';
+import * as backgroundSmallMobile from './background-smallMobile.json';
 import * as tree from './tree.json';
-import * as treeMedium from './tree-1200.json';
+import * as treeLarge from './tree-large.json';
+import * as treeMedium from './tree-medium.json';
+import * as treeMobile from './tree-mobile.json';
+import * as treeSmallMobile from './tree-smallMobile.json';
 
 // Components
 import Faq from '../Faq';
@@ -20,15 +26,57 @@ function Home() {
     setHeight(backgroundImg.current.el.offsetHeight);
   };
 
-  const backgroundOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: background.default,
-  };
-  const backgroundMediumOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: backgroundMedium.default,
+  const options = {
+    backgroundOptions: {
+      loop: true,
+      autoplay: true,
+      animationData: background.default,
+    },
+    backgroundLargeOptions: {
+      loop: true,
+      autoplay: true,
+      animationData: backgroundLarge.default,
+    },
+    backgroundMediumOptions: {
+      loop: true,
+      autoplay: true,
+      animationData: backgroundMedium.default,
+    },
+    backgroundMobileOptions: {
+      loop: true,
+      autoplay: true,
+      animationData: backgroundMobile.default,
+    },
+    backgroundSmallMobileOptions: {
+      loop: true,
+      autoplay: true,
+      animationData: backgroundSmallMobile.default,
+    },
+    treeOptions: {
+      loop: true,
+      autoplay: true,
+      animationData: tree.default,
+    },
+    treeLargeOptions: {
+      loop: true,
+      autoplay: true,
+      animationData: treeLarge.default,
+    },
+    treeMediumOptions: {
+      loop: true,
+      autoplay: true,
+      animationData: treeMedium.default,
+    },
+    treeMobileOptions: {
+      loop: true,
+      autoplay: true,
+      animationData: treeMobile.default,
+    },
+    treeSmallMobileOptions: {
+      loop: true,
+      autoplay: true,
+      animationData: treeSmallMobile.default,
+    },
   };
 
   useEffect(() => {
@@ -36,18 +84,21 @@ function Home() {
     setHeight(backgroundImg.current.el.offsetHeight);
   });
 
-  const treeOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: tree.default,
-  };
-  const treeMediumOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: treeMedium.default,
+  const checkLarge = documentWidth > 1200;
+
+  const checkDeviceWidth = type => {
+    if (documentWidth > 1200) return options[`${type}Options`];
+    if (documentWidth > 896) return options[`${type}LargeOptions`];
+    if (documentWidth > 568) return options[`${type}MediumOptions`];
+    if (documentWidth > 433) return options[`${type}MobileOptions`];
+    return options[`${type}SmallMobileOptions`];
   };
 
-  const checkLarge = documentWidth > 1200;
+  const setButtonsTopPosition = (topMedium, topMobile, topSmallMobile) => {
+    if (documentWidth > 568) return topMedium;
+    if (documentWidth > 433) return topMobile;
+    return topSmallMobile;
+  };
 
   return (
     <main>
@@ -66,10 +117,43 @@ function Home() {
               voluptates fuga eligendi.
             </div>
 
-            <TreeButton top={checkLarge ? '32.5%' : '43%'} left="28%"></TreeButton>
-            <TreeButton top={checkLarge ? '44.5%' : '52.5%'} right="32%" isLeft={false}></TreeButton>
-            <TreeButton top={checkLarge ? '56.5%' : '63%'} left="31%"></TreeButton>
-            <TreeButton top={checkLarge ? '66.7%' : '71.5%'} right="29%" isLeft={false}></TreeButton>
+            {documentWidth > 896 ? (
+              <React.Fragment>
+                <TreeButton top={checkLarge ? '32.5%' : '43%'} left="28%"></TreeButton>
+                <TreeButton top={checkLarge ? '44.5%' : '52.5%'} right="32%" isLeft={false}></TreeButton>
+                <TreeButton top={checkLarge ? '56.5%' : '63%'} left="31%"></TreeButton>
+                <TreeButton top={checkLarge ? '66.7%' : '71.5%'} right="29%" isLeft={false}></TreeButton>
+              </React.Fragment>
+            ) : (
+              <React.Fragment>
+                <TreeButtonModal title="Example Title 1" top={setButtonsTopPosition('43%', '44.5%', '49%')} left="33%">
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi, maiores, veritatis reprehenderit
+                  nostrum vel voluptatibus dolore recusandae consequatur a quod obcaecati blanditiis aliquam voluptas
+                  velit optio quidem molestiae numquam harum?
+                </TreeButtonModal>
+                <TreeButtonModal
+                  title="Example Title 2"
+                  top={setButtonsTopPosition('53%', '54.5%', '57.5%')}
+                  right="39%">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita corrupti id molestiae repellendus at
+                  rem vero dolorum. Necessitatibus incidunt est ea quasi neque! Repudiandae voluptate commodi earum,
+                  magni corrupti omnis.
+                </TreeButtonModal>
+                <TreeButtonModal title="Example Title 3" top={setButtonsTopPosition('63%', '65%', '66%')} left="38.5%">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita corrupti id molestiae repellendus at
+                  rem vero dolorum. Necessitatibus incidunt est ea quasi neque! Repudiandae voluptate commodi earum,
+                  magni corrupti omnis.
+                </TreeButtonModal>
+                <TreeButtonModal
+                  title="Example Title 4"
+                  top={setButtonsTopPosition('72.5%', '74.5%', '75.5%')}
+                  right="37%">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita corrupti id molestiae repellendus at
+                  rem vero dolorum. Necessitatibus incidunt est ea quasi neque! Repudiandae voluptate commodi earum,
+                  magni corrupti omnis.
+                </TreeButtonModal>
+              </React.Fragment>
+            )}
           </div>
         </header>
         <div className="background">
@@ -77,13 +161,13 @@ function Home() {
             ref={backgroundImg}
             isClickToPauseDisabled={true}
             speed={1}
-            options={documentWidth > 1200 ? backgroundOptions : backgroundMediumOptions}></Lottie>
+            options={checkDeviceWidth('background')}></Lottie>
         </div>
         <Lottie
           style={{position: 'absolute', top: '0px', height: 'auto', zIndex: '-1'}}
           isClickToPauseDisabled={true}
           speed={1}
-          options={documentWidth > 1200 ? treeOptions : treeMediumOptions}></Lottie>
+          options={checkDeviceWidth('tree')}></Lottie>
       </div>
 
       <Faq></Faq>
@@ -93,21 +177,44 @@ function Home() {
   );
 }
 
+function TreeButtonModal({top, children, title, left = 'initial', right = 'initial'}) {
+  const [visibility, setVisibility] = useState(false);
+
+  const toggleModal = () => {
+    setVisibility(!visibility);
+  };
+
+  const closeModal = e => {
+    e.target.className === 'modal' && setVisibility(false);
+  };
+  return (
+    <div>
+      <button style={{top, left, right}} className="button-modal" onClick={toggleModal}></button>
+      {visibility && (
+        <div onClick={e => closeModal(e)} className="modal">
+          <div className="modal-box">
+            <div className="modal-container">
+              <h2>{title}</h2>
+              <button onClick={() => setVisibility(false)}>
+                <i className="fas fa-times"></i>
+              </button>
+            </div>
+            <p>{children}</p>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 function TreeButton({top, left = 'initial', right = 'initial', isLeft = true}) {
   const [isVisible, setVisibility] = useState(false);
-  const [key, setKey] = useState(0);
 
   const descAnimation = useSpring({
     width: isVisible ? '420px' : '0px',
     paddingLeft: isVisible ? '20px' : '0px',
     overflow: isLeft ? 'hidden' : '',
     delay: isVisible ? 250 : 0,
-  });
-  const buttonAnimation = useSpring({
-    backgroundColor: !isVisible ? '#4b1220' : '#fff',
-    transform: key % 2 === 0 ? 'scale(1.2)' : 'scale(1)',
-    config: {duration: 1200},
-    onRest: () => !isVisible && setKey(key + 1),
   });
   const arrowAnimation = useSpring({
     height: isVisible ? '36px' : '0px',
@@ -125,11 +232,10 @@ function TreeButton({top, left = 'initial', right = 'initial', isLeft = true}) {
       style={{top, left, right, transform: !isLeft && 'rotateZ(-180deg)', ...containerAnimation}}
       className="hover-container">
       <React.Fragment>
-        <animated.button
-          style={buttonAnimation}
+        <button
           onMouseLeave={() => setVisibility(false)}
           onMouseEnter={() => setVisibility(true)}
-          className="hover"></animated.button>
+          className="hover"></button>
         <animated.div
           style={{...arrowAnimation, transform: isLeft ? 'rotateZ(-135deg)' : 'rotateZ(-45deg)'}}
           className="arrow"></animated.div>
