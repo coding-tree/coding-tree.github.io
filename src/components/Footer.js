@@ -1,7 +1,7 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 function Footer() {
-  const [date, setDate] = useState(new Date());
+  const date = new Date();
   return (
     <footer>
       <div className="container">

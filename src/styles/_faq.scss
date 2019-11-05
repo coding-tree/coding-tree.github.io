@@ -1,5 +1,5 @@
 #faq {
-  margin-top: -8rem;
+  // margin-top: -8rem;
   margin-bottom: 2.5rem;
   .container {
     color: $white-color;
@@ -50,7 +50,7 @@
 
 @media only screen and (max-width: 1600px) {
   #faq {
-    margin-top: -4rem;
+    // margin-top: -4rem;
     > .container {
       max-width: 1000px;
     }
@@ -64,7 +64,7 @@
 
 @media only screen and (max-width: 1200px) {
   #faq {
-    margin-top: -2rem;
+    // margin-top: -2rem;
     > .container {
       max-width: 80%;
     }

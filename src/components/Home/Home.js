@@ -16,6 +16,7 @@ import * as treeSmallMobile from './tree-smallMobile.json';
 // Components
 import Faq from '../Faq';
 import Footer from '../Footer';
+import Gallery from '../Gallery.js';
 
 function Home() {
   const [height, setHeight] = useState(null);
@@ -170,7 +171,9 @@ function Home() {
           options={checkDeviceWidth('tree')}></Lottie>
       </div>
 
+      <Gallery></Gallery>
       <Faq></Faq>
+
       <Footer></Footer>
       <ReactResizeDetector handleWidth handleHeight onResize={resize} />
     </main>
