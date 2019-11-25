@@ -1,0 +1,34 @@
+nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: $header-font;
+  ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    a {
+      display: flex;
+      padding: 2rem;
+      text-decoration: none;
+    }
+  }
+}
+
+.active {
+  color: $white-color;
+}
+
+@media only screen and (max-width: 896px) {
+  nav {
+    ul {
+      flex-direction: column;
+      text-align: center;
+
+      a {
+        padding: 0;
+        justify-content: center;
+      }
+    }
+  }
+}

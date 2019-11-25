@@ -47,14 +47,7 @@ main {
         }
         text-align: justify;
       }
-      h1 {
-        margin-bottom: 2rem;
-        color: $tree-color;
-        font: {
-          family: $header-font;
-          size: 2.6rem;
-        }
-      }
+
       .description {
         max-width: 1200px;
         margin: 0 auto;
@@ -141,9 +134,10 @@ main {
         left: 0;
         width: 100vw;
         height: 100vh;
+        height: calc(var(--vh, 1vh) * 100);
         z-index: 999;
         &-box {
-          width: 80%;
+          width: 90%;
           border-radius: 10px;
           box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.4);
           overflow: hidden;
@@ -155,12 +149,17 @@ main {
           background-color: #f0f0f0;
           padding: 1vmin 3vmin;
           border-bottom: 1px solid #ccc;
+          button {
+            border: none;
+          }
           i {
             font-size: 1rem;
           }
           h2 {
             color: $font-color;
-            font-size: 1.3rem;
+            font: {
+              size: 1.3rem;
+            }
           }
         }
         p {

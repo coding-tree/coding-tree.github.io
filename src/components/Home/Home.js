@@ -1,6 +1,7 @@
 import React, {useRef, useEffect, useState} from 'react';
 import ReactResizeDetector from 'react-resize-detector';
 import {useSpring, animated} from 'react-spring';
+
 import Lottie from 'react-lottie';
 import * as background from './background.json';
 import * as backgroundLarge from './background-large.json';
@@ -17,6 +18,7 @@ import * as treeSmallMobile from './tree-smallMobile.json';
 import Faq from '../Faq';
 import Footer from '../Footer';
 import Gallery from '../Gallery.js';
+import Navigation from '../Navigation.js';
 
 function Home() {
   const [height, setHeight] = useState(null);
@@ -106,8 +108,7 @@ function Home() {
       <div style={{height}} className="container">
         <header>
           <div style={{height}} className="logo-container">
-            <h1>Coding Tree</h1>
-
+            <Navigation></Navigation>
             <div className="description">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt explicabo est quas adipisci iste
               provident voluptas facere nostrum culpa a! Numquam, ex officiis. Eveniet dolor, amet dolorem error quia
@@ -171,7 +172,7 @@ function Home() {
           options={checkDeviceWidth('tree')}></Lottie>
       </div>
 
-      <Gallery></Gallery>
+      <Gallery documentWidth={documentWidth}></Gallery>
       <Faq></Faq>
 
       <Footer></Footer>

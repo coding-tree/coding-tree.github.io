@@ -23,6 +23,14 @@ body {
   margin: 0 auto;
 }
 
+h1 {
+  color: $tree-color;
+  font: {
+    family: $header-font;
+    size: 2.6rem;
+  }
+}
+
 @media only screen and (max-width: 1600px) {
   .container {
     max-width: 1000px;

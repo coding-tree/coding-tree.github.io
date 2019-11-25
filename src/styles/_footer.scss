@@ -1,10 +1,18 @@
 footer {
-  margin: 2rem 0;
+  margin: 1rem 0 3rem 0;
   display: flex;
   justify-content: center;
   color: $white-color;
   font: {
-    size: 0.5rem;
+    size: 1rem;
     family: $body-font;
+  }
+}
+
+@media only screen and (max-width: 896px) {
+  footer {
+    font: {
+      size: 0.6rem;
+    }
   }
 }

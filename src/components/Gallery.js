@@ -1,19 +1,25 @@
 import React, {useState, useRef, useEffect} from 'react';
 
-export default function Gallery() {
+export default function Gallery({documentWidth}) {
   const [openedImage, setImage] = useState(false);
   const [isLoading, setLoading] = useState(false);
   const lightbox = useRef(null);
 
   const fakeImages = [
-    {id: 1, thumb: 'https://picsum.photos/300/300', url: 'https://picsum.photos/1800/1500', alt: ''},
-    {id: 2, thumb: 'https://picsum.photos/301/300', url: 'https://picsum.photos/1502/2500', alt: ''},
-    {id: 3, thumb: 'https://picsum.photos/302/300', url: 'https://picsum.photos/1501/1500', alt: ''},
-    {id: 4, thumb: 'https://picsum.photos/303/300', url: 'https://picsum.photos/1503/1500', alt: ''},
+    {
+      id: 1,
+      thumb: '/images/mobile/1.jpg',
+      src: '',
+      srcset: '/images/mobile/1.jpg 1100w, /images/1.jpg 4000w',
+      alt: '',
+    },
+    {id: 2, thumb: '/images/mobile/2.jpg', src: '/images/2.jpg', srcset: '/images/2.jpg 896w', alt: ''},
+    {id: 3, thumb: '/images/mobile/3.jpg', src: '/images/3.jpg', srcset: '/images/3.jpg 896w', alt: ''},
+    {id: 4, thumb: '/images/mobile/4.jpg', src: '/images/4.jpg', srcset: '/images/4.jpg 896w', alt: ''},
   ];
 
   useEffect(() => {
-    openedImage && lightbox.current.focus();
+    documentWidth < 896 ? setImage(false) : lightbox && openedImage && lightbox.current.focus();
   });
 
   const openLightbox = id => {
@@ -53,11 +59,11 @@ export default function Gallery() {
         <div className="grid-gallery">
           {fakeImages.map(el => (
             <div key={el.id} className="grid-item">
-              <img onClick={() => openLightbox(el.id)} src={el.thumb} alt={el.alt} />
+              <img onClick={() => documentWidth > 896 && openLightbox(el.id)} src={el.thumb} alt={el.alt} />
             </div>
           ))}
         </div>
-        {openedImage && (
+        {openedImage && documentWidth > 896 && (
           <div
             ref={lightbox}
             onKeyDown={handleKeyDown}
@@ -77,6 +83,7 @@ export default function Gallery() {
             <img
               onError={() => setImage(false)}
               onLoad={() => isFinished()}
+              srcSet={fakeImages[openedImage - 1].srcset}
               src={fakeImages[openedImage - 1].url}
               alt=""
             />

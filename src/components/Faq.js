@@ -29,7 +29,7 @@ function FaqItem() {
             <i className="fas fa-circle"></i>
           </div>
           <button className="faq-title" onClick={() => toggleVisibility(!isVisible)}>
-            Lorem Ipsum Sit Dolor ?
+            Lorem Ipsum Sit Dolor ? O oksoakas o koksaoosakoksaokaos
           </button>
         </div>
 
