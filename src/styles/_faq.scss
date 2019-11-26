@@ -1,4 +1,6 @@
 #faq {
+  position: relative;
+  z-index: 0;
   margin-bottom: 2.5rem;
   .container {
     color: $white-color;

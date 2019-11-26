@@ -20,7 +20,7 @@ export default function Gallery({documentWidth}) {
 
   useEffect(() => {
     documentWidth < 896 ? setImage(false) : lightbox && openedImage && lightbox.current.focus();
-  });
+  }, [documentWidth, openedImage]);
 
   const openLightbox = id => {
     setLoading(true);
@@ -87,6 +87,7 @@ export default function Gallery({documentWidth}) {
               src={fakeImages[openedImage - 1].url}
               alt=""
             />
+
             {isLoading && <div className="loading">Loading...</div>}
           </div>
         )}

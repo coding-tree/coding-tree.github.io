@@ -2,15 +2,21 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: $header-font;
+
+  font: {
+    weight: 900;
+    family: $body-font;
+  }
   ul {
     list-style: none;
     display: flex;
     justify-content: center;
     a {
+      color: $tree-color;
       display: flex;
       padding: 2rem;
       text-decoration: none;
+      text-transform: uppercase;
     }
   }
 }
@@ -22,13 +28,26 @@ nav {
 @media only screen and (max-width: 896px) {
   nav {
     ul {
-      flex-direction: column;
+      height: 70px;
       text-align: center;
-
+      align-items: center;
       a {
-        padding: 0;
+        padding: 22px;
         justify-content: center;
       }
+    }
+  }
+}
+
+@media only screen and (max-width: 896px) {
+  nav {
+    ul {
+      display: flex;
+      background-color: $button-color;
+      position: fixed;
+      bottom: 0;
+      z-index: 9999;
+      width: 100%;
     }
   }
 }

@@ -11,6 +11,7 @@ html {
   position: relative;
   font-size: 20px;
   scroll-behavior: smooth;
+  overflow-anchor: none;
 }
 body {
   min-height: 100% !important;
@@ -35,5 +36,43 @@ h1 {
   .container {
     max-width: 1000px;
     margin: 0 auto;
+  }
+}
+
+// Block resizing on below 320px screen width
+@media only screen and (max-width: 320px) {
+  body {
+    width: 320px;
+  }
+  h1 {
+    white-space: nowrap;
+  }
+  div {
+    max-width: 320px !important;
+  }
+  .container {
+    // margin: 0;
+    // width: 80%;
+    max-width: 320px !important;
+    header {
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+  }
+  .logo-container {
+    width: 80%;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+  .description {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+  }
+  .modal {
+    width: 100% !important;
+  }
+  ul {
+    width: 320px !important;
   }
 }

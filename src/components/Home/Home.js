@@ -85,7 +85,7 @@ function Home() {
   useEffect(() => {
     setWidth(document.body.clientWidth);
     setHeight(backgroundImg.current.el.offsetHeight);
-  });
+  }, [height, documentWidth]);
 
   const checkLarge = documentWidth > 1200;
 
@@ -108,7 +108,7 @@ function Home() {
       <div style={{height}} className="container">
         <header>
           <div style={{height}} className="logo-container">
-            <Navigation></Navigation>
+            <Navigation documentWidth={documentWidth}></Navigation>
             <div className="description">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt explicabo est quas adipisci iste
               provident voluptas facere nostrum culpa a! Numquam, ex officiis. Eveniet dolor, amet dolorem error quia
@@ -124,36 +124,45 @@ function Home() {
                 <TreeButton top={checkLarge ? '32.5%' : '43%'} left="28%"></TreeButton>
                 <TreeButton top={checkLarge ? '44.5%' : '52.5%'} right="32%" isLeft={false}></TreeButton>
                 <TreeButton top={checkLarge ? '56.5%' : '63%'} left="31%"></TreeButton>
-                <TreeButton top={checkLarge ? '66.7%' : '71.5%'} right="29%" isLeft={false}></TreeButton>
+                <TreeButton top={checkLarge ? '66.7%' : '72.3%'} right="29%" isLeft={false}></TreeButton>
               </React.Fragment>
             ) : (
               <React.Fragment>
-                <TreeButtonModal title="Example Title 1" top={setButtonsTopPosition('43%', '44.5%', '49%')} left="33%">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi, maiores, veritatis reprehenderit
-                  nostrum vel voluptatibus dolore recusandae consequatur a quod obcaecati blanditiis aliquam voluptas
-                  velit optio quidem molestiae numquam harum?
-                </TreeButtonModal>
-                <TreeButtonModal
-                  title="Example Title 2"
-                  top={setButtonsTopPosition('53%', '54.5%', '57.5%')}
-                  right="39%">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita corrupti id molestiae repellendus at
-                  rem vero dolorum. Necessitatibus incidunt est ea quasi neque! Repudiandae voluptate commodi earum,
-                  magni corrupti omnis.
-                </TreeButtonModal>
-                <TreeButtonModal title="Example Title 3" top={setButtonsTopPosition('63%', '65%', '66%')} left="38.5%">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita corrupti id molestiae repellendus at
-                  rem vero dolorum. Necessitatibus incidunt est ea quasi neque! Repudiandae voluptate commodi earum,
-                  magni corrupti omnis.
-                </TreeButtonModal>
-                <TreeButtonModal
-                  title="Example Title 4"
-                  top={setButtonsTopPosition('72.5%', '74.5%', '75.5%')}
-                  right="37%">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita corrupti id molestiae repellendus at
-                  rem vero dolorum. Necessitatibus incidunt est ea quasi neque! Repudiandae voluptate commodi earum,
-                  magni corrupti omnis.
-                </TreeButtonModal>
+                <div className="button-modal-container">
+                  <TreeButtonModal
+                    title="Example Title 1"
+                    top={setButtonsTopPosition('43%', '44.5%', '49%')}
+                    left="33%">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi, maiores, veritatis reprehenderit
+                    nostrum vel voluptatibus dolore recusandae consequatur a quod obcaecati blanditiis aliquam voluptas
+                    velit optio quidem molestiae numquam harum?
+                  </TreeButtonModal>
+
+                  <TreeButtonModal
+                    title="Example Title 2"
+                    top={setButtonsTopPosition('53%', '54.5%', '57.5%')}
+                    right="39%">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita corrupti id molestiae repellendus
+                    at rem vero dolorum. Necessitatibus incidunt est ea quasi neque! Repudiandae voluptate commodi
+                    earum, magni corrupti omnis.
+                  </TreeButtonModal>
+                  <TreeButtonModal
+                    title="Example Title 3"
+                    top={setButtonsTopPosition('63%', '65%', '66%')}
+                    left="38.5%">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita corrupti id molestiae repellendus
+                    at rem vero dolorum. Necessitatibus incidunt est ea quasi neque! Repudiandae voluptate commodi
+                    earum, magni corrupti omnis.
+                  </TreeButtonModal>
+                  <TreeButtonModal
+                    title="Example Title 4"
+                    top={setButtonsTopPosition('72.5%', '74.5%', '75.5%')}
+                    right="37%">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita corrupti id molestiae repellendus
+                    at rem vero dolorum. Necessitatibus incidunt est ea quasi neque! Repudiandae voluptate commodi
+                    earum, magni corrupti omnis.
+                  </TreeButtonModal>
+                </div>
               </React.Fragment>
             )}
           </div>
@@ -166,7 +175,7 @@ function Home() {
             options={checkDeviceWidth('background')}></Lottie>
         </div>
         <Lottie
-          style={{position: 'absolute', top: '0px', height: 'auto', zIndex: '-1'}}
+          style={{position: 'absolute', top: '0px', height: 'initial', zIndex: '-1'}}
           isClickToPauseDisabled={true}
           speed={1}
           options={checkDeviceWidth('tree')}></Lottie>
@@ -249,7 +258,7 @@ function TreeButton({top, left = 'initial', right = 'initial', isLeft = true}) {
         style={{
           ...descAnimation,
           transform: !isLeft && 'rotate(180deg)',
-          bottom: !isLeft && '-7px',
+          bottom: !isLeft && '-13px',
           top: !isLeft && 'initial',
         }}
         className="hover-description">

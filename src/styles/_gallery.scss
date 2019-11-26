@@ -1,6 +1,8 @@
 #gallery {
   margin-bottom: 3rem;
   margin-top: -6rem;
+  position: relative;
+  z-index: 0;
   .container {
     width: 1200px;
     margin: 0 auto;
@@ -51,6 +53,7 @@
       max-height: 80%;
       object-fit: contain;
       box-shadow: 1px 1px 15px rgba($color: #000000, $alpha: 0.7);
+      z-index: 99;
     }
     .loading {
       color: white;
@@ -101,6 +104,7 @@
 }
 @media only screen and (max-width: 896px) {
   #gallery {
+    margin-top: 0;
     .container {
       padding: 0 3vmin;
     }

@@ -1,0 +1,12 @@
+@mixin sunshineElement($duration) {
+  content: '';
+  display: flex;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: $white-color;
+  border-radius: 100%;
+  animation: $duration infinite ease-in-out sunshine;
+  transform-origin: center;
+  z-index: -1;
+}
