@@ -1,0 +1,16 @@
+html {
+  text-rendering: optimizeLegibility;
+}
+
+main {
+  background-color: $tree-color;
+  color: $white-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+}

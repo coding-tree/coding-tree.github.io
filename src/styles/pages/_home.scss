@@ -1,0 +1,10 @@
+#home {
+  color: $white-color;
+  width: 100%;
+  height: 100vh;
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
