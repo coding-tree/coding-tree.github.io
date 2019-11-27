@@ -8,6 +8,40 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  min-height: 100vh;
+}
+
+body {
+  font-family: $body-font;
+}
+h1 {
+  font-family: $header-font;
+  font-size: 2.5rem;
+}
+
+button {
+  height: 42px;
+  padding: 0 20px;
+  cursor: pointer;
+  border-radius: 4px;
+  letter-spacing: 0.02rem;
+  font: {
+    family: $body-font;
+    size: 1rem;
+    weight: bold;
+  }
+  &.primary-button {
+    background-color: $sun-color;
+    border: 1px solid $sun-color;
+    text-transform: uppercase;
+    transition: 0.3s;
+    &:hover {
+      color: $white-color;
+      background-color: $button-second-color;
+      transition: 0.3s;
+    }
+  }
 }
 
 .container {
