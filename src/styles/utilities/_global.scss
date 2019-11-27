@@ -9,15 +9,21 @@ main {
   justify-content: center;
   align-items: center;
   width: 100%;
-  min-height: 100vh;
 }
 
 body {
   font-family: $body-font;
+  background-color: $tree-color;
 }
-h1 {
+h1,
+h2 {
   font-family: $header-font;
   font-size: 2.5rem;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2rem;
 }
 
 button {
@@ -47,4 +53,15 @@ button {
 .container {
   max-width: 1200px;
   width: 100%;
+  min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
+}
+
+@media only screen and (max-width: 414px) {
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
 }
