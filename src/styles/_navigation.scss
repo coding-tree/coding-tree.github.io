@@ -2,7 +2,13 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  h1 {
+    order: 2;
+    width: 200px;
+    height: 200px;
+    img {
+    }
+  }
   font: {
     weight: 900;
     family: $body-font;
@@ -11,6 +17,13 @@ nav {
     list-style: none;
     display: flex;
     justify-content: center;
+    align-items: center;
+    li:first-child {
+      order: 1;
+    }
+    li:last-child {
+      order: 3;
+    }
     a {
       color: $tree-color;
       display: flex;

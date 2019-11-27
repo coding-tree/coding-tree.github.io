@@ -5,8 +5,10 @@ function Navigation({documentWidth}) {
   console.log(documentWidth);
   return (
     <nav>
-      <h1>Coding Tree</h1>
       <ul>
+        <h1>
+          <img src="/logo.svg" alt="" />
+        </h1>
         <li>
           <NavLink exact strict to="/">
             {documentWidth < 896 ? <i className="fas fa-home"></i> : 'Strona główna'}
