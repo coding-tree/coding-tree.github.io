@@ -1,8 +1,16 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {NavLink} from 'react-router-dom';
+const bodyScrollLock = require('body-scroll-lock');
+const disableBodyScroll = bodyScrollLock.disableBodyScroll;
+const enableBodyScroll = bodyScrollLock.enableBodyScroll;
 
 function NavigationMobile() {
   const [isVisible, toggleMenu] = useState(false);
+  const body = document.body;
+  useEffect(() => {
+    isVisible ? disableBodyScroll(body) : enableBodyScroll(body);
+  });
+  const date = new Date();
   const styles = isVisible
     ? {
         width: '100%',
@@ -34,6 +42,9 @@ function NavigationMobile() {
             Członkowie
           </NavLink>
         </div>
+        <footer>
+          <p>Copyright &copy; {date.getFullYear()} | Coding Tree </p>
+        </footer>
       </nav>
     </div>
   );
