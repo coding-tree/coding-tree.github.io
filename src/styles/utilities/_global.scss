@@ -12,6 +12,7 @@ html {
   font-size: 20px;
   scroll-behavior: smooth;
   overflow-anchor: none;
+  overscroll-behavior: contain;
 }
 body {
   min-height: 100% !important;

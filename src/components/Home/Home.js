@@ -19,6 +19,7 @@ import Faq from '../Faq';
 import Footer from '../Footer';
 import Gallery from '../Gallery.js';
 import Navigation from '../Navigation.js';
+import NavigationMobile from '../NavigationMobile.js';
 
 function Home() {
   const [height, setHeight] = useState(null);
@@ -108,7 +109,8 @@ function Home() {
       <div style={{height}} className="container">
         <header>
           <div style={{height}} className="logo-container">
-            <Navigation documentWidth={documentWidth}></Navigation>
+            {documentWidth > 896 ? <Navigation></Navigation> : <NavigationMobile></NavigationMobile>}
+
             <div className="description">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt explicabo est quas adipisci iste
               provident voluptas facere nostrum culpa a! Numquam, ex officiis. Eveniet dolor, amet dolorem error quia

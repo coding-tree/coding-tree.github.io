@@ -208,9 +208,6 @@ main {
   main {
     .container {
       header {
-        h1 {
-          margin-bottom: 1rem;
-        }
         .description {
           max-width: 80%;
           font-size: 1rem;
@@ -254,7 +251,7 @@ main {
   }
 }
 
-@media only screen and (max-width: 433px) {
+@media only scsreen and (max-width: 433px) {
   main {
     .container {
       header {
