@@ -1,32 +1,4 @@
 // Button animation
-
-@keyframes pulsar {
-  0% {
-    transform: scale(1);
-    background-color: #7f2538;
-  }
-  10% {
-    transform: scale(1.1);
-  }
-  20% {
-    transform: scale(1);
-  }
-  30% {
-    transform: scale(1.2);
-  }
-  40% {
-    transform: scale(1.1);
-  }
-  50% {
-    transform: scale(1.2);
-    background-color: $white-color;
-  }
-  100% {
-    transform: scale(1);
-    background-color: #7f2538;
-  }
-}
-
 @keyframes sunshine {
   from {
     opacity: 0.3;

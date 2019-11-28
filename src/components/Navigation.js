@@ -1,25 +1,22 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
 
-function Navigation({documentWidth}) {
-  console.log(documentWidth);
+function Navigation() {
   return (
     <nav>
+      <div className="left">
+        <NavLink exact strict to="/">
+          Strona główna
+        </NavLink>
+      </div>
       <h1>
         <img src="/logo.svg" alt="" />
       </h1>
-      <ul>
-        <li>
-          <NavLink exact strict to="/">
-            {documentWidth < 896 ? <i className="fas fa-home"></i> : 'Strona główna'}
-          </NavLink>
-        </li>
-        <li>
-          <NavLink exact strict to="/o-nas">
-            {documentWidth < 896 ? <i className="fas fa-users"></i> : 'O nas'}
-          </NavLink>
-        </li>
-      </ul>
+      <div className="right">
+        <NavLink exact strict to="/o-nas">
+          Członkowie
+        </NavLink>
+      </div>
     </nav>
   );
 }

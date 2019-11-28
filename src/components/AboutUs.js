@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import Navigation from './Navigation';
+import NavigationAboutUs from './NavigationAboutUs';
 
 function AboutUs() {
   const [documentWidth, setDocumentWidth] = useState(null);
@@ -17,7 +17,7 @@ function AboutUs() {
   return (
     <section id="about-us">
       <div className="container">
-        <Navigation documentWidth={documentWidth}></Navigation>
+        <NavigationAboutUs></NavigationAboutUs>
         <h2>Lorem Ipsum</h2>
       </div>
     </section>
