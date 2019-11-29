@@ -1,13 +1,11 @@
 import React, {lazy, Suspense, useEffect} from 'react';
 import {Switch, Route, Redirect} from 'react-router-dom';
 
-// Styles
-import '../styles/main.scss';
-import AboutUs from './AboutUs';
+import './styles/main.scss';
 
-// Components
-const Home = lazy(() => import('./Home/Home'));
-const NotFound = lazy(() => import('./NotFound'));
+const Home = lazy(() => import('./components/Home/Home'));
+const AboutUs = lazy(() => import('./components/AboutUs'));
+const NotFound = lazy(() => import('./components/NotFound'));
 
 function App() {
   const calculateViewportHeight = () => {
@@ -27,7 +25,7 @@ function App() {
       <Suspense
         fallback={
           <div>
-            <h1>Loading...</h1>
+            <h1 style={{color: '#fff'}}>Loading...</h1>
           </div>
         }>
         <Switch>
