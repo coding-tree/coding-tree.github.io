@@ -13,7 +13,6 @@ const Background = forwardRef((props, ref) => {
     autoplay: true,
     animationData: background.default,
   };
-  console.log(ref);
 
   return <Lottie ref={ref} isClickToPauseDisabled={true} speed={1} options={backgroundOptions}></Lottie>;
 });

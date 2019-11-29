@@ -3,7 +3,6 @@ import TreeButton from './TreeButton';
 
 function TreeButtonContainer({documentWidth}) {
   const checkLarge = documentWidth > 1200;
-
   return (
     <React.Fragment>
       <TreeButton top={checkLarge ? '32.5%' : '43%'} left="28%"></TreeButton>

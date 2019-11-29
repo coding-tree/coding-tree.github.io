@@ -5,7 +5,7 @@ import Lottie from 'react-lottie';
 
 import * as tree from './tree.json';
 import * as treeLarge from './tree-large.json';
-// import * as treeMedium from './tree-medium.json';
+import * as treeMedium from './tree-medium.json';
 import * as treeMobile from './tree-mobile.json';
 import * as treeSmallMobile from './tree-smallMobile.json';
 
@@ -13,11 +13,10 @@ import * as treeSmallMobile from './tree-smallMobile.json';
 import Faq from '../Faq';
 import Footer from '../Footer';
 import Gallery from '../Gallery.js';
-import BackgroundContainer from '../Background/BackgroundContainer.js';
+// import BackgroundContainer from '../Background/BackgroundContainer.js';
+// import Background from '../Background/Background.js';
 // import Background from '../Background.js';
 // import TreeButtonModalContainer from '../TreeButtonModalContainer.js';
-
-const treeMedium = lazy(() => import('./tree-medium.json'));
 
 // import Navigation from '../Navigation.js';
 // import NavigationMobile from '../NavigationMobile.js';
@@ -27,7 +26,7 @@ const TreeButtonModalContainer = lazy(() => import('../TreeButtonModalContainer'
 const TreeButtonContainer = lazy(() => import('../TreeButtonContainer'));
 const Navigation = lazy(() => import('../Navigation'));
 const NavigationMobile = lazy(() => import('../NavigationMobile'));
-// const BackgroundContainer = lazy(() => import('../Background/BackgroundContainer'));
+const BackgroundContainer = lazy(() => import('../Background/BackgroundContainer'));
 
 function Home() {
   const [height, setHeight] = useState(null);
@@ -36,15 +35,10 @@ function Home() {
   const backgroundImg = createRef();
 
   const resize = () => {
-    // setHeight(backgroundImg.current.el.offsetHeight);
+    setHeight(backgroundImg.current.el.offsetHeight);
   };
 
   const options = {
-    // backgroundLargeOptions: {
-    //   loop: true,
-    //   autoplay: true,
-    //   animationData: backgroundLarge.default,
-    // },
     // backgroundMediumOptions: {
     //   loop: true,
     //   autoplay: true,
@@ -88,11 +82,15 @@ function Home() {
   };
 
   useEffect(() => {
-    if (backgroundImg.current.el.offsetHeight) {
-      setHeight(backgroundImg.current.el.offsetHeight);
+    if (backgroundImg) {
+      if (backgroundImg.current) {
+        if (backgroundImg.current.el.offsetHeight) {
+          setHeight(backgroundImg.current.el.offsetHeight);
+        }
+      }
     }
     setWidth(document.body.clientWidth);
-  });
+  }, [backgroundImg]);
 
   const checkDeviceWidth = type => {
     if (documentWidth > 1200) return options[`${type}Options`];
