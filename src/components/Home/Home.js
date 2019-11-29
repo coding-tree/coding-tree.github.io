@@ -35,15 +35,10 @@ function Home() {
   const backgroundImg = createRef();
 
   const resize = () => {
-    setHeight(backgroundImg.current.el.offsetHeight);
+    if (backgroundImg.current) setHeight(backgroundImg.current.el.offsetHeight);
   };
 
   const options = {
-    // backgroundMediumOptions: {
-    //   loop: true,
-    //   autoplay: true,
-    //   animationData: backgroundMedium.default,
-    // },
     // backgroundMobileOptions: {
     //   loop: true,
     //   autoplay: true,
@@ -82,15 +77,20 @@ function Home() {
   };
 
   useEffect(() => {
-    if (backgroundImg) {
-      if (backgroundImg.current) {
-        if (backgroundImg.current.el.offsetHeight) {
-          setHeight(backgroundImg.current.el.offsetHeight);
-        }
-      }
+    // const temp = backgroundImg.current;
+    if (backgroundImg.current) {
+      setHeight(backgroundImg.current.el.offsetHeight);
     }
     setWidth(document.body.clientWidth);
-  }, [backgroundImg]);
+    console.log(height);
+  });
+  const rwd = {
+    isLargeDesktop: documentWidth >= 1200,
+    isDesktop: documentWidth < 1200 && documentWidth >= 896,
+    isTablet: documentWidth < 896 && documentWidth >= 568,
+    isMobile: documentWidth < 568 && documentWidth >= 433,
+    isSmallMobile: documentWidth < 433,
+  };
 
   const checkDeviceWidth = type => {
     if (documentWidth > 1200) return options[`${type}Options`];
@@ -125,7 +125,7 @@ function Home() {
           </div>
         </header>
         {/* BACKGROUND */}
-        <BackgroundContainer ref={backgroundImg} documentWidth={documentWidth}></BackgroundContainer>
+        <BackgroundContainer ref={backgroundImg} rwd={rwd}></BackgroundContainer>
         <Lottie
           style={{position: 'absolute', top: '0px', height: 'initial', zIndex: '-1'}}
           isClickToPauseDisabled={true}
