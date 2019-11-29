@@ -27,13 +27,16 @@
     align-items: center;
     flex-direction: column;
     bottom: 0;
-    left: 0;
+    right: 0;
     width: 0;
     height: 0;
     padding-bottom: 20px;
     background-color: $button-color;
     z-index: 9999;
     overflow: hidden;
+    white-space: nowrap;
+    border-radius: 50px;
+    // opacity: 0;
     .close {
       position: absolute;
       top: 30px;
@@ -45,6 +48,8 @@
     }
     h1 {
       margin: 2.5rem 0;
+      overflow: hidden;
+      transform-origin: center;
       img {
         height: 200px;
       }
@@ -54,7 +59,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: space-around;
-      //   height: 50px;
+      overflow: hidden;
       width: 100%;
     }
     a {
@@ -71,6 +76,7 @@
       position: absolute;
       bottom: 0;
       margin: 3rem 0;
+      overflow: hidden;
     }
   }
 }
