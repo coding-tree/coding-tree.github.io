@@ -3,7 +3,7 @@ import {Switch, Route, Redirect} from 'react-router-dom';
 
 import './styles/main.scss';
 
-const Home = lazy(() => import('./components/Home/Home'));
+const Home = lazy(() => import('./components/Home'));
 const AboutUs = lazy(() => import('./components/AboutUs'));
 const NotFound = lazy(() => import('./components/NotFound'));
 

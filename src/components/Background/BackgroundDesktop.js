@@ -1,14 +1,16 @@
 import React from 'react';
 import Lottie from 'react-lottie';
-import * as backgroundLarge from './background-large.json';
 
-const Background = () => {
+import * as backgroundDesktop from './background-desktop.json';
+
+const BackgroundDesktop = () => {
   const options = {
     loop: true,
     autoplay: true,
-    animationData: backgroundLarge.default,
+    animationData: backgroundDesktop.default,
   };
+
   return <Lottie isClickToPauseDisabled={true} speed={1} options={options}></Lottie>;
 };
 
-export default Background;
+export default BackgroundDesktop;

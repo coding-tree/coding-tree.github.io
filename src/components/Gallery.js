@@ -1,6 +1,6 @@
 import React, {useState, useRef, useEffect} from 'react';
 
-export default function Gallery({documentWidth}) {
+export default function Gallery({isDesktop, children}) {
   const [openedImage, setImage] = useState(false);
   const [isLoading, setLoading] = useState(false);
   const lightbox = useRef(null);
@@ -19,8 +19,8 @@ export default function Gallery({documentWidth}) {
   ];
 
   useEffect(() => {
-    documentWidth < 896 ? setImage(false) : lightbox && openedImage && lightbox.current.focus();
-  }, [documentWidth, openedImage]);
+    !isDesktop ? setImage(false) : lightbox && openedImage && lightbox.current.focus();
+  }, [isDesktop, openedImage]);
 
   const openLightbox = id => {
     setLoading(true);
@@ -56,14 +56,17 @@ export default function Gallery({documentWidth}) {
     <section id="gallery">
       <div className="container">
         <h1>Galeria</h1>
+
+        {children}
+
         <div className="grid-gallery">
           {fakeImages.map(el => (
             <div key={el.id} className="grid-item">
-              <img onClick={() => documentWidth > 896 && openLightbox(el.id)} src={el.thumb} alt={el.alt} />
+              <img onClick={() => isDesktop && openLightbox(el.id)} src={el.thumb} alt={el.alt} />
             </div>
           ))}
         </div>
-        {openedImage && documentWidth > 896 && (
+        {openedImage && isDesktop && (
           <div
             ref={lightbox}
             onKeyDown={handleKeyDown}

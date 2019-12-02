@@ -1,12 +1,12 @@
 import React from 'react';
 import Lottie from 'react-lottie';
-import * as backgroundLarge from './background-large.json';
+import * as backgroundMobile from './background-mobile.json';
 
 const Background = () => {
   const options = {
     loop: true,
     autoplay: true,
-    animationData: backgroundLarge.default,
+    animationData: backgroundMobile.default,
   };
   return <Lottie isClickToPauseDisabled={true} speed={1} options={options}></Lottie>;
 };

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-function TreeButtonModal({top, children, title, left = 'initial', right = 'initial'}) {
+function TreeItemModal({top, children, title, left = 'initial', right = 'initial'}) {
   const [visibility, setVisibility] = useState(false);
 
   const toggleModal = () => {
@@ -30,4 +30,4 @@ function TreeButtonModal({top, children, title, left = 'initial', right = 'initi
   );
 }
 
-export default TreeButtonModal;
+export default TreeItemModal;

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {useSpring, animated} from 'react-spring';
 
-function TreeButton({title, children, top, left = 'initial', right = 'initial', isLeft = true}) {
+function TreeItem({title, children, top, left = 'initial', right = 'initial', isLeft = true}) {
   const [isVisible, setVisibility] = useState(false);
 
   const descAnimation = useSpring({
@@ -50,4 +50,4 @@ function TreeButton({title, children, top, left = 'initial', right = 'initial', 
   );
 }
 
-export default TreeButton;
+export default TreeItem;

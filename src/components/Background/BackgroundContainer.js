@@ -1,20 +1,22 @@
-import React, {lazy, forwardRef} from 'react';
+import React, {lazy} from 'react';
 
-const Background = lazy(() => import('./Background'));
 const BackgroundLarge = lazy(() => import('./BackgroundLarge'));
+const BackgroundDesktop = lazy(() => import('./BackgroundDesktop'));
 const BackgroundMedium = lazy(() => import('./BackgroundMedium'));
+const BackgroundMobile = lazy(() => import('./BackgroundMobile'));
+const BackgroundSmallMobile = lazy(() => import('./BackgroundSmallMobile'));
 
-const BackgroundContainer = forwardRef(({rwd}, ref) => {
+const BackgroundContainer = ({rwd}) => {
   const {isLargeDesktop, isDesktop, isTablet, isMobile, isSmallMobile} = rwd;
   return (
     <div className="background">
-      {isLargeDesktop && <Background ref={ref}></Background>}
-      {isDesktop && <BackgroundLarge ref={ref}></BackgroundLarge>}
-      {isTablet && <BackgroundMedium ref={ref}></BackgroundMedium>}
-      {isMobile && <BackgroundLarge ref={ref}></BackgroundLarge>}
-      {isSmallMobile && <BackgroundLarge ref={ref}></BackgroundLarge>}
+      {isLargeDesktop && <BackgroundLarge></BackgroundLarge>}
+      {isDesktop && <BackgroundDesktop></BackgroundDesktop>}
+      {isTablet && <BackgroundMedium></BackgroundMedium>}
+      {isMobile && <BackgroundMobile></BackgroundMobile>}
+      {isSmallMobile && <BackgroundSmallMobile></BackgroundSmallMobile>}
     </div>
   );
-});
+};
 
 export default BackgroundContainer;
