@@ -1,0 +1,72 @@
+#team {
+  color: $white-color;
+  padding: 3rem 0;
+  .background-image {
+    background-image: url('/background.png');
+    background-repeat: repeat;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+  .our-team {
+    background-color: #4b1120;
+  }
+  .team {
+    &-grid {
+      display: grid;
+      grid-gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
+      grid-template-rows: 400px;
+      grid-auto-rows: minmax(50px, auto);
+      grid-auto-flow: dense;
+    }
+    &-person {
+      position: relative;
+      height: 400px;
+      &-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+        z-index: 1;
+      }
+      &-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      &-content {
+        position: absolute;
+        bottom: 100px;
+        display: flex;
+        justify-content: center;
+        z-index: 2;
+        width: 100%;
+        padding: 0 3vmin;
+        &-name {
+          font: {
+            size: 1.6rem;
+            family: $body-font;
+            weight: bold;
+          }
+        }
+      }
+    }
+  }
+
+  h1 {
+    color: $white-color;
+  }
+}

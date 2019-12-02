@@ -1,5 +1,9 @@
-import React, {useEffect, useState} from 'react';
-import NavigationAboutUs from './NavigationAboutUs';
+import React, {useEffect, useState, lazy} from 'react';
+import Team from './Team';
+import TeamPerson from './TeamPerson';
+
+const Navigation = lazy(() => import('./Navigation'));
+const NavigationMobile = lazy(() => import('./NavigationMobile'));
 
 function AboutUs() {
   const [documentWidth, setDocumentWidth] = useState(null);
@@ -14,11 +18,21 @@ function AboutUs() {
     };
   }, [documentWidth]);
 
+  const isDesktop = documentWidth > 896;
+
   return (
     <section id="about-us">
       <div className="container">
-        <NavigationAboutUs></NavigationAboutUs>
-        <h2>Lorem Ipsum</h2>
+        {isDesktop ? <Navigation></Navigation> : <NavigationMobile></NavigationMobile>}
+        <Team
+          title="Nasz Team"
+          subtitle="Lorem ipsum Sit"
+          description="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa dolorum obcaecati vel commodi, molestiae pariatur quasi repudiandae odio deserunt">
+          <TeamPerson src="/images/1.jpg" name="Damian Ospara"></TeamPerson>
+          <TeamPerson src="/images/2.jpg" name="Józef Rzadkosz"></TeamPerson>
+          <TeamPerson src="/images/3.jpg" name="Jakub Wojtoń"></TeamPerson>
+          <TeamPerson src="/images/4.jpg" name="Łukasz Strobejko"></TeamPerson>
+        </Team>
       </div>
     </section>
   );

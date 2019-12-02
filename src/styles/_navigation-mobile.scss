@@ -65,13 +65,12 @@
     a {
       padding: 20px;
       text-decoration: none;
-      color: $leaf-color;
+      color: $white-color;
       font-size: 1.2rem;
       font-weight: bold;
+      font-family: $header-font;
     }
-    .active {
-      color: $white-color;
-    }
+
     footer {
       position: absolute;
       bottom: 0;

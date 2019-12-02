@@ -1,4 +1,13 @@
 #about-us {
   color: $white-color;
-  background-color: #b07e71;
+
+  .container {
+    max-width: 1400px;
+  }
+  #desktop {
+    margin-top: 5rem;
+    div > a {
+      color: $white-color;
+    }
+  }
 }
