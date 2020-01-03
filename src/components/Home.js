@@ -1,4 +1,5 @@
 import React from "react";
+import Contact from "./Contact";
 
 const DISCORD_LINK = "https://discord.gg/ZevtyMf";
 const FACEBOOK_LINK = "https://www.facebook.com/CodingTreeFoundation/";
@@ -12,6 +13,7 @@ function Home() {
         <SocialLink url={FACEBOOK_LINK} className="fa-facebook-square" />
         <SocialLink url={GITHHUB_LINK} className="fa-github-square" />
       </FindUs>
+      <Contact></Contact>
     </PageUnderConstruction>
   );
 }
