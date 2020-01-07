@@ -3,14 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@types/react-toastify": "^4.1.0",
     "@types/styled-components": "^4.4.1",
     "@types/yup": "^0.26.27",
+    "emailjs-com": "^2.4.1",
     "formik": "^2.1.1",
     "node-sass": "^4.13.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
+    "react-toastify": "^5.5.0",
     "styled-components": "^4.4.1",
     "yup": "^0.28.0"
   },

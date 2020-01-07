@@ -1,23 +1,64 @@
 import React from "react";
-import { Field } from "formik";
-import styled from "styled-components";
+import { Field, ErrorMessage } from "formik";
+import styled, { css } from "styled-components";
 
 const FormControl = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
-const Label = styled.label`
+const StyledInput = styled.input`
+  height: 50px;
+  border-radius: 4px;
+  border: none;
+  padding-left: 1.3rem;
+  margin-bottom: 1rem;
+  font-family: "Alegreya Sans", sans-serif;
+  font-size: 1rem;
+  ${props =>
+    props.component === "textarea" &&
+    css`
+      padding-top: 1rem;
+      resize: none;
+      max-height: 150px;
+      height: 150px !important;
+    `}
+`;
+
+const StyledLabel = styled.label`
   font-size: 1rem;
   padding-bottom: 0.5rem;
 `;
 
-const Input = ({ name, label, type = "text", handleError }) => {
+const StyledError = styled.div`
+  height: 50px;
+  background-color: #f40000;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  padding-left: 1.3rem;
+  margin-bottom: 1rem;
+`;
+
+const Input = ({
+  name,
+  label,
+  type = "text",
+  component = "input",
+  placeholder
+}) => {
   return (
     <FormControl>
-      <Label htmlFor={name}>{label}</Label>
-      <Field className="input" type={type} name={name} id={name}></Field>
-      {handleError(name)}
+      <StyledLabel htmlFor={name}>{label}</StyledLabel>
+      <StyledInput
+        as={Field}
+        placeholder={placeholder}
+        type={type}
+        component={component}
+        name={name}
+        id={name}
+      ></StyledInput>
+      <ErrorMessage component={StyledError} name={name}></ErrorMessage>
     </FormControl>
   );
 };

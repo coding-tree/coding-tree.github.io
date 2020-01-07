@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, lazy, Suspense } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import "./styles/main.scss";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import Home from "./components/Home";
-import NotFound from "./components/NotFound";
+
+import Loading from "./components/Loading";
+
+const Home = lazy(() => import("./components/Home"));
+const NotFound = lazy(() => import("./components/NotFound"));
+const Regulations = lazy(() => import("./components/Regulations"));
 
 function App() {
   const calculateViewportHeight = () => {
@@ -19,13 +23,14 @@ function App() {
     };
   }, []);
   return (
-    <div>
+    <Suspense fallback={<Loading>Wczytywanie...</Loading>}>
       <Switch>
         <Route exact strict path="/" component={Home}></Route>
+        <Route exact strict path="/regulamin" component={Regulations}></Route>
         <Route exact strict path="/404" component={NotFound}></Route>
         <Redirect to="/404" />
       </Switch>
-    </div>
+    </Suspense>
   );
 }
 

@@ -57,6 +57,18 @@ button {
   min-height: calc(var(--vh, 1vh) * 100);
 }
 
+.toastify {
+  font: {
+    family: $body-font !important;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .toastify {
+    text-align: center;
+  }
+}
+
 @media only screen and (max-width: 414px) {
   h1 {
     font-size: 2rem;
