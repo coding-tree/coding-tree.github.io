@@ -5,9 +5,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
   }
   img {
+    margin-top: 5rem;
     width: 300px;
     height: 300px;
     filter: drop-shadow(0 0 200px rgba(255, 255, 255, 0.5));
@@ -46,6 +46,8 @@
 @media only screen and (max-width: 414px) {
   #home {
     img {
+      width: 200px;
+      height: 200px;
       filter: drop-shadow(0 0 200px rgba(255, 255, 255, 0.2));
       -webkit-filter: drop-shadow(0 0 200px rgba(255, 255, 255, 0.2));
       -moz-filter: drop-shadow(0 0 200px rgba(255, 255, 255, 0.2));
