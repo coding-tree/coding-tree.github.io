@@ -1,7 +1,6 @@
 import { withFormik } from "formik";
 import Contact from "./Contact";
 import * as Yup from "yup";
-import * as emailjs from "emailjs-com";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -37,26 +36,20 @@ const Formik = withFormik({
       draggable: true,
       className: "toastify"
     };
-    let templateParams = {
-      from_name: person,
-      from_email: email,
-      to_name: "Józef Rzadkosz",
-      message_html: message,
-      reply_to: email
-    };
 
-    emailjs
-      .send("gmail", dev.templateId, templateParams, dev.userId)
-      .then(() => {
-        resetForm();
-        return toast.success("Wysłano pomyślnie!", toastOptions);
-      })
-      .catch(() =>
-        toast.error(
-          "Coś poszło nie tak, Spróbuj ponownie później...",
-          toastOptions
-        )
-      );
+    const body = new FormData();
+    body.append("from", "");
+    body.append("to", "");
+
+    fetch("", {
+      method: "POST",
+      body,
+      headers: {
+        Authorization: "",
+        "Content-Type": "multipart/form-data"
+      },
+      mode: "no-cors"
+    }).catch(err => console.log(err));
   }
 })(Contact);
 
