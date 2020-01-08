@@ -1,12 +1,12 @@
 import { withFormik } from "formik";
 import Contact from "./Contact";
 import * as Yup from "yup";
-import * as emailjs from "emailjs-com";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
 
-import dev from "../config/dev";
-import prod from "../config/prod";
+// import dev from "../config/dev";
+// import prod from "../config/prod";
 
 const Formik = withFormik({
   mapPropsToValues: ({ person, email, message }) => {
@@ -27,7 +27,7 @@ const Formik = withFormik({
       .required("Adres email jest wymagany")
   }),
 
-  handleSubmit: ({ person, email, message }, { resetForm }) => {
+  handleSubmit: (values, { resetForm }) => {
     const toastOptions = {
       position: "top-right",
       autoClose: 5000,
@@ -37,27 +37,20 @@ const Formik = withFormik({
       draggable: true,
       className: "toastify"
     };
-    let templateParams = {
-      from_name: person,
-      from_email: email,
-      to_name: "Józef Rzadkosz",
-      message_html: message,
-      reply_to: email
-    };
 
-    emailjs
-      .send("gmail", dev.templateId, templateParams, dev.userId)
-      .then(() => {
-        resetForm();
-        return toast.success("Wysłano pomyślnie!", toastOptions);
-      })
-      .catch(() =>
-        toast.error(
-          "Coś poszło nie tak, Spróbuj ponownie później...",
-          toastOptions
-        )
-      );
+    fetch("https://api.sendgrid.com/v3/mail/send", {
+      body:
+        '{"personalizations": [{"to": [{"email": "test@example.com"}]}],"from": {"email": "test@example.com"},"subject": "Sending with SendGrid is Fun","content": [{"type": "text/plain", "value": "and easy to do anywhere, even with cURL"}]}',
+      headers: {
+        Authorization: `Bearer ${process.env.REACT_APP_SENDGRID_API_KEY}`,
+        "Content-Type": "application/json"
+      },
+      mode: "no-cors",
+      method: "POST"
+    });
   }
 })(Contact);
 
 export default Formik;
+
+//Bearer $SENDGRID_API_KEY
