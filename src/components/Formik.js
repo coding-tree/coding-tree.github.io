@@ -5,7 +5,7 @@ import * as emailjs from "emailjs-com";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import dev from "../config/dev";
+// import dev from "../config/dev";
 import prod from "../config/prod";
 
 const Formik = withFormik({
@@ -27,7 +27,7 @@ const Formik = withFormik({
       .required("Adres email jest wymagany")
   }),
 
-  handleSubmit: ({ person, email, message }, { resetForm }) => {
+  handleSubmit: (values, { resetForm }) => {
     const toastOptions = {
       position: "top-right",
       autoClose: 5000,
@@ -37,26 +37,17 @@ const Formik = withFormik({
       draggable: true,
       className: "toastify"
     };
-    let templateParams = {
-      from_name: person,
-      from_email: email,
-      to_name: "Józef Rzadkosz",
-      message_html: message,
-      reply_to: email
-    };
 
-    emailjs
-      .send("gmail", dev.templateId, templateParams, dev.userId)
-      .then(() => {
-        resetForm();
-        return toast.success("Wysłano pomyślnie!", toastOptions);
-      })
-      .catch(() =>
-        toast.error(
-          "Coś poszło nie tak, Spróbuj ponownie później...",
-          toastOptions
-        )
-      );
+    fetch("", {
+      method: "POST",
+      body: JSON.stringify(values),
+      headers: {
+        "Content-type": "application/json"
+      },
+      mode: "no-cors"
+    })
+      .then(data => console.log(data))
+      .catch(err => console.log(err));
   }
 })(Contact);
 
