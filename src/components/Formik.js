@@ -38,16 +38,47 @@ const Formik = withFormik({
       className: "toastify"
     };
 
-    fetch("https://api.sendgrid.com/v3/mail/send", {
-      body:
-        '{"personalizations": [{"to": [{"email": "test@example.com"}]}],"from": {"email": "test@example.com"},"subject": "Sending with SendGrid is Fun","content": [{"type": "text/plain", "value": "and easy to do anywhere, even with cURL"}]}',
+    const data = {
+      personalizations: [
+        {
+          to: [
+            {
+              email: "jozef.rzadkosz@codingtree.pl",
+              name: "Józef Rzadkosz"
+            }
+          ],
+          dynamic_template_data: {
+            message: values.message,
+            person: values.person,
+            email: values.email
+          }
+        }
+      ],
+      from: {
+        email: values.email,
+        name: values.person
+      },
+      template_id: "d-3beb4b205ea34a53ab070925da8393bc"
+    };
+
+    fetch("https://7vxhbapjzzhmypgyk.stoplight-proxy.io/v3/mail/send", {
+      body: JSON.stringify(data),
       headers: {
         Authorization: `Bearer ${process.env.REACT_APP_SENDGRID_API_KEY}`,
-        "Content-Type": "application/json"
+        "content-type": "application/json"
       },
-      mode: "no-cors",
       method: "POST"
-    });
+    })
+      .then(() => {
+        resetForm();
+        return toast.success("Wysłano pomyślnie!", toastOptions);
+      })
+      .catch(() =>
+        toast.error(
+          "Coś poszło nie tak, Spróbuj ponownie później...",
+          toastOptions
+        )
+      );
   }
 })(Contact);
 
