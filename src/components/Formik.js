@@ -1,11 +1,9 @@
 import { withFormik } from "formik";
 import Contact from "./Contact";
 import * as Yup from "yup";
-// import { toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
-// import dev from "../config/dev";
-// import prod from "../config/prod";
 
 const Formik = withFormik({
   mapPropsToValues: ({ person, email, message }) => {
@@ -27,6 +25,10 @@ const Formik = withFormik({
   }),
 
   handleSubmit: (values, { resetForm }) => {
+    // List of receivers
+    values._cc = values.email;
+    values._replyto = values.email;
+
     const toastOptions = {
       position: "top-right",
       autoClose: 5000,
@@ -40,8 +42,21 @@ const Formik = withFormik({
     axios({
       method: "POST",
       url: "https://formspree.io/mdoaqqyo",
-      data: values
-    }).then(resp => console.log(resp.data));
+      data: values,
+      headers: {
+        Accept: "application/json"
+      }
+    })
+      .then(() => {
+        resetForm();
+        return toast.success("Wysłano pomyślnie!", toastOptions);
+      })
+      .catch(() =>
+        toast.error(
+          "Coś poszło nie tak, Spróbuj ponownie później...",
+          toastOptions
+        )
+      );
   }
 })(Contact);
 

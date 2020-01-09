@@ -45,10 +45,11 @@ const StyledLink = styled.a`
   color: #fff;
 `;
 
-const Contact = ({ errors, isSubmitting }) => {
+const Contact = ({ values, errors, isSubmitting, handleChange }) => {
   const hasErrors =
     Object.entries(errors).length > 0 && errors.constructor === Object;
 
+  console.log(values);
   return (
     <StyledWrapper>
       <TitleWrapper>Lub wypełnij formularz poniżej</TitleWrapper>
@@ -70,6 +71,8 @@ const Contact = ({ errors, isSubmitting }) => {
           placeholder="Wpisz treść wiadomości"
           component="textarea"
         ></Input>
+        <Input name="_cc" hidden></Input>
+        <Input name="_replyto" hidden></Input>
         <StyledInfo>
           Wysyłając formularz akceptujesz{" "}
           <StyledLink as={Link} to="/regulamin">

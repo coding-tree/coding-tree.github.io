@@ -45,7 +45,8 @@ const Input = ({
   label,
   type = "text",
   component = "input",
-  placeholder
+  placeholder,
+  hidden
 }) => {
   return (
     <FormControl>
@@ -57,6 +58,7 @@ const Input = ({
         component={component}
         name={name}
         id={name}
+        hidden={hidden}
       ></StyledInput>
       <ErrorMessage component={StyledError} name={name}></ErrorMessage>
     </FormControl>
