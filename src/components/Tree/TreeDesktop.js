@@ -3,19 +3,13 @@ import Lottie from 'react-lottie';
 
 import * as treeDesktop from './tree-desktop.json';
 
-function TreeDesktop() {
+function TreeDesktop({styles}) {
   const options = {
     loop: true,
     autoplay: true,
     animationData: treeDesktop.default,
   };
-  return (
-    <Lottie
-      style={{position: 'absolute', top: '0px', height: 'initial', zIndex: '-1'}}
-      isClickToPauseDisabled={true}
-      speed={1}
-      options={options}></Lottie>
-  );
+  return <Lottie style={styles} isClickToPauseDisabled={true} speed={1} options={options}></Lottie>;
 }
 
 export default TreeDesktop;

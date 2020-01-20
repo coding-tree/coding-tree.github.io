@@ -33,40 +33,25 @@ main {
       }
       .hover-container {
         position: absolute;
-        width: 300px;
-        &:nth-of-type(3) .hover::after {
-          animation: 2.4s infinite ease-in-out sunshine;
-        }
-        &:nth-of-type(2) .hover::after {
-          animation: 1.6s infinite ease-in-out sunshine;
-        }
-        &:nth-of-type(4) .hover::after {
-          animation: 2.1s infinite ease-in-out sunshine;
-        }
+        width: 600px;
       }
       .hover-description {
         position: absolute;
-        top: -11px;
-        left: 37px;
-        border-top: 4px solid #fff;
-        width: 0;
-        padding-left: 20px;
-        padding-bottom: 20px;
         overflow: hidden;
-        backdrop-filter: blur(15px);
-        background-color: rgba(255, 255, 255, 0.05);
-        border-radius: 10px;
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
+        // backdrop-filter: blur(15px);
+        background-color: rgba(255, 255, 255, 1);
+        border-radius: 100px;
         z-index: -2;
         h3 {
           width: 380px;
-          padding: 10px 0;
+          padding: 0 50px;
           text-transform: uppercase;
           text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
         }
         p {
           width: 380px;
+          padding: 50px;
+
           overflow: hidden;
           text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
         }

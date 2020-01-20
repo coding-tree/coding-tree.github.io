@@ -8,13 +8,14 @@ const TreeSmallMobile = lazy(() => import('./TreeSmallMobile'));
 
 function TreeContainer({rwd}) {
   const {isLargeDesktop, isDesktop, isTablet, isMobile, isSmallMobile} = rwd;
+  const styles = {position: 'absolute', top: '0px', height: 'initial', zIndex: '-1'};
   return (
     <React.Fragment>
-      {isLargeDesktop && <TreeLarge></TreeLarge>}
-      {isDesktop && <TreeDesktop></TreeDesktop>}
-      {isTablet && <TreeMedium></TreeMedium>}
-      {isMobile && <TreeMobile></TreeMobile>}
-      {isSmallMobile && <TreeSmallMobile></TreeSmallMobile>}
+      {isLargeDesktop && <TreeLarge styles={styles}></TreeLarge>}
+      {isDesktop && <TreeDesktop styles={styles}></TreeDesktop>}
+      {isTablet && <TreeMedium styles={styles}></TreeMedium>}
+      {isMobile && <TreeMobile styles={styles}></TreeMobile>}
+      {isSmallMobile && <TreeSmallMobile styles={styles}></TreeSmallMobile>}
     </React.Fragment>
   );
 }
