@@ -55,25 +55,50 @@ function Home() {
           </MainContent>
           {isDesktop ? (
             <TreeItems>
-              <TreeItem title="Pas biały" top={checkLarge ? '25%' : '43%'} left="20%">
+              <TreeItem
+                bird="black_bird"
+                title="Pas czarny - Sensei"
+                top={checkLarge ? '16%' : '43%'}
+                right="16%"
+                isLeft={false}>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat porro assumenda quisquam quos,
                 similique eius nemo quod minima sunt harum debitis adipisci velit aliquid consequuntur, officiis
                 consectetur rerum doloremque iure.
               </TreeItem>
-              <TreeItem title="Pas zielony" top={checkLarge ? '36.8%' : '52.5%'} right="24%" isLeft={false}>
+              <TreeItem bird="brown_bird" title="Pas brązowy" top={checkLarge ? '25%' : '43%'} left="20%">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat porro assumenda quisquam quos,
+                similique eius nemo quod minima sunt harum debitis adipisci velit aliquid consequuntur, officiis
+                consectetur rerum doloremque iure.
+              </TreeItem>
+              <TreeItem
+                bird="yellow_bird"
+                title="Pas żółty"
+                top={checkLarge ? '36.8%' : '52.5%'}
+                right="24%"
+                isLeft={false}>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, est totam sapiente ipsum debitis nihil
                 cum odit commodi sequi fuga blanditiis ipsam, neque dolores repellendus cumque dolore adipisci quae
                 laboriosam!
               </TreeItem>
-              <TreeItem title="Pas brązowy" top={checkLarge ? '48.3%' : '63%'} left="23%">
+              <TreeItem bird="green_bird" title="Pas zielony" top={checkLarge ? '48.3%' : '63%'} left="23%">
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem magnam ipsa enim excepturi tempore.
                 Nobis, eaque ad illum sapiente fugiat aperiam voluptatum laborum modi reiciendis architecto. Libero modi
                 expedita velit!
               </TreeItem>
-              <TreeItem title="Pas czarny" top={checkLarge ? '59.7%' : '72.3%'} right="16%" isLeft={false}>
+              <TreeItem
+                bird="blue_bird"
+                title="Pas niebieski"
+                top={checkLarge ? '59.7%' : '72.3%'}
+                right="16%"
+                isLeft={false}>
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos nostrum ea recusandae, modi est
                 libero rerum unde laudantium ex voluptas accusamus molestias repellendus veritatis quam! Ullam saepe ab
                 rem dolorum?
+              </TreeItem>
+              <TreeItem bird="white_bird" title="Pas biały" top={checkLarge ? '75%' : '43%'} left="20%">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat porro assumenda quisquam quos,
+                similique eius nemo quod minima sunt harum debitis adipisci velit aliquid consequuntur, officiis
+                consectetur rerum doloremque iure.
               </TreeItem>
             </TreeItems>
           ) : (

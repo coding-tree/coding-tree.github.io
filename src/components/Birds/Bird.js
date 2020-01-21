@@ -14,7 +14,7 @@ function Bird({bird, setVisibility}) {
   const [hoverOff, setHoverOff] = useState(null);
 
   useEffect(() => {
-    import(`./${bird}.json`).then(data => setInitial(data));
+    // import(`./${bird}.json`).then(data => setInitial(data));
     import(`./${bird}_hover_on.json`).then(data => setHoverOn(data));
     import(`./${bird}_hover_off.json`).then(data => setHoverOff(data));
   }, []);

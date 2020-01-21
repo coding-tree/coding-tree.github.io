@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {useSpring, animated} from 'react-spring';
 import Bird from './Birds/Bird';
 
-function TreeItem({title, children, top, left = 'initial', right = 'initial', isLeft = true}) {
+function TreeItem({title, children, top, left = 'initial', right = 'initial', isLeft = true, bird}) {
   const [isVisible, setVisibility] = useState(false);
 
   const descAnimation = useSpring({
@@ -23,7 +23,7 @@ function TreeItem({title, children, top, left = 'initial', right = 'initial', is
 
   return (
     <div style={{position: 'absolute', top, left, right, width: '10%', height: '10%'}}>
-      <Bird bird="white_bird" setVisibility={setVisibility}></Bird>
+      <Bird bird={bird} setVisibility={setVisibility}></Bird>
       <animated.div style={containerAnimation} className="hover-container">
         <animated.div style={descAnimation} className="hover-description">
           <h3>{title}</h3>
