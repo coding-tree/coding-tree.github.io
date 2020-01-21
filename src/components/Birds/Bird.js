@@ -1,11 +1,7 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Lottie from 'react-lottie';
 
-import * as initial from './white_bird.json';
-import * as hoverOn from './white_bird_hover_on.json';
-import * as hoverOff from './white_bird_hover_off.json';
-
-function Bird({setVisibility, right = 'initial', left = 'initial'}) {
+function Bird({bird, setVisibility}) {
   const animations = {
     INITIAL: 'initial',
     HOVERON: 'hoverOn',
@@ -13,10 +9,20 @@ function Bird({setVisibility, right = 'initial', left = 'initial'}) {
   };
   const [animation, setAnimation] = useState(animations.INITIAL);
 
+  const [initial, setInitial] = useState(null);
+  const [hoverOn, setHoverOn] = useState(null);
+  const [hoverOff, setHoverOff] = useState(null);
+
+  useEffect(() => {
+    import(`./${bird}.json`).then(data => setInitial(data));
+    import(`./${bird}_hover_on.json`).then(data => setHoverOn(data));
+    import(`./${bird}_hover_off.json`).then(data => setHoverOff(data));
+  }, []);
+
   const data = {
-    initial,
-    hoverOn,
-    hoverOff,
+    initial: initial || {},
+    hoverOn: hoverOn || {},
+    hoverOff: hoverOff || {},
   };
 
   const options = {
