@@ -1,14 +1,14 @@
 import React, {useEffect, useState, lazy} from 'react';
 import ReactResizeDetector from 'react-resize-detector';
 
+const MainWrapper = lazy(() => import('./MainWrapper'));
+const WrapperContainer = lazy(() => import('./WrapperContainer'));
 const MainContent = lazy(() => import('./MainContent'));
 const Header = lazy(() => import('./Header'));
 const BackgroundContainer = lazy(() => import('./Background/BackgroundContainer'));
 const TreeContainer = lazy(() => import('./Tree/TreeContainer'));
-const TreeItemsModal = lazy(() => import('./TreeItemsModal'));
 const TreeItems = lazy(() => import('./TreeItems'));
 const TreeItem = lazy(() => import('./TreeItem'));
-const TreeItemModal = lazy(() => import('./TreeItemModal'));
 const Gallery = lazy(() => import('./Gallery'));
 const Faq = lazy(() => import('./Faq'));
 const FaqItem = lazy(() => import('./FaqItem'));
@@ -33,19 +33,10 @@ function Home() {
     isSmallMobile: documentWidth < 433,
   };
 
-  const setButtonModalPosition = (topMedium, topMobile, topSmallMobile) => {
-    if (documentWidth > 568) return topMedium;
-    if (documentWidth > 433) return topMobile;
-    return topSmallMobile;
-  };
-
-  const isDesktop = documentWidth > 896;
-  const checkLarge = documentWidth > 1200;
-
   return (
-    <main>
-      <div className="container">
-        <Header isDesktop={isDesktop}>
+    <MainWrapper>
+      <WrapperContainer>
+        <Header rwd={rwd}>
           <MainContent>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas vel vitae, quo nam, ducimus similique
             quaerat error id dignissimos facilis totam distinctio veritatis doloribus maiores? Quasi commodi alias hic
@@ -53,69 +44,80 @@ function Home() {
             saepe, necessitatibus eligendi libero suscipit reprehenderit? Provident repudiandae modi possimus repellat
             iusto optio enim repellendus maiores.
           </MainContent>
-          {isDesktop ? (
-            <TreeItems>
-              <TreeItem bird="black_bird" title="Pas czarny - Sensei" top={checkLarge ? '16%' : '43%'} right="11%">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat porro assumenda quisquam quos,
-                similique eius nemo quod minima sunt harum debitis adipisci velit aliquid consequuntur, officiis
-                consectetur rerum doloremque iure.
-              </TreeItem>
-              <TreeItem bird="brown_bird" title="Pas brązowy" top={checkLarge ? '25.1%' : '43%'} left="20%">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat porro assumenda quisquam quos,
-                similique eius nemo quod minima sunt harum debitis adipisci velit aliquid consequuntur, officiis
-                consectetur rerum doloremque iure.
-              </TreeItem>
-              <TreeItem bird="yellow_bird" title="Pas żółty" top={checkLarge ? '36.8%' : '52.5%'} right="24%">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, est totam sapiente ipsum debitis nihil
-                cum odit commodi sequi fuga blanditiis ipsam, neque dolores repellendus cumque dolore adipisci quae
-                laboriosam!
-              </TreeItem>
-              <TreeItem bird="green_bird" title="Pas zielony" top={checkLarge ? '48.3%' : '63%'} left="23%">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem magnam ipsa enim excepturi tempore.
-                Nobis, eaque ad illum sapiente fugiat aperiam voluptatum laborum modi reiciendis architecto. Libero modi
-                expedita velit!
-              </TreeItem>
-              <TreeItem bird="blue_bird" title="Pas niebieski" top={checkLarge ? '59.7%' : '72.3%'} right="16%">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos nostrum ea recusandae, modi est
-                libero rerum unde laudantium ex voluptas accusamus molestias repellendus veritatis quam! Ullam saepe ab
-                rem dolorum?
-              </TreeItem>
-              <TreeItem bird="white_bird" title="Pas biały" top={checkLarge ? '68.9%' : '43%'} left="20%">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat porro assumenda quisquam quos,
-                similique eius nemo quod minima sunt harum debitis adipisci velit aliquid consequuntur, officiis
-                consectetur rerum doloremque iure.
-              </TreeItem>
-            </TreeItems>
-          ) : (
-            <TreeItemsModal>
-              <TreeItemModal title="Pas biały" top={setButtonModalPosition('43%', '44.5%', '49%')} left="33%">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi, maiores, veritatis reprehenderit
-                nostrum vel voluptatibus dolore recusandae consequatur a quod obcaecati blanditiis aliquam voluptas
-                velit optio quidem molestiae numquam harum?
-              </TreeItemModal>
-              <TreeItemModal title="Pas zielony" top={setButtonModalPosition('53%', '54.5%', '57.5%')} right="39%">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita corrupti id molestiae repellendus at
-                rem vero dolorum. Necessitatibus incidunt est ea quasi neque! Repudiandae voluptate commodi earum, magni
-                corrupti omnis.
-              </TreeItemModal>
-              <TreeItemModal title="Pas brązowy" top={setButtonModalPosition('63%', '65%', '66%')} left="38.5%">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita corrupti id molestiae repellendus at
-                rem vero dolorum. Necessitatibus incidunt est ea quasi neque! Repudiandae voluptate commodi earum, magni
-                corrupti omnis.
-              </TreeItemModal>
-              <TreeItemModal title="Pas czarny" top={setButtonModalPosition('72.5%', '74.5%', '75.5%')} right="37%">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita corrupti id molestiae repellendus at
-                rem vero dolorum. Necessitatibus incidunt est ea quasi neque! Repudiandae voluptate commodi earum, magni
-                corrupti omnis.
-              </TreeItemModal>
-            </TreeItemsModal>
-          )}
+          <TreeItems>
+            <TreeItem
+              rwd={rwd}
+              bird="black_bird"
+              title="Pas czarny - Sensei"
+              top={['16%', '28%', '29.1%', '30.5%', '34.4%']}
+              right="11%">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat porro assumenda quisquam quos, similique
+              eius nemo quod minima sunt harum debitis adipisci velit aliquid consequuntur, officiis consectetur rerum
+              doloremque iure. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum harum architecto nulla
+              dicta amet cum quidem voluptatem odio officia veritatis ea distinctio sed, natus vero quasi, culpa
+              repudiandae necessitatibus consectetur?
+            </TreeItem>
+            <TreeItem
+              rwd={rwd}
+              bird="brown_bird"
+              title="Pas brązowy"
+              top={['25.1%', '36%', '37.2%', '38.8%', '43.5%']}
+              left="20%">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat porro assumenda quisquam quos, similique
+              eius nemo quod minima sunt harum debitis adipisci velit aliquid consequuntur, officiis consectetur rerum
+              doloremque iure.
+            </TreeItem>
+
+            <TreeItem
+              rwd={rwd}
+              bird="yellow_bird"
+              title="Pas żółty"
+              top={['36.8%', '45.3%', '46.6%', '48.5%', '51.3%']}
+              right="24%">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, est totam sapiente ipsum debitis nihil cum
+              odit commodi sequi fuga blanditiis ipsam, neque dolores repellendus cumque dolore adipisci quae
+              laboriosam!
+            </TreeItem>
+
+            <TreeItem
+              rwd={rwd}
+              bird="green_bird"
+              title="Pas zielony"
+              top={['48.3%', '55.3%', '56.8%', '59%', '60.2%']}
+              left="23%">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem magnam ipsa enim excepturi tempore.
+              Nobis, eaque ad illum sapiente fugiat aperiam voluptatum laborum modi reiciendis architecto. Libero modi
+              expedita velit!
+            </TreeItem>
+
+            <TreeItem
+              rwd={rwd}
+              bird="blue_bird"
+              title="Pas niebieski"
+              top={['59.6%', '65.3%', '66.8%', '69.2%', '70.1%']}
+              right="16%">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos nostrum ea recusandae, modi est
+              libero rerum unde laudantium ex voluptas accusamus molestias repellendus veritatis quam! Ullam saepe ab
+              rem dolorum?
+            </TreeItem>
+
+            <TreeItem
+              rwd={rwd}
+              bird="white_bird"
+              title="Pas biały"
+              top={['68.8%', '72.6%', '73.7%', '76.6%', '77.9%']}
+              left="20%">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat porro assumenda quisquam quos, similique
+              eius nemo quod minima sunt harum debitis adipisci velit aliquid consequuntur, officiis consectetur rerum
+              doloremque iure.
+            </TreeItem>
+          </TreeItems>
         </Header>
         <BackgroundContainer rwd={rwd}></BackgroundContainer>
         <TreeContainer rwd={rwd}></TreeContainer>
-      </div>
+      </WrapperContainer>
 
-      <Gallery isDesktop={isDesktop}></Gallery>
+      <Gallery rwd={rwd}></Gallery>
 
       <Faq>
         <FaqItem title="Lorem Ipsum ?">
@@ -131,9 +133,11 @@ function Home() {
           cum temporibus exercitationem doloribus! Quaerat, maiores culpa.
         </FaqItem>
       </Faq>
+
       <Footer></Footer>
+
       <ReactResizeDetector handleWidth handleHeight onResize={resize} />
-    </main>
+    </MainWrapper>
   );
 }
 

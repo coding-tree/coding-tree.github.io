@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Lottie from 'react-lottie';
 
-function Bird({bird, setVisibility}) {
+function Bird({bird, setVisibility, rwd}) {
   const animations = {
     INITIAL: 'initial',
     HOVERON: 'hoverOn',
@@ -12,6 +12,8 @@ function Bird({bird, setVisibility}) {
   const [initial, setInitial] = useState(null);
   const [hoverOn, setHoverOn] = useState(null);
   const [hoverOff, setHoverOff] = useState(null);
+
+  const {isLargeDesktop, isDesktop} = rwd;
 
   const loadData = async () => {
     const [initialData, hoverOnData, hoverOffData] = await Promise.all([
@@ -43,17 +45,25 @@ function Bird({bird, setVisibility}) {
 
   return (
     <div
+      onClick={() => {
+        if (!isLargeDesktop || !isDesktop) {
+          setVisibility(true);
+        }
+      }}
       onMouseOver={() => {
-        setVisibility(true);
-        setAnimation(animations.HOVERON);
+        if (isLargeDesktop || isDesktop) {
+          setVisibility(true);
+          setAnimation(animations.HOVERON);
+        }
       }}
       onMouseLeave={() => {
-        setVisibility(false);
-        setAnimation(animations.HOVEROFF);
+        if (isLargeDesktop || isDesktop) {
+          setVisibility(false);
+          setAnimation(animations.HOVEROFF);
+        }
       }}
-      style={{position: 'absolute', height: '100%', width: '100%'}}>
+      className="bird">
       <Lottie
-        style={{width: '100%', height: '100%', cursor: 'pointer'}}
         isClickToPauseDisabled={true}
         speed={1}
         eventListeners={[
