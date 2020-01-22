@@ -13,10 +13,20 @@ function Bird({bird, setVisibility}) {
   const [hoverOn, setHoverOn] = useState(null);
   const [hoverOff, setHoverOff] = useState(null);
 
+  const loadData = async () => {
+    const [initialData, hoverOnData, hoverOffData] = await Promise.all([
+      import(`./${bird}_initial.json`),
+      import(`./${bird}_hover_on.json`),
+      import(`./${bird}_hover_off.json`),
+    ]);
+
+    setInitial(initialData);
+    setHoverOn(hoverOnData);
+    setHoverOff(hoverOffData);
+  };
+
   useEffect(() => {
-    // import(`./${bird}.json`).then(data => setInitial(data));
-    import(`./${bird}_hover_on.json`).then(data => setHoverOn(data));
-    import(`./${bird}_hover_off.json`).then(data => setHoverOff(data));
+    loadData();
   }, []);
 
   const data = {

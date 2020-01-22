@@ -16,7 +16,6 @@ main {
         padding-top: 2rem;
         flex-direction: column;
         align-items: center;
-        color: $white-color;
         height: 100%;
         font: {
           family: $body-font;
@@ -33,26 +32,24 @@ main {
       }
       .hover-container {
         position: absolute;
-        width: 600px;
+        width: 400px;
       }
       .hover-description {
         position: absolute;
         overflow: hidden;
-        background-color: rgba(255, 255, 255, 1);
-        border-radius: 100px;
+        background-color: #fdcece;
+        border-radius: 20px;
         z-index: -2;
+        width: 400px;
+
         h3 {
-          width: 380px;
-          padding: 0 50px;
+          padding: 0 30px;
+          padding-top: 20px;
           text-transform: uppercase;
-          text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
         }
         p {
-          width: 380px;
-          padding: 50px;
-
+          padding: 20px 30px;
           overflow: hidden;
-          text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
         }
       }
       .hover {

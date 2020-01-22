@@ -1,28 +1,29 @@
 import React, {useState} from 'react';
 import {useSpring, animated} from 'react-spring';
 import Bird from './Birds/Bird';
+import {easeBackInOut, easePolyIn, easeCubicInOut} from 'd3-ease';
 
-function TreeItem({title, children, top, left = 'initial', right = 'initial', isLeft = true, bird}) {
+function TreeItem({title, children, top, left = 'initial', right = 'initial', isLeft, bird}) {
   const [isVisible, setVisibility] = useState(false);
 
+  isLeft = right === 'initial';
+
   const descAnimation = useSpring({
-    width: isVisible ? '420px' : '0px',
-    overflow: isLeft ? 'hidden' : '',
     delay: isVisible ? 0 : 0,
+    config: {duration: 300, easing: easeCubicInOut},
     transform: !isLeft ? 'rotate(180deg)' : 'initial',
-    bottom: !isLeft ? '0px' : 'initial',
-    border: isVisible ? '4px solid #fff' : '0px solid #fff',
+    bottom: !isLeft ? '-30px' : 'initial',
+    opacity: isVisible ? 1 : 0,
   });
   const containerAnimation = useSpring({
     zIndex: isVisible ? 100 : 0,
-    config: {duration: 200},
-    left: isLeft ? '170px' : 'initial',
-    right: !isLeft ? '170px' : 'initial',
+    left: isLeft ? '100%' : 'initial',
+    right: !isLeft ? '100%' : 'initial',
     transform: !isLeft ? 'rotateZ(-180deg)' : 'initial',
   });
 
   return (
-    <div style={{position: 'absolute', top, left, right, width: '10%', height: '10%'}}>
+    <div className="bird-container" style={{top, left, right}}>
       <Bird bird={bird} setVisibility={setVisibility}></Bird>
       <animated.div style={containerAnimation} className="hover-container">
         <animated.div style={descAnimation} className="hover-description">

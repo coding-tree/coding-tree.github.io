@@ -55,27 +55,17 @@ function Home() {
           </MainContent>
           {isDesktop ? (
             <TreeItems>
-              <TreeItem
-                bird="black_bird"
-                title="Pas czarny - Sensei"
-                top={checkLarge ? '16%' : '43%'}
-                right="16%"
-                isLeft={false}>
+              <TreeItem bird="black_bird" title="Pas czarny - Sensei" top={checkLarge ? '16%' : '43%'} right="11%">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat porro assumenda quisquam quos,
                 similique eius nemo quod minima sunt harum debitis adipisci velit aliquid consequuntur, officiis
                 consectetur rerum doloremque iure.
               </TreeItem>
-              <TreeItem bird="brown_bird" title="Pas brązowy" top={checkLarge ? '25%' : '43%'} left="20%">
+              <TreeItem bird="brown_bird" title="Pas brązowy" top={checkLarge ? '25.1%' : '43%'} left="20%">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat porro assumenda quisquam quos,
                 similique eius nemo quod minima sunt harum debitis adipisci velit aliquid consequuntur, officiis
                 consectetur rerum doloremque iure.
               </TreeItem>
-              <TreeItem
-                bird="yellow_bird"
-                title="Pas żółty"
-                top={checkLarge ? '36.8%' : '52.5%'}
-                right="24%"
-                isLeft={false}>
+              <TreeItem bird="yellow_bird" title="Pas żółty" top={checkLarge ? '36.8%' : '52.5%'} right="24%">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, est totam sapiente ipsum debitis nihil
                 cum odit commodi sequi fuga blanditiis ipsam, neque dolores repellendus cumque dolore adipisci quae
                 laboriosam!
@@ -85,17 +75,12 @@ function Home() {
                 Nobis, eaque ad illum sapiente fugiat aperiam voluptatum laborum modi reiciendis architecto. Libero modi
                 expedita velit!
               </TreeItem>
-              <TreeItem
-                bird="blue_bird"
-                title="Pas niebieski"
-                top={checkLarge ? '59.7%' : '72.3%'}
-                right="16%"
-                isLeft={false}>
+              <TreeItem bird="blue_bird" title="Pas niebieski" top={checkLarge ? '59.7%' : '72.3%'} right="16%">
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos nostrum ea recusandae, modi est
                 libero rerum unde laudantium ex voluptas accusamus molestias repellendus veritatis quam! Ullam saepe ab
                 rem dolorum?
               </TreeItem>
-              <TreeItem bird="white_bird" title="Pas biały" top={checkLarge ? '75%' : '43%'} left="20%">
+              <TreeItem bird="white_bird" title="Pas biały" top={checkLarge ? '68.9%' : '43%'} left="20%">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat porro assumenda quisquam quos,
                 similique eius nemo quod minima sunt harum debitis adipisci velit aliquid consequuntur, officiis
                 consectetur rerum doloremque iure.
