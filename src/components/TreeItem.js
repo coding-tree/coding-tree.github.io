@@ -1,52 +1,60 @@
-import React, {useState} from 'react';
+import React, {useState, lazy} from 'react';
 import {useSpring, animated} from 'react-spring';
+import Bird from './Birds/Bird';
+import {easeCubicInOut} from 'd3-ease';
 
-function TreeItem({title, children, top, left = 'initial', right = 'initial', isLeft = true}) {
+const TreeItemModal = lazy(() => import('./TreeItemModal'));
+
+function TreeItem({title, children, top, left = 'initial', right = 'initial', isLeft, bird, rwd}) {
   const [isVisible, setVisibility] = useState(false);
 
+  isLeft = right === 'initial';
+
+  const {isLargeDesktop, isDesktop, isTablet, isMobile, isSmallMobile} = rwd;
+
+  const calculateRwd = array => {
+    if (isLargeDesktop) return array[0];
+    if (isDesktop) return array[1];
+    if (isTablet) return array[2];
+    if (isMobile) return array[3];
+    if (isSmallMobile) return array[4];
+  };
+
   const descAnimation = useSpring({
-    width: isVisible ? '420px' : '0px',
-    paddingLeft: isVisible ? '20px' : '0px',
-    overflow: isLeft ? 'hidden' : '',
-    delay: isVisible ? 250 : 0,
-  });
-  const arrowAnimation = useSpring({
-    height: isVisible ? '36px' : '0px',
+    config: {duration: 300, easing: easeCubicInOut},
+    delay: isVisible && 200,
+    transform: !isLeft ? 'rotate(180deg)' : 'initial',
+    bottom: !isLeft ? '-30px' : 'initial',
+    top: isLeft ? '-30px' : 'initial',
     opacity: isVisible ? 1 : 0,
-    delay: isVisible ? 0 : 700,
-    config: {duration: 300},
   });
   const containerAnimation = useSpring({
     zIndex: isVisible ? 100 : 0,
-    config: {duration: 500},
+    left: isLeft ? '100%' : 'initial',
+    right: !isLeft ? '100%' : 'initial',
+    transform: !isLeft ? 'rotateZ(-180deg)' : 'initial',
   });
 
   return (
-    <animated.div
-      style={{top, left, right, transform: !isLeft && 'rotateZ(-180deg)', ...containerAnimation}}
-      className="hover-container">
-      <React.Fragment>
-        <button
-          onMouseLeave={() => setVisibility(false)}
-          onMouseEnter={() => setVisibility(true)}
-          className="hover"></button>
-        <animated.div
-          style={{...arrowAnimation, transform: isLeft ? 'rotateZ(-135deg)' : 'rotateZ(-45deg)'}}
-          className="arrow"></animated.div>
-      </React.Fragment>
+    <div className="bird-container" style={{top: calculateRwd(top), left, right}}>
+      <Bird rwd={rwd} bird={bird} setVisibility={setVisibility}></Bird>
 
-      <animated.div
-        style={{
-          ...descAnimation,
-          transform: !isLeft && 'rotate(180deg)',
-          bottom: !isLeft && '-13px',
-          top: !isLeft && 'initial',
-        }}
-        className="hover-description">
-        <h3>{title}</h3>
-        <p>{children}</p>
-      </animated.div>
-    </animated.div>
+      {/* ifDesktop */}
+      {isLargeDesktop || isDesktop ? (
+        <animated.div style={containerAnimation} className="hover-container">
+          <animated.div style={descAnimation} className="hover-description">
+            <h3>{title}</h3>
+            <p>{children}</p>
+          </animated.div>
+        </animated.div>
+      ) : (
+        <TreeItemModal
+          title={title}
+          children={children}
+          visibility={isVisible}
+          setVisibility={setVisibility}></TreeItemModal>
+      )}
+    </div>
   );
 }
 

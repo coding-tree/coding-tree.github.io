@@ -1,18 +1,12 @@
-import React, {useState} from 'react';
+import React from 'react';
 
-function TreeItemModal({top, children, title, left = 'initial', right = 'initial'}) {
-  const [visibility, setVisibility] = useState(false);
-
-  const toggleModal = () => {
-    setVisibility(!visibility);
-  };
-
+function TreeItemModal({children, title, setVisibility, visibility}) {
   const closeModal = e => {
     e.target.className === 'modal' && setVisibility(false);
   };
+
   return (
     <div>
-      <button style={{top, left, right}} className="button-modal" onClick={toggleModal}></button>
       {visibility && (
         <div onClick={e => closeModal(e)} className="modal">
           <div className="modal-box">

@@ -1,9 +1,15 @@
 import React, {useState, useRef, useEffect} from 'react';
 
-export default function Gallery({isDesktop, children}) {
+export default function Gallery({rwd, children}) {
   const [openedImage, setImage] = useState(false);
   const [isLoading, setLoading] = useState(false);
   const lightbox = useRef(null);
+
+  const {isLargeDesktop, isDesktop} = rwd;
+
+  const checkDesktop = isLargeDesktop || isDesktop;
+
+  console.log(isLargeDesktop, isDesktop);
 
   const fakeImages = [
     {
@@ -19,8 +25,8 @@ export default function Gallery({isDesktop, children}) {
   ];
 
   useEffect(() => {
-    !isDesktop ? setImage(false) : lightbox && openedImage && lightbox.current.focus();
-  }, [isDesktop, openedImage]);
+    !checkDesktop ? setImage(false) : lightbox && openedImage && lightbox.current.focus();
+  }, [checkDesktop, openedImage]);
 
   const openLightbox = id => {
     setLoading(true);
@@ -62,11 +68,11 @@ export default function Gallery({isDesktop, children}) {
         <div className="grid-gallery">
           {fakeImages.map(el => (
             <div key={el.id} className="grid-item">
-              <img onClick={() => isDesktop && openLightbox(el.id)} src={el.thumb} alt={el.alt} />
+              <img onClick={() => checkDesktop && openLightbox(el.id)} src={el.thumb} alt={el.alt} />
             </div>
           ))}
         </div>
-        {openedImage && isDesktop && (
+        {openedImage && checkDesktop && (
           <div
             ref={lightbox}
             onKeyDown={handleKeyDown}

@@ -3,11 +3,12 @@ import React, {lazy} from 'react';
 const Navigation = lazy(() => import('./Navigation'));
 const NavigationMobile = lazy(() => import('./NavigationMobile'));
 
-function Header({isDesktop, children}) {
+function Header({rwd, children}) {
+  const {isLargeDesktop, isDesktop} = rwd;
   return (
     <header>
       <div className="logo-container">
-        {isDesktop ? <Navigation></Navigation> : <NavigationMobile></NavigationMobile>}
+        {isLargeDesktop || isDesktop ? <Navigation></Navigation> : <NavigationMobile></NavigationMobile>}
         {children}
       </div>
     </header>
