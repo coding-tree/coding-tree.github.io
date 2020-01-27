@@ -70,24 +70,24 @@ function Home() {
 
             <TreeItem
               rwd={rwd}
-              bird="yellow_bird"
-              title="Pas żółty"
+              bird="green_bird"
+              title="Pas zielony"
               top={['36.8%', '45.3%', '46.6%', '48.5%', '51.3%']}
               right="24%">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, est totam sapiente ipsum debitis nihil cum
-              odit commodi sequi fuga blanditiis ipsam, neque dolores repellendus cumque dolore adipisci quae
-              laboriosam!
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem magnam ipsa enim excepturi tempore.
+              Nobis, eaque ad illum sapiente fugiat aperiam voluptatum laborum modi reiciendis architecto. Libero modi
+              expedita velit!
             </TreeItem>
 
             <TreeItem
               rwd={rwd}
-              bird="green_bird"
-              title="Pas zielony"
+              bird="yellow_bird"
+              title="Pas żółty"
               top={['48.3%', '55.3%', '56.8%', '59%', '60.2%']}
               left="23%">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem magnam ipsa enim excepturi tempore.
-              Nobis, eaque ad illum sapiente fugiat aperiam voluptatum laborum modi reiciendis architecto. Libero modi
-              expedita velit!
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, est totam sapiente ipsum debitis nihil cum
+              odit commodi sequi fuga blanditiis ipsam, neque dolores repellendus cumque dolore adipisci quae
+              laboriosam!
             </TreeItem>
 
             <TreeItem
