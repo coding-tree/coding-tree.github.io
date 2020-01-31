@@ -6,7 +6,6 @@ const WrapperContainer = lazy(() => import('./WrapperContainer'));
 const MainContent = lazy(() => import('./MainContent'));
 const Header = lazy(() => import('./Header'));
 const BackgroundContainer = lazy(() => import('./Background/BackgroundContainer'));
-const TreeContainer = lazy(() => import('./Tree/TreeContainer'));
 const TreeItems = lazy(() => import('./TreeItems'));
 const TreeItem = lazy(() => import('./TreeItem'));
 const Gallery = lazy(() => import('./Gallery'));
@@ -26,7 +25,8 @@ function Home() {
   }, [documentWidth]);
 
   const rwd = {
-    isLargeDesktop: documentWidth >= 1200,
+    is2K: documentWidth >= 1986,
+    isLargeDesktop: documentWidth < 1986 && documentWidth > 1200,
     isDesktop: documentWidth < 1200 && documentWidth >= 896,
     isTablet: documentWidth < 896 && documentWidth >= 568,
     isMobile: documentWidth < 568 && documentWidth >= 433,
@@ -49,8 +49,8 @@ function Home() {
               rwd={rwd}
               bird="black_bird"
               title="Pas czarny - Sensei"
-              top={['16%', '28%', '29.1%', '30.5%', '34.4%']}
-              right="11%">
+              top={['24.2%', '29.9%', '35.1%', '29%', '34.4%']}
+              right={['20%', '24%', '24%', '33%']}>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat porro assumenda quisquam quos, similique
               eius nemo quod minima sunt harum debitis adipisci velit aliquid consequuntur, officiis consectetur rerum
               doloremque iure. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum harum architecto nulla
@@ -61,8 +61,8 @@ function Home() {
               rwd={rwd}
               bird="brown_bird"
               title="Pas brązowy"
-              top={['25.1%', '36%', '37.2%', '38.8%', '43.5%']}
-              left="20%">
+              top={['25.2%', '37.6%', '40.2%', '39.9%', '43.5%']}
+              left={['20%', '14%', '15%', '30%']}>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat porro assumenda quisquam quos, similique
               eius nemo quod minima sunt harum debitis adipisci velit aliquid consequuntur, officiis consectetur rerum
               doloremque iure.
@@ -72,8 +72,8 @@ function Home() {
               rwd={rwd}
               bird="green_bird"
               title="Pas zielony"
-              top={['36.8%', '45.3%', '46.6%', '48.5%', '51.3%']}
-              right="24%">
+              top={['45%', '49.3%', '52.6%', '49.5%', '51.3%']}
+              right={['12.5%', '19%', '20%', '26%']}>
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem magnam ipsa enim excepturi tempore.
               Nobis, eaque ad illum sapiente fugiat aperiam voluptatum laborum modi reiciendis architecto. Libero modi
               expedita velit!
@@ -83,8 +83,8 @@ function Home() {
               rwd={rwd}
               bird="yellow_bird"
               title="Pas żółty"
-              top={['48.3%', '55.3%', '56.8%', '59%', '60.2%']}
-              left="23%">
+              top={['45.4%', '51.3%', '53.9%', '58.2%', '60.2%']}
+              left={['19%', '24%', '28%', '31%']}>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, est totam sapiente ipsum debitis nihil cum
               odit commodi sequi fuga blanditiis ipsam, neque dolores repellendus cumque dolore adipisci quae
               laboriosam!
@@ -94,8 +94,8 @@ function Home() {
               rwd={rwd}
               bird="blue_bird"
               title="Pas niebieski"
-              top={['59.6%', '65.3%', '66.8%', '69.2%', '70.1%']}
-              right="16%">
+              top={['64.5%', '64.9%', '67.8%', '64.9%', '70.1%']}
+              right={['25.5%', '26%', '28%', '29%']}>
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos nostrum ea recusandae, modi est
               libero rerum unde laudantium ex voluptas accusamus molestias repellendus veritatis quam! Ullam saepe ab
               rem dolorum?
@@ -105,8 +105,8 @@ function Home() {
               rwd={rwd}
               bird="white_bird"
               title="Pas biały"
-              top={['68.8%', '72.6%', '73.7%', '76.6%', '77.9%']}
-              left="20%">
+              top={['69.6%', '72.5%', '72.7%', '77.7%', '77.9%']}
+              left={['22.7%', '29%', '19%', '19%']}>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat porro assumenda quisquam quos, similique
               eius nemo quod minima sunt harum debitis adipisci velit aliquid consequuntur, officiis consectetur rerum
               doloremque iure.
@@ -114,7 +114,7 @@ function Home() {
           </TreeItems>
         </Header>
         <BackgroundContainer rwd={rwd}></BackgroundContainer>
-        <TreeContainer rwd={rwd}></TreeContainer>
+        {/* <TreeContainer rwd={rwd}></TreeContainer> */}
       </WrapperContainer>
 
       <Gallery rwd={rwd}></Gallery>
