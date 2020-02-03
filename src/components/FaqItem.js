@@ -6,7 +6,7 @@ function FaqItem({children, title}) {
   const animatedDesc = useSpring({
     maxHeight: isVisible ? '400px' : '0px',
     config: {easing: 'ease-in-out'},
-    padding: isVisible ? '20px 0px' : '0px 0px',
+    padding: isVisible ? '10px 0px' : '0px 0px',
   });
 
   return (

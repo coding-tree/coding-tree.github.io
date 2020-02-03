@@ -13,6 +13,7 @@ html {
   scroll-behavior: smooth;
   overflow-anchor: none;
   overscroll-behavior: contain;
+  will-change: scroll-position;
 }
 body {
   min-height: 100% !important;

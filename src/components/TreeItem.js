@@ -28,6 +28,7 @@ function TreeItem({title, children, top, left = 'initial', right = 'initial', is
     bottom: !isLeft ? '-30px' : 'initial',
     top: isLeft ? '-30px' : 'initial',
     opacity: isVisible ? 1 : 0,
+    willChange: 'opacity',
   });
   const containerAnimation = useSpring({
     config: {duration: 300, easing: easeCubicInOut},
@@ -35,6 +36,7 @@ function TreeItem({title, children, top, left = 'initial', right = 'initial', is
     left: isLeft ? '80%' : 'initial',
     right: !isLeft ? '80%' : 'initial',
     transform: !isLeft ? 'rotateZ(-180deg)' : 'initial',
+    willChange: 'auto',
   });
 
   return (

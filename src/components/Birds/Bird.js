@@ -14,12 +14,13 @@ function Bird({bird, setVisibility, rwd}) {
   const [hoverOff, setHoverOff] = useState(null);
 
   const {is2K, isLargeDesktop, isDesktop} = rwd;
+  const largeDevices = is2K || isLargeDesktop || isDesktop;
 
   const loadData = async () => {
     const [initialData, hoverOnData, hoverOffData] = await Promise.all([
-      import(`./${bird}_initial.json`),
-      import(`./${bird}_hover_on.json`),
-      import(`./${bird}_hover_off.json`),
+      import(`./${bird}_bird_initial.json`),
+      import(`./${bird}_bird_hover_on.json`),
+      import(`./${bird}_bird_hover_off.json`),
     ]);
 
     setInitial(initialData);
@@ -46,18 +47,18 @@ function Bird({bird, setVisibility, rwd}) {
   return (
     <div
       onClick={() => {
-        if (!is2K || !isLargeDesktop || !isDesktop) {
+        if (!largeDevices) {
           setVisibility(true);
         }
       }}
       onMouseOver={() => {
-        if (is2K || isLargeDesktop || isDesktop) {
+        if (largeDevices) {
           setVisibility(true);
           setAnimation(animations.HOVERON);
         }
       }}
       onMouseLeave={() => {
-        if (is2K || isLargeDesktop || isDesktop) {
+        if (largeDevices) {
           setVisibility(false);
           setAnimation(animations.HOVEROFF);
         }
