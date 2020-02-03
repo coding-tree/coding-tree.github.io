@@ -4,11 +4,11 @@ const Navigation = lazy(() => import('./Navigation'));
 const NavigationMobile = lazy(() => import('./NavigationMobile'));
 
 function Header({rwd, children}) {
-  const {isLargeDesktop, isDesktop} = rwd;
+  const {is2K, isLargeDesktop, isDesktop} = rwd;
   return (
     <header>
       <div className="logo-container">
-        {isLargeDesktop || isDesktop ? <Navigation></Navigation> : <NavigationMobile></NavigationMobile>}
+        {is2K || isLargeDesktop || isDesktop ? <Navigation></Navigation> : <NavigationMobile></NavigationMobile>}
         {children}
       </div>
     </header>

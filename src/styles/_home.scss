@@ -24,7 +24,7 @@ main {
       }
 
       .description {
-        max-width: 1200px;
+        max-width: 1600px;
         margin: 0 auto;
         color: $tree-color;
         font-size: 1.3rem;
@@ -125,6 +125,18 @@ main {
   }
 }
 
+@media only screen and (max-width: 2000px) {
+  main {
+    .container {
+      header {
+        .description {
+          width: 1200px;
+        }
+      }
+    }
+  }
+}
+
 @media only screen and (max-width: 1600px) {
   main {
     .container {
@@ -149,26 +161,38 @@ main {
     }
   }
 }
-
-@media only screen and (max-width: 657px) {
+@media only screen and (max-width: 910px) {
   main {
     .container {
       header {
         .description {
           max-width: 80%;
-          font-size: 0.8rem;
+          font-size: 2.5vw;
         }
       }
     }
   }
 }
-@media only screen and (max-width: 568px) {
+
+@media only screen and (max-width: 626px) {
   main {
     .container {
       header {
         .description {
           max-width: 80%;
-          font-size: 0.8rem;
+          font-size: 3vw;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 514px) {
+  main {
+    .container {
+      header {
+        .description {
+          max-width: 80%;
+          font-size: 4vw;
         }
         .modal {
           &-container {
@@ -184,7 +208,7 @@ main {
   }
 }
 
-@media only scsreen and (max-width: 433px) {
+@media only screen and (max-width: 433px) {
   main {
     .container {
       header {
@@ -193,7 +217,7 @@ main {
         }
         .description {
           max-width: 80%;
-          font-size: 0.8rem;
+          font-size: 4vw;
         }
       }
     }

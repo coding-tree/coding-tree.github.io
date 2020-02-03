@@ -5,11 +5,9 @@ export default function Gallery({rwd, children}) {
   const [isLoading, setLoading] = useState(false);
   const lightbox = useRef(null);
 
-  const {isLargeDesktop, isDesktop} = rwd;
+  const {is2K, isLargeDesktop, isDesktop} = rwd;
 
-  const checkDesktop = isLargeDesktop || isDesktop;
-
-  console.log(isLargeDesktop, isDesktop);
+  const checkDesktop = is2K || isLargeDesktop || isDesktop;
 
   const fakeImages = [
     {
