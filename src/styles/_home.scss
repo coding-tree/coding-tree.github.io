@@ -223,3 +223,15 @@ main {
     }
   }
 }
+
+@media only screen and (max-width: 320px) {
+  main {
+    .container {
+      header {
+        .description {
+          font-size: 0.6rem;
+        }
+      }
+    }
+  }
+}
