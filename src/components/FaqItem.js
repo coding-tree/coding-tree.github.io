@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {useSpring, animated} from 'react-spring';
+import {string} from 'prop-types';
 
 function FaqItem({children, title}) {
   const [isVisible, toggleVisibility] = useState(false);
@@ -9,16 +10,18 @@ function FaqItem({children, title}) {
     padding: isVisible ? '10px 0px' : '0px 0px',
   });
 
+  const handleChangeVisibility = () => {
+    toggleVisibility(prev => !prev);
+  };
+
   return (
     <div className="faq">
       <div className="container">
-        <div onClick={() => toggleVisibility(!isVisible)} className="faq-icon">
+        <div onClick={handleChangeVisibility} className="faq-icon">
           <div>
             <i className="fas fa-circle"></i>
           </div>
-          <button className="faq-title" onClick={() => toggleVisibility(!isVisible)}>
-            {title}
-          </button>
+          <button className="faq-title">{title}</button>
         </div>
 
         <animated.div className="faq-description" style={animatedDesc}>
@@ -28,5 +31,10 @@ function FaqItem({children, title}) {
     </div>
   );
 }
+
+FaqItem.propTypes = {
+  children: string.isRequired,
+  title: string.isRequired,
+};
 
 export default FaqItem;

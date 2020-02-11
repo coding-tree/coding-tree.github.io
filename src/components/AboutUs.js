@@ -1,9 +1,9 @@
 import React, {useEffect, useState, lazy} from 'react';
-import Team from './Team';
-import TeamPerson from './TeamPerson';
 
 const Navigation = lazy(() => import('./Navigation'));
 const NavigationMobile = lazy(() => import('./NavigationMobile'));
+const Team = lazy(() => import('./Team'));
+const TeamPerson = lazy(() => import('./TeamPerson'));
 
 function AboutUs() {
   const [documentWidth, setDocumentWidth] = useState(null);

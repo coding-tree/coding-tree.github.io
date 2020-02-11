@@ -1,4 +1,5 @@
 import React from 'react';
+import {node, string} from 'prop-types';
 
 function Team({children, title, subtitle, description}) {
   return (
@@ -15,4 +16,12 @@ function Team({children, title, subtitle, description}) {
     </div>
   );
 }
+
+Team.propTypes = {
+  children: node.isRequired,
+  title: string.isRequired,
+  subtitle: string.isRequired,
+  description: string.isRequired,
+};
+
 export default Team;

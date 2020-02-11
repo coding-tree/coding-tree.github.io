@@ -1,4 +1,5 @@
 import React from 'react';
+import {node, string, func, bool} from 'prop-types';
 
 function TreeItemModal({children, title, setVisibility, visibility}) {
   const closeModal = e => {
@@ -23,5 +24,12 @@ function TreeItemModal({children, title, setVisibility, visibility}) {
     </div>
   );
 }
+
+TreeItemModal.propTypes = {
+  children: node.isRequired,
+  title: string.isRequired,
+  setVisibility: func.isRequired,
+  visibility: bool.isRequired,
+};
 
 export default TreeItemModal;
