@@ -1,4 +1,5 @@
 import React from 'react';
+import {string} from 'prop-types';
 
 function TeamPerson({name, src}) {
   return (
@@ -13,5 +14,10 @@ function TeamPerson({name, src}) {
     </div>
   );
 }
+
+TeamPerson.propTypes = {
+  name: string.isRequired,
+  src: string.isRequired,
+};
 
 export default TeamPerson;

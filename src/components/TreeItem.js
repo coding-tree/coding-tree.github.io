@@ -1,9 +1,10 @@
 import React, {useState, lazy} from 'react';
 import {useSpring, animated} from 'react-spring';
-import Bird from './Birds/Bird';
 import {easeCubicInOut} from 'd3-ease';
+import {string, node, bool, object} from 'prop-types';
 
 const TreeItemModal = lazy(() => import('./TreeItemModal'));
+const Bird = lazy(() => import('./Birds'));
 
 function TreeItem({title, children, top, left = 'initial', right = 'initial', isLeft, bird, rwd}) {
   const [isVisible, setVisibility] = useState(false);
@@ -54,14 +55,23 @@ function TreeItem({title, children, top, left = 'initial', right = 'initial', is
           </animated.div>
         </animated.div>
       ) : (
-        <TreeItemModal
-          title={title}
-          children={children}
-          visibility={isVisible}
-          setVisibility={setVisibility}></TreeItemModal>
+        <TreeItemModal title={title} visibility={isVisible} setVisibility={setVisibility}>
+          {children}
+        </TreeItemModal>
       )}
     </div>
   );
 }
+
+TreeItem.propTypes = {
+  title: string.isRequired,
+  children: node.isRequired,
+  top: string.isRequired,
+  left: string.isRequired,
+  right: string.isRequired,
+  isLeft: bool.isRequired,
+  bird: string.isRequired,
+  rwd: object.isRequired,
+};
 
 export default TreeItem;

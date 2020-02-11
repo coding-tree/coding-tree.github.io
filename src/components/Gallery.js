@@ -1,6 +1,7 @@
 import React, {useState, useRef, useEffect} from 'react';
+import {object, string} from 'prop-types';
 
-export default function Gallery({rwd, children}) {
+const Gallery = ({rwd, children}) => {
   const [openedImage, setImage] = useState(false);
   const [isLoading, setLoading] = useState(false);
   const lightbox = useRef(null);
@@ -101,4 +102,11 @@ export default function Gallery({rwd, children}) {
       </div>
     </section>
   );
-}
+};
+
+Gallery.propTypes = {
+  rwd: object.isRequired,
+  children: string.isRequired,
+};
+
+export default Gallery;

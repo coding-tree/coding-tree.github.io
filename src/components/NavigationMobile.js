@@ -1,11 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import {NavLink} from 'react-router-dom';
 import {useSpring, animated} from 'react-spring';
-import * as easings from 'd3-ease';
+import {easeBackInOut} from 'd3-ease';
 
-const bodyScrollLock = require('body-scroll-lock');
-const disableBodyScroll = bodyScrollLock.disableBodyScroll;
-const enableBodyScroll = bodyScrollLock.enableBodyScroll;
+const {disableBodyScroll, enableBodyScroll} = require('body-scroll-lock');
 
 function NavigationMobile() {
   const [isVisible, toggleMenu] = useState(false);
@@ -13,7 +11,7 @@ function NavigationMobile() {
   useEffect(() => {
     isVisible ? disableBodyScroll(body) : enableBodyScroll(body);
   });
-  const date = new Date();
+  const date = new Date().getFullYear();
 
   const menuAnimation = useSpring({
     width: isVisible ? '100%' : '0%',
@@ -24,7 +22,7 @@ function NavigationMobile() {
     opacity: isVisible ? 1 : 0,
     zIndex: isVisible ? 99 : 50,
     delay: isVisible ? 0 : 400,
-    config: {duration: 500, easing: easings.easeBackInOut},
+    config: {duration: 500, easing: easeBackInOut},
   });
 
   const textAnimation = useSpring({
@@ -33,12 +31,16 @@ function NavigationMobile() {
     delay: isVisible ? 400 : 0,
   });
 
+  const handleMenuVisibility = () => {
+    toggleMenu(prev => !prev);
+  };
+
   return (
     <div id="navigation-mobile">
       <h1>
         <img src="/logo.svg" alt="" />
       </h1>
-      <button onClick={() => toggleMenu(prev => !prev)} className="menu">
+      <button onClick={handleMenuVisibility} className="menu">
         <i className={isVisible ? 'fas fa-times' : 'fas fa-ellipsis-v'}></i>
       </button>
 
@@ -55,7 +57,7 @@ function NavigationMobile() {
           </NavLink>
         </animated.div>
         <animated.footer style={textAnimation}>
-          <p>Copyright &copy; {date.getFullYear()} | Coding Tree </p>
+          <p>Copyright &copy; {date} | Coding Tree </p>
         </animated.footer>
       </animated.nav>
     </div>

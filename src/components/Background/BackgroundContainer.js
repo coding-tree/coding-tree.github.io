@@ -1,4 +1,5 @@
 import React, {lazy} from 'react';
+import {object} from 'prop-types';
 
 const Background2K = lazy(() => import('./Background2K'));
 const BackgroundLarge = lazy(() => import('./BackgroundLarge'));
@@ -19,6 +20,10 @@ const BackgroundContainer = ({rwd}) => {
       {isSmallMobile && <BackgroundSmallMobile></BackgroundSmallMobile>}
     </div>
   );
+};
+
+BackgroundContainer.propTypes = {
+  rwd: object.isRequired,
 };
 
 export default BackgroundContainer;

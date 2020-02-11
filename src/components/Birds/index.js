@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import Lottie from 'react-lottie';
+import {string, object, func} from 'prop-types';
 
 function Bird({bird, setVisibility, rwd}) {
   const animations = {
@@ -77,5 +78,11 @@ function Bird({bird, setVisibility, rwd}) {
     </div>
   );
 }
+
+Bird.propTypes = {
+  bird: string.isRequired,
+  setVisibility: func.isRequired,
+  rwd: object.isRequired,
+};
 
 export default Bird;
