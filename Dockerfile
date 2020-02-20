@@ -1,11 +1,16 @@
-FROM node:10.17.0
-WORKDIR /app
-ADD . .
-RUN npm install
-RUN npm run build
-RUN npm install -g serve
-WORKDIR /app
-EXPOSE 80
-RUN chmod +x ./start.sh
+FROM node:10.17.0 AS builder
+ARG git_branch
+ARG git_commit
 
-CMD ["./start.sh"]
+WORKDIR /app
+ADD package.json .
+ADD package-lock.json .
+RUN npm install
+
+ADD . .
+ENV REACT_APP_GIT_BRANCH=${git_branch}
+ENV REACT_APP_GIT_COMMIT=${git_commit}
+RUN npm run build
+
+FROM nginx
+COPY --from=builder /app/build /usr/share/nginx/html

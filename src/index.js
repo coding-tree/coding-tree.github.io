@@ -5,6 +5,11 @@ import App from './App';
 import {unregister} from './serviceWorker';
 import {BrowserRouter} from 'react-router-dom';
 
+window.buildDetails = {
+  commit: process.env.REACT_APP_GIT_COMMIT,
+  branch: process.env.REACT_APP_GIT_BRANCH
+}
+
 ReactDOM.render(
   <BrowserRouter>
     <App />
