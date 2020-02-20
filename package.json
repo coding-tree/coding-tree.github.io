@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "@types/eslint-plugin-prettier": "^2.2.0",
-    "@types/prettier": "^1.19.0",
     "@types/prop-types": "^15.7.3",
     "body-scroll-lock": "^2.6.4",
     "d3-ease": "^1.0.6",
