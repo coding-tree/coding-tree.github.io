@@ -1,13 +1,23 @@
 #about-us {
-  color: $white-color;
+    background-color: $white-color;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-  .container {
-    max-width: 1400px;
-  }
-  #desktop {
-    margin-top: 5rem;
-    div > a {
-      color: $white-color;
+.box {
+    position: relative;
+    width: fit-content;
+    img {
+        position: absolute;
+        top:0;
+        left: 0;
+        z-index: 1;
     }
-  }
+    &-content {
+        position: relative;
+        z-index: 2;
+    }
 }
