@@ -25,11 +25,15 @@
         padding-top: 20px;
         text-transform: uppercase;
         color: $leaf-color;
+        font: {
+          family: $header-font;
+        }
       }
       p {
         padding: 20px 30px;
         overflow: hidden;
         color: $tree-color;
+        font-size: 0.8rem;
       }
     }
   }

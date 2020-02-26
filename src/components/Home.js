@@ -8,7 +8,8 @@ const Header = lazy(() => import('./Header'));
 const BackgroundContainer = lazy(() => import('./Background/BackgroundContainer'));
 const TreeItems = lazy(() => import('./TreeItems'));
 const TreeItem = lazy(() => import('./TreeItem'));
-const Gallery = lazy(() => import('./Gallery'));
+// * Temporarily turned off
+// const Gallery = lazy(() => import('./Gallery'));
 const Faq = lazy(() => import('./Faq'));
 const FaqItem = lazy(() => import('./FaqItem'));
 const Footer = lazy(() => import('./Footer'));
@@ -116,7 +117,8 @@ function Home() {
         <BackgroundContainer rwd={rwd}></BackgroundContainer>
       </WrapperContainer>
 
-      <Gallery rwd={rwd}></Gallery>
+      {/* //TODO: Gallery project */}
+      {/* <Gallery rwd={rwd}></Gallery> */}
 
       <Faq>
         <FaqItem title="Lorem Ipsum ?">

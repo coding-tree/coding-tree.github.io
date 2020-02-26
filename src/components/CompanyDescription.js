@@ -7,6 +7,6 @@ function CompanyDescription({children}) {
 
 CompanyDescription.propTypes = {
   children: node.isRequired,
-};
+};      
 
 export default CompanyDescription;

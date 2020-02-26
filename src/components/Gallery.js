@@ -81,10 +81,10 @@ const Gallery = ({rwd, children}) => {
             {!isLoading && (
               <React.Fragment>
                 <button className="arrow previous" onClick={() => changeImage('prev')}>
-                  <i className="far fa-arrow-alt-circle-left"></i>
+                  <i className="fas fa-long-arrow-alt-left"></i>
                 </button>
                 <button className="arrow next" onClick={() => changeImage('next')}>
-                  <i className="far fa-arrow-alt-circle-right"></i>
+                  <i className="fas fa-long-arrow-alt-right"></i>
                 </button>
               </React.Fragment>
             )}

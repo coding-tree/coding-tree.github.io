@@ -21,8 +21,27 @@
       font-size: 0.5rem;
       transform-origin: center center;
       i {
-        font-size: 1rem;
-        padding-top: 0.5rem;
+        font-size: 0.8rem;
+        padding-top: 0.4rem;
+      }
+    }
+
+    &-title {
+      margin-left: 1rem;
+      background-color: transparent;
+      border: none;
+      color: $white-color;
+      text-align: initial;
+      font: {
+        size: 1.2rem;
+        family: $header-font;
+        weight: bold;
+      }
+      &:focus {
+        outline: none;
+      }
+      &:hover {
+        cursor: pointer;
       }
     }
     &-description {
@@ -31,25 +50,8 @@
       text-align: justify;
       margin-left: 2rem;
       font: {
-        size: 1.3rem;
+        size: 0.8rem;
         family: $body-font;
-      }
-    }
-    &-title {
-      margin-left: 1rem;
-      background-color: transparent;
-      border: none;
-      color: $white-color;
-      text-align: initial;
-      font: {
-        size: 1.6rem;
-        family: $header-font;
-      }
-      &:focus {
-        outline: none;
-      }
-      &:hover {
-        cursor: pointer;
       }
     }
   }

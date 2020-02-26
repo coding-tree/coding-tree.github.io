@@ -12,7 +12,7 @@ nav#desktop {
     align-content: center;
     align-items: center;
     height: 50px;
-    background-color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.2);
     img {
       height: 170px;
     }
@@ -24,7 +24,7 @@ nav#desktop {
     width: min-content;
     white-space: nowrap;
     height: 50px;
-    background-color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.2);
     &.left {
       border-top-left-radius: 40px;
       border-bottom-left-radius: 40px;
@@ -46,7 +46,7 @@ nav#desktop {
       }
       transition: 0.3s;
       &:hover {
-        color: $leaf-color;
+        color: $white-color;
         transition: 0.3s;
       }
     }
