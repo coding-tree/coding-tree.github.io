@@ -1,10 +1,11 @@
 #about-us {
-  background-color: $white-color;
+  background-color: $button-color;
   height: 100vh;
   width: 100vw;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  padding-top: 2rem;
   .background {
     position: fixed;
     top: 0;
@@ -15,6 +16,8 @@
 
 .box {
   position: relative;
+  margin-top: 3rem;
+
   font: {
     family: $box-font;
   }
@@ -67,6 +70,23 @@
     margin-right: 0.5rem;
     border-radius: 10px;
     height: 100%;
+    padding: 1rem;
+    overflow: scroll;
+    .folder {
+      display: flex;
+      flex-direction: column;
+      border: 2px solid red;
+      margin-left: 2rem;
+      &-kind {
+        display: flex;
+        border: 2px solid green;
+        margin-left: 2rem;
+      }
+    }
+    .parent-folder {
+      display: flex;
+      align-items: center;
+    }
   }
   &-info {
     width: 50%;
@@ -75,6 +95,17 @@
     border-radius: 10px;
     height: 100%;
   }
+}
+.expand {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  border: 1px solid #707070;
+  margin-right: 0.5rem;
+  cursor: pointer;
 }
 
 .slider-background {
