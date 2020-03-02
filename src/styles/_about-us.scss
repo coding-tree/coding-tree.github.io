@@ -57,6 +57,9 @@
       i {
         color: $leaf-color;
         padding-right: 15px;
+        -webkit-text-fill-color: $leaf-color;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: black;
       }
     }
   }
@@ -74,13 +77,31 @@
     overflow: scroll;
     .folder {
       display: flex;
+      justify-content: center;
       flex-direction: column;
       border: 2px solid red;
-      margin-left: 2rem;
+      margin-left: 1.5rem;
+
+      &:first-child {
+        margin-left: 0;
+      }
       &-kind {
         display: flex;
         border: 2px solid green;
-        margin-left: 2rem;
+        align-items: center;
+        cursor: pointer;
+        img {
+          width: 30px;
+          height: 30px;
+        }
+        i {
+          -webkit-text-fill-color: $leaf-color;
+          -webkit-text-stroke-width: 1px;
+          -webkit-text-stroke-color: black;
+        }
+        p {
+          margin-left: 0.5rem;
+        }
       }
     }
     .parent-folder {
