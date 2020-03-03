@@ -65,34 +65,44 @@
   }
   &-content {
     display: flex;
-    height: 100%;
   }
   &-folders {
     background-color: $white-color;
     width: 50%;
     margin-right: 0.5rem;
     border-radius: 10px;
-    height: 100%;
+    max-height: 100%;
+    height: 563px;
     padding: 1rem;
-    overflow: scroll;
+    overflow-y: auto;
     .folder {
+      position: relative;
+      z-index: 1;
       display: flex;
       justify-content: center;
       flex-direction: column;
-      border: 2px solid red;
-      margin-left: 1.5rem;
-
+      margin-left: 1.4rem;
       &:first-child {
         margin-left: 0;
       }
+
+      &:last-child {
+        & > .folder > .folder .border {
+          display: none;
+        }
+      }
+
       &-kind {
+        position: relative;
         display: flex;
-        border: 2px solid green;
         align-items: center;
         cursor: pointer;
+        padding: 0.25rem 0;
+
         img {
           width: 30px;
           height: 30px;
+          margin-left: 1.5rem;
         }
         i {
           -webkit-text-fill-color: $leaf-color;
@@ -101,6 +111,12 @@
         }
         p {
           margin-left: 0.5rem;
+        }
+        .border {
+          width: 10px;
+          height: 1px;
+          position: absolute;
+          left: 1rem;
         }
       }
     }
@@ -118,6 +134,8 @@
   }
 }
 .expand {
+  position: relative;
+  z-index: 2;
   width: 20px;
   height: 20px;
   display: flex;

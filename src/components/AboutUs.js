@@ -3,6 +3,7 @@ import Navigation from './Navigation';
 
 const fakeData = [
   {
+    id: 1,
     name: 'Coding Tree',
     kind: 'folder',
     children: [
@@ -20,14 +21,6 @@ const fakeData = [
         id: 3,
         kind: 'folder',
         name: 'Zielony Pas',
-        children: [
-          {
-            id: 1,
-            kind: 'person',
-            name: 'Józef Rzadkosz',
-          },
-          {id: 2, kind: 'person', name: 'Jakub Wojtoń'},
-        ],
       },
       {
         id: 4,
@@ -38,6 +31,37 @@ const fakeData = [
           {id: 2, kind: 'person', name: 'Emil Sankowski'},
           {id: 3, kind: 'person', name: 'Paweł Wojtkiewicz'},
           {id: 4, kind: 'person', name: 'Jędrzej Paulus'},
+        ],
+      },
+      // Temp
+      {
+        id: 5,
+        kind: 'folder',
+        name: 'Żółty Pas',
+        children: [
+          {id: 1, kind: 'person', name: 'Kazimierz Bargowski'},
+          {id: 2, kind: 'person', name: 'Emil Sankowski'},
+          {id: 3, kind: 'person', name: 'Paweł Wojtkiewicz'},
+          {id: 4, kind: 'person', name: 'Jędrzej Paulus'},
+        ],
+      },
+      {
+        id: 6,
+        kind: 'folder',
+        name: 'Biały Pas',
+        children: [
+          {id: 1, kind: 'person', name: 'Kazimierz Bargowski'},
+          {id: 2, kind: 'person', name: 'Emil Sankowski'},
+          {id: 3, kind: 'person', name: 'Paweł Wojtkiewicz'},
+          {id: 4, kind: 'person', name: 'Jędrzej Paulus'},
+          {id: 5, kind: 'person', name: 'Kazimierz Bargowski'},
+          {id: 6, kind: 'person', name: 'Emil Sankowski'},
+          {id: 7, kind: 'person', name: 'Paweł Wojtkiewicz'},
+          {id: 8, kind: 'person', name: 'Jędrzej Paulus'},
+          {id: 9, kind: 'person', name: 'Kazimierz Bargowski'},
+          {id: 10, kind: 'person', name: 'Emil Sankowski'},
+          {id: 11, kind: 'person', name: 'Paweł Wojtkiewicz'},
+          {id: 12, kind: 'person', name: 'Jędrzej Paulus'},
         ],
       },
     ],
@@ -113,6 +137,7 @@ const SubFolder = ({el, setFolderIcon}) => {
   return (
     <div key={id} onClick={() => setSelection(!isSelected)} className={isSelected ? 'folder selected' : 'folder'}>
       <div onClick={() => setExpand(!isExpanded)} className="folder-kind">
+        <hr className="border" />
         {kind === 'folder' && (
           <div onClick={() => setExpand(!isExpanded)} className="expand">
             {setFolderIcon(isExpanded)}
@@ -120,6 +145,7 @@ const SubFolder = ({el, setFolderIcon}) => {
         )}
         {kind === 'folder' ? <i className="fas fa-folder"></i> : <img src="pawel_woj.svg" />}
         <p> {name} </p>
+        {/* {kind === 'person' && <hr className="border" />} */}
       </div>
       {children !== undefined &&
         children.length > 0 &&
