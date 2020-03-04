@@ -1,7 +1,7 @@
 import React, {useState, lazy} from 'react';
 import {useSpring, animated} from 'react-spring';
 import {easeCubicInOut} from 'd3-ease';
-import {string, node, bool, object} from 'prop-types';
+import {string, node, bool, object, array} from 'prop-types';
 
 const TreeItemModal = lazy(() => import('./TreeItemModal'));
 const Bird = lazy(() => import('./Birds'));
@@ -66,10 +66,10 @@ function TreeItem({title, children, top, left = 'initial', right = 'initial', is
 TreeItem.propTypes = {
   title: string.isRequired,
   children: node.isRequired,
-  top: string.isRequired,
-  left: string.isRequired,
-  right: string.isRequired,
-  isLeft: bool.isRequired,
+  top: array,
+  left: array,
+  right: array,
+  isLeft: bool,
   bird: string.isRequired,
   rwd: object.isRequired,
 };

@@ -86,25 +86,23 @@
         margin-left: 0;
       }
 
-      &:last-child {
-        & > .folder > .folder .border {
-          display: none;
-        }
-      }
-
       &-kind {
         position: relative;
         display: flex;
         align-items: center;
         cursor: pointer;
-        padding: 0.25rem 0;
+        z-index: 10;
 
         img {
+          position: relative;
+          z-index: 10;
           width: 30px;
           height: 30px;
           margin-left: 1.5rem;
         }
         i {
+          position: relative;
+          z-index: 10;
           -webkit-text-fill-color: $leaf-color;
           -webkit-text-stroke-width: 1px;
           -webkit-text-stroke-color: black;
@@ -112,12 +110,37 @@
         p {
           margin-left: 0.5rem;
         }
-        .border {
-          width: 10px;
+        .border-left {
+          width: 30px;
           height: 1px;
+          border-top: 1px dotted grey;
           position: absolute;
-          left: 1rem;
+          left: 0.5rem;
+
+          z-index: 0;
         }
+        .expand {
+          position: relative;
+          z-index: 20;
+          width: 20px;
+          height: 20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 1rem;
+          background-color: $white-color;
+          border: 1px solid #707070;
+          margin-right: 0.5rem;
+          cursor: pointer;
+        }
+      }
+      .border-top {
+        position: absolute;
+        height: 100%;
+        width: 1px;
+        left: 0.5rem;
+        z-index: 0;
+        border-left: 1px dotted grey;
       }
     }
     .parent-folder {
@@ -132,19 +155,6 @@
     border-radius: 10px;
     height: 100%;
   }
-}
-.expand {
-  position: relative;
-  z-index: 2;
-  width: 20px;
-  height: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1rem;
-  border: 1px solid #707070;
-  margin-right: 0.5rem;
-  cursor: pointer;
 }
 
 .slider-background {

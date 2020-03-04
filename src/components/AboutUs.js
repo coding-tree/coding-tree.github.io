@@ -123,21 +123,27 @@ const Folders = () => {
   return (
     <div>
       {fakeData.map(el => (
-        <SubFolder key={el.id} setFolderIcon={setFolderIcon} el={el}></SubFolder>
+        <SubFolder key={el.id} fakeData={fakeData} setFolderIcon={setFolderIcon} el={el}></SubFolder>
       ))}
     </div>
   );
 };
 
-const SubFolder = ({el, setFolderIcon}) => {
+const SubFolder = ({el, setFolderIcon, fakeData}) => {
   const [isExpanded, setExpand] = useState(false);
-  const [isSelected, setSelection] = useState(false);
   const {id, name, kind, children} = el;
 
+  const styles = {
+    height: fakeData.length === id && kind === 'person' && '30px',
+    top: kind === 'person' && '-15px',
+  };
   return (
-    <div key={id} onClick={() => setSelection(!isSelected)} className={isSelected ? 'folder selected' : 'folder'}>
+    <div key={id} className="folder">
+      {(fakeData.length !== id || kind === 'person') && <hr className="border-top" style={styles} />}
       <div onClick={() => setExpand(!isExpanded)} className="folder-kind">
-        <hr className="border" />
+        {/* BORDER */}
+        <hr className="border-left" />
+
         {kind === 'folder' && (
           <div onClick={() => setExpand(!isExpanded)} className="expand">
             {setFolderIcon(isExpanded)}
@@ -145,12 +151,14 @@ const SubFolder = ({el, setFolderIcon}) => {
         )}
         {kind === 'folder' ? <i className="fas fa-folder"></i> : <img src="pawel_woj.svg" />}
         <p> {name} </p>
-        {/* {kind === 'person' && <hr className="border" />} */}
       </div>
+
       {children !== undefined &&
         children.length > 0 &&
         isExpanded &&
-        children.map(el => <SubFolder key={el.id} setFolderIcon={setFolderIcon} el={el}></SubFolder>)}
+        children.map(el => (
+          <SubFolder key={el.id} fakeData={children} setFolderIcon={setFolderIcon} el={el}></SubFolder>
+        ))}
     </div>
   );
 };
