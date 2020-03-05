@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Navigation from './Navigation';
 
 const fakeData = [
@@ -29,39 +29,27 @@ const fakeData = [
         children: [
           {id: 1, kind: 'person', name: 'Kazimierz Bargowski'},
           {id: 2, kind: 'person', name: 'Emil Sankowski'},
-          {id: 3, kind: 'person', name: 'Paweł Wojtkiewicz'},
-          {id: 4, kind: 'person', name: 'Jędrzej Paulus'},
+          {id: 3, kind: 'person', name: 'Łukasz Strobejko'},
+          {id: 4, kind: 'person', name: 'Paweł Wojtkiewicz'},
+          {id: 5, kind: 'person', name: 'Jędrzej Paulus'},
         ],
       },
-      // Temp
       {
         id: 5,
         kind: 'folder',
-        name: 'Żółty Pas',
-        children: [
-          {id: 1, kind: 'person', name: 'Kazimierz Bargowski'},
-          {id: 2, kind: 'person', name: 'Emil Sankowski'},
-          {id: 3, kind: 'person', name: 'Paweł Wojtkiewicz'},
-          {id: 4, kind: 'person', name: 'Jędrzej Paulus'},
-        ],
+        name: 'Niebieski Pas',
+        children: [],
       },
       {
         id: 6,
         kind: 'folder',
         name: 'Biały Pas',
         children: [
-          {id: 1, kind: 'person', name: 'Kazimierz Bargowski'},
-          {id: 2, kind: 'person', name: 'Emil Sankowski'},
-          {id: 3, kind: 'person', name: 'Paweł Wojtkiewicz'},
-          {id: 4, kind: 'person', name: 'Jędrzej Paulus'},
-          {id: 5, kind: 'person', name: 'Kazimierz Bargowski'},
-          {id: 6, kind: 'person', name: 'Emil Sankowski'},
-          {id: 7, kind: 'person', name: 'Paweł Wojtkiewicz'},
-          {id: 8, kind: 'person', name: 'Jędrzej Paulus'},
-          {id: 9, kind: 'person', name: 'Kazimierz Bargowski'},
-          {id: 10, kind: 'person', name: 'Emil Sankowski'},
-          {id: 11, kind: 'person', name: 'Paweł Wojtkiewicz'},
-          {id: 12, kind: 'person', name: 'Jędrzej Paulus'},
+          {id: 1, kind: 'person', name: 'Arkadiusz Świołko'},
+          {id: 2, kind: 'person', name: 'Bartosz Kamiński'},
+          {id: 3, kind: 'person', name: 'Paweł Kochowicz'},
+          {id: 4, kind: 'person', name: 'Paweł Marciniak'},
+          {id: 5, kind: 'person', name: 'Piotr Rasztemborski'},
         ],
       },
     ],
@@ -117,19 +105,29 @@ const AboutUs = () => {
 export default AboutUs;
 
 const Folders = () => {
+  const [selectedItem, setSelection] = useState(null);
   const setFolderIcon = isVisible => {
     return isVisible ? '-' : '+';
   };
+  useEffect(() => {
+    selectedItem && selectedItem.lastElementChild.classList.add('folder-selected');
+  }, [selectedItem]);
   return (
     <div>
       {fakeData.map(el => (
-        <SubFolder key={el.id} fakeData={fakeData} setFolderIcon={setFolderIcon} el={el}></SubFolder>
+        <SubFolder
+          key={el.id}
+          fakeData={fakeData}
+          selectedItem={selectedItem}
+          setSelection={setSelection}
+          setFolderIcon={setFolderIcon}
+          el={el}></SubFolder>
       ))}
     </div>
   );
 };
 
-const SubFolder = ({el, setFolderIcon, fakeData}) => {
+const SubFolder = ({el, setFolderIcon, fakeData, selectedItem, setSelection}) => {
   const [isExpanded, setExpand] = useState(false);
   const {id, name, kind, children} = el;
 
@@ -137,10 +135,20 @@ const SubFolder = ({el, setFolderIcon, fakeData}) => {
     height: fakeData.length === id && kind === 'person' && '30px',
     top: kind === 'person' && '-15px',
   };
+
+  const handleFolderClick = e => {
+    const elem = e.currentTarget;
+    console.log(el);
+    if (selectedItem && selectedItem !== elem) selectedItem.lastElementChild.classList.remove('folder-selected');
+    setSelection(elem);
+    setExpand(!isExpanded);
+  };
+
   return (
     <div key={id} className="folder">
       {(fakeData.length !== id || kind === 'person') && <hr className="border-top" style={styles} />}
-      <div onClick={() => setExpand(!isExpanded)} className="folder-kind">
+
+      <div onClick={e => handleFolderClick(e)} className="folder-kind">
         {/* BORDER */}
         <hr className="border-left" />
 
@@ -157,7 +165,13 @@ const SubFolder = ({el, setFolderIcon, fakeData}) => {
         children.length > 0 &&
         isExpanded &&
         children.map(el => (
-          <SubFolder key={el.id} fakeData={children} setFolderIcon={setFolderIcon} el={el}></SubFolder>
+          <SubFolder
+            key={el.id}
+            fakeData={children}
+            selectedItem={selectedItem}
+            setSelection={setSelection}
+            setFolderIcon={setFolderIcon}
+            el={el}></SubFolder>
         ))}
     </div>
   );

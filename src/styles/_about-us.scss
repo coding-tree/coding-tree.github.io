@@ -110,6 +110,7 @@
         p {
           margin-left: 0.5rem;
         }
+
         .border-left {
           width: 30px;
           height: 1px;
@@ -133,6 +134,11 @@
           margin-right: 0.5rem;
           cursor: pointer;
         }
+      }
+      .folder-selected {
+        color: $white-color;
+        background-color: $button-color;
+        font-weight: bold;
       }
       .border-top {
         position: absolute;
