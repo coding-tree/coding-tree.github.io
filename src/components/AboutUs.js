@@ -45,7 +45,7 @@ const fakeData = [
         kind: 'folder',
         name: 'Biały Pas',
         children: [
-          {id: 1, kind: 'person', name: 'Arkadiusz Świołko'},
+          {id: 1, kind: 'person', name: 'Arkadiusz Świokło'},
           {id: 2, kind: 'person', name: 'Bartosz Kamiński'},
           {id: 3, kind: 'person', name: 'Paweł Kochowicz'},
           {id: 4, kind: 'person', name: 'Paweł Marciniak'},
