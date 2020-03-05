@@ -7,10 +7,12 @@ ADD package.json .
 ADD package-lock.json .
 RUN npm install
 
-ADD . .
+ADD src src
+ADD public public
 ENV REACT_APP_GIT_BRANCH=${git_branch}
 ENV REACT_APP_GIT_COMMIT=${git_commit}
 RUN npm run build
 
 FROM nginx
+COPY nginx.conf /etc/nginx/nginx.conf
 COPY --from=builder /app/build /usr/share/nginx/html
