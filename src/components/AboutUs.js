@@ -58,6 +58,8 @@ const fakeData = [
 
 const AboutUs = () => {
   const [fakePath, setFakePath] = useState(`C:\\Coding Tree\\Czarny Pas\\Damian Ospara `);
+  const [selectedElement, setSelectedElement] = useState(null);
+
   return (
     <section id="about-us">
       <Navigation></Navigation>
@@ -88,12 +90,18 @@ const AboutUs = () => {
           <div className="box-content">
             {/*  LEFT BOX */}
             <div className="box-folders">
-              <Folders></Folders>
+              <Folders setSelectedElement={setSelectedElement}></Folders>
             </div>
 
             {/* RIGHT BOX */}
             <div className="box-info">
-              <h1>AVATAR</h1>
+              {selectedElement && (
+                <div>
+                  <h3>
+                    {selectedElement.kind}: {selectedElement.name}
+                  </h3>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -104,7 +112,7 @@ const AboutUs = () => {
 
 export default AboutUs;
 
-const Folders = () => {
+const Folders = ({setSelectedElement}) => {
   const [selectedItem, setSelection] = useState(null);
   const setFolderIcon = isVisible => {
     return isVisible ? '-' : '+';
@@ -121,13 +129,14 @@ const Folders = () => {
           selectedItem={selectedItem}
           setSelection={setSelection}
           setFolderIcon={setFolderIcon}
+          setSelectedElement={setSelectedElement}
           el={el}></SubFolder>
       ))}
     </div>
   );
 };
 
-const SubFolder = ({el, setFolderIcon, fakeData, selectedItem, setSelection}) => {
+const SubFolder = ({el, setFolderIcon, fakeData, selectedItem, setSelection, setSelectedElement}) => {
   const [isExpanded, setExpand] = useState(false);
   const {id, name, kind, children} = el;
 
@@ -138,7 +147,7 @@ const SubFolder = ({el, setFolderIcon, fakeData, selectedItem, setSelection}) =>
 
   const handleFolderClick = e => {
     const elem = e.currentTarget;
-    console.log(el);
+    setSelectedElement(el);
     if (selectedItem && selectedItem !== elem) selectedItem.lastElementChild.classList.remove('folder-selected');
     setSelection(elem);
     setExpand(!isExpanded);
@@ -171,6 +180,7 @@ const SubFolder = ({el, setFolderIcon, fakeData, selectedItem, setSelection}) =>
             selectedItem={selectedItem}
             setSelection={setSelection}
             setFolderIcon={setFolderIcon}
+            setSelectedElement={setSelectedElement}
             el={el}></SubFolder>
         ))}
     </div>
