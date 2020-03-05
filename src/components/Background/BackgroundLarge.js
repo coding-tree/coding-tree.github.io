@@ -7,6 +7,9 @@ const Background = () => {
     loop: true,
     autoplay: true,
     animationData: backgroundLarge.default,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice',
+    },
   };
   return <Lottie isClickToPauseDisabled={true} speed={1} options={options}></Lottie>;
 };

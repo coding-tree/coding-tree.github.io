@@ -10,7 +10,7 @@ function Navigation() {
         </NavLink>
       </div>
       <h1>
-        <img src="/logo.svg" alt="" />
+        <img src="/logo_homepage.svg" alt="" />
       </h1>
       <div className="right">
         <NavLink exact strict to="/o-nas">

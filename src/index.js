@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-// import '@fortawesome/fontawesome-free/css/regular.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 import {unregister} from './serviceWorker';
 import {BrowserRouter} from 'react-router-dom';
 
 window.buildDetails = {
   commit: process.env.REACT_APP_GIT_COMMIT,
-  branch: process.env.REACT_APP_GIT_BRANCH
-}
+  branch: process.env.REACT_APP_GIT_BRANCH,
+};
 
 ReactDOM.render(
   <BrowserRouter>
