@@ -6,6 +6,19 @@ const AboutUs = () => {
   const [fakePath, setFakePath] = useState(`C:\\Coding Tree\\Czarny Pas\\Damian Ospara `);
   const [selectedElement, setSelectedElement] = useState(null);
 
+  const updateFolderStructure = (elem, currentPath) => {
+    const updatedChildren =
+      elem.children && elem.children.map(el => updateFolderStructure(el, currentPath + '\\' + elem.name));
+
+    return {
+      ...elem,
+      path: currentPath + '\\' + elem.name,
+      children: updatedChildren,
+    };
+  };
+
+  console.log(updateFolderStructure(folderStructure[0], 'C:'));
+
   return (
     <section id="about-us">
       <Navigation></Navigation>
