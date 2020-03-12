@@ -2,9 +2,56 @@ import React, {useState, useEffect} from 'react';
 import Navigation from './Navigation';
 import folderStructure from '../data/folderStructure.json';
 
+const lightTheme = {
+  '--main-color': '#7f2538',
+  '--background-color': '#fff',
+  '--breadcrump-color': '#f1f3f4',
+  '--font-color': '#000',
+  '--border-color': '#707070',
+  '--folder-color': '#df8230',
+  '--text-color': '#a3a3a3',
+  '--box-font': 'Nunito Sans',
+};
+
+const darkTheme = {
+  '--main-color': '#fff',
+  '--background-color': '#353535',
+  '--breadcrump-color': '#4B4B4B',
+  '--font-color': '#fff',
+  '--border-color': '#707070',
+  '--folder-color': '#33aacf',
+  '--text-color': '#fff',
+  '--box-font': 'Arial',
+};
+
 const AboutUs = () => {
-  const [fakePath, setFakePath] = useState(`C:\\Coding Tree\\Czarny Pas\\Damian Ospara `);
   const [selectedElement, setSelectedElement] = useState(null);
+  const [motive, toggleMotive] = useState(lightTheme);
+  const [folders, updateFolders] = useState(null);
+
+  const updateFolderStructure = (elem, currentPath) => {
+    const updatedChildren =
+      elem.children && elem.children.map(el => updateFolderStructure(el, currentPath + '\\' + elem.name));
+
+    return {
+      ...elem,
+      path: currentPath + '\\' + elem.name,
+      children: updatedChildren,
+    };
+  };
+
+  const removeSelection = e => {
+    e.target.className === 'box-folders' && setSelectedElement(null);
+  };
+
+  const changeMotive = () => {
+    const newTheme = motive === lightTheme ? darkTheme : lightTheme;
+    return toggleMotive(newTheme);
+  };
+
+  useEffect(() => {
+    updateFolders([updateFolderStructure(folderStructure[0], 'C:')]);
+  }, []);
 
   return (
     <section id="about-us">
@@ -14,7 +61,7 @@ const AboutUs = () => {
       <div className="background">{/* <BackgroundLarge></BackgroundLarge> */}</div>
 
       {/* // * BOX */}
-      <div className="box">
+      <div onClick={e => removeSelection(e)} style={motive} className="box">
         <img src="box.svg" alt="" />
 
         <div className="box-wrapper">
@@ -24,11 +71,13 @@ const AboutUs = () => {
             </div>
             <div className="box-path-breadcrumb">
               <i className="fas fa-folder"></i>
-              <h5>{fakePath}</h5>
+              <h5>{(selectedElement && selectedElement.path) || 'C:\\'}</h5>
             </div>
+
+            {/* // * CHANGE MOTIVE */}
             <div>
-              <div className="slider-background">
-                <button className="slider-button"></button>
+              <div onClick={changeMotive} className="slider-background">
+                <button style={{marginLeft: motive === lightTheme ? '2px' : '22px'}} className="slider-button"></button>
               </div>
               <input hidden type="checkbox" />
               <h5>Przełącz motyw</h5>
@@ -38,7 +87,12 @@ const AboutUs = () => {
           <div className="box-content">
             {/*  LEFT BOX */}
             <div className="box-folders">
-              <Folders folderStructure={folderStructure} setSelectedElement={setSelectedElement}></Folders>
+              {folders && (
+                <Folders
+                  folderStructure={folders}
+                  selectedElement={selectedElement}
+                  setSelectedElement={setSelectedElement}></Folders>
+              )}
             </div>
 
             {/* RIGHT BOX */}
@@ -70,19 +124,7 @@ const AboutUs = () => {
 export default AboutUs;
 
 const ProfileDetail = ({profil}) => {
-  const {
-    name,
-    landscape,
-    github,
-    fb,
-    dateOfBirth,
-    stack,
-    stackOverflow,
-    twitter,
-    linkedIn,
-    portfolio,
-    description,
-  } = profil;
+  const {name, github, fb, dateOfBirth, stack, stackOverflow, twitter, linkedIn, portfolio, description} = profil;
 
   const date = new Date().getFullYear();
 
@@ -93,7 +135,7 @@ const ProfileDetail = ({profil}) => {
   return (
     <div>
       <div className="avatar">
-        <img src={`avatars/${landscape}.svg`} alt="" />
+        <img src={`avatars/${name} - Landscape.svg`} alt="" />
       </div>
       <div className="profile">
         <div className="profile-name">
@@ -161,14 +203,15 @@ const FolderDetail = ({name, items = []}) => {
   );
 };
 
-const Folders = ({setSelectedElement, folderStructure}) => {
+const Folders = ({setSelectedElement, selectedElement, folderStructure}) => {
   const [selectedItem, setSelection] = useState(null);
   const setFolderIcon = isVisible => {
     return isVisible ? '-' : '+';
   };
   useEffect(() => {
-    selectedItem && selectedItem.lastElementChild.classList.add('folder-selected');
-  }, [selectedItem]);
+    selectedElement && selectedItem && selectedItem.lastElementChild.classList.add('folder-selected');
+    !selectedElement && selectedItem && selectedItem.lastElementChild.classList.remove('folder-selected');
+  }, [selectedItem, selectedElement]);
   return (
     <div>
       {folderStructure.map(el => (
@@ -197,6 +240,7 @@ const SubFolder = ({el, setFolderIcon, folderStructure, selectedItem, setSelecti
   const handleFolderClick = e => {
     const elem = e.currentTarget;
     setSelectedElement(el);
+
     if (selectedItem && selectedItem !== elem) selectedItem.lastElementChild.classList.remove('folder-selected');
     setSelection(elem);
     setExpand(!isExpanded);
@@ -215,7 +259,7 @@ const SubFolder = ({el, setFolderIcon, folderStructure, selectedItem, setSelecti
             {setFolderIcon(isExpanded)}
           </div>
         )}
-        {kind === 'folder' ? <i className="fas fa-folder"></i> : <img src={`avatars/${avatar}.svg`} />}
+        {kind === 'folder' ? <i className="fas fa-folder"></i> : <img src={`avatars/${avatar || name}.svg`} />}
         <p> {name} </p>
       </div>
 

@@ -1,5 +1,5 @@
 #about-us {
-  background-color: $button-color;
+  background-color: $button-color; // Temporarly
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -17,9 +17,9 @@
 .box {
   position: relative;
   margin-top: 3rem;
-
+  color: var(--font-color);
   font: {
-    family: $box-font;
+    family: var(--box-font);
   }
   &-wrapper {
     display: flex;
@@ -37,7 +37,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    background: $white-color;
+    background: var(--background-color);
     min-height: 50px;
     margin-bottom: 1rem;
     border-radius: 10px;
@@ -51,15 +51,15 @@
     &-breadcrumb {
       display: flex;
       align-items: center;
-      background-color: $box-breadcrumb;
+      background-color: var(--breadcrump-color);
       width: 100%;
       height: 40px;
       i {
-        color: $leaf-color;
+        color: var(--folder-color);
         padding-right: 15px;
-        -webkit-text-fill-color: $leaf-color;
+        -webkit-text-fill-color: var(--folder-color);
         -webkit-text-stroke-width: 1px;
-        -webkit-text-stroke-color: black;
+        -webkit-text-stroke-color: var(--font-color);
       }
     }
   }
@@ -67,7 +67,7 @@
     display: flex;
   }
   &-folders {
-    background-color: $white-color;
+    background-color: var(--background-color);
     width: 50%;
     margin-right: 0.5rem;
     border-radius: 10px;
@@ -103,9 +103,9 @@
         i {
           position: relative;
           z-index: 10;
-          -webkit-text-fill-color: $leaf-color;
+          -webkit-text-fill-color: var(--folder-color);
           -webkit-text-stroke-width: 1px;
-          -webkit-text-stroke-color: black;
+          -webkit-text-stroke-color: var(--font-color);
         }
         p {
           margin-left: 0.2rem;
@@ -115,7 +115,7 @@
         .border-left {
           width: 30px;
           height: 1px;
-          border-top: 1px dotted grey;
+          border-top: 1px dotted var(--border-color);
           position: absolute;
           left: 0.5rem;
 
@@ -130,15 +130,15 @@
           justify-content: center;
           align-items: center;
           font-size: 1rem;
-          background-color: $white-color;
-          border: 1px solid #707070;
+          background-color: var(--background-color);
+          border: 1px solid;
           margin-right: 0.5rem;
           cursor: pointer;
         }
       }
       .folder-selected {
-        color: $white-color;
-        background-color: $button-color;
+        color: var(--background-color);
+        background-color: var(--main-color);
         font-weight: bold;
       }
       .border-top {
@@ -147,7 +147,7 @@
         width: 1px;
         left: 0.5rem;
         z-index: 0;
-        border-left: 1px dotted grey;
+        border-left: 1px dotted var(--border-color);
       }
     }
     .parent-folder {
@@ -157,7 +157,7 @@
   }
   &-info {
     width: 50%;
-    background-color: $white-color;
+    background-color: var(--background-color);
     margin-left: 0.5rem;
     border-radius: 10px;
     max-height: 100%;
@@ -184,11 +184,11 @@
       &-social {
         i {
           font-size: 1.4rem;
-          color: $button-color;
+          color: var(--main-color);
           transition: 0.2s ease-in-out;
           margin-left: 0.3rem;
           &:hover {
-            color: $leaf-color;
+            color: var(--folder-color);
             transition: 0.2s ease-in-out;
           }
         }
@@ -196,7 +196,7 @@
       &-age,
       &-stack,
       &-description {
-        color: $profile-color;
+        color: var(--text-color);
         font-size: 0.8rem;
         font-weight: bold;
         margin-bottom: 0.5rem;
@@ -214,11 +214,17 @@
   width: 40px;
   height: 20px;
   border-radius: 20px;
-  background-color: $leaf-color;
+  background-color: var(--folder-color);
+  margin-right: 0.5rem;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
 }
 .slider-button {
   border-radius: 20px;
-  margin-left: 2px;
   height: 16px;
   width: 16px;
+  outline: none;
+  transition: 0.3s ease-in-out;
+  border: none;
+  cursor: pointer;
 }
