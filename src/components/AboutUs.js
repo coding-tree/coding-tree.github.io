@@ -10,16 +10,18 @@ const lightTheme = {
   '--border-color': '#707070',
   '--folder-color': '#df8230',
   '--text-color': '#a3a3a3',
+  '--box-font': 'Nunito Sans',
 };
 
 const darkTheme = {
   '--main-color': '#fff',
-  '--background-color': '#000',
-  '--breadcrump-color': '#f1f3f4',
+  '--background-color': '#353535',
+  '--breadcrump-color': '#4B4B4B',
   '--font-color': '#fff',
   '--border-color': '#707070',
-  '--folder-color': '#df8230',
+  '--folder-color': '#33aacf',
   '--text-color': '#fff',
+  '--box-font': 'Arial',
 };
 
 const AboutUs = () => {
@@ -122,19 +124,7 @@ const AboutUs = () => {
 export default AboutUs;
 
 const ProfileDetail = ({profil}) => {
-  const {
-    name,
-    landscape,
-    github,
-    fb,
-    dateOfBirth,
-    stack,
-    stackOverflow,
-    twitter,
-    linkedIn,
-    portfolio,
-    description,
-  } = profil;
+  const {name, github, fb, dateOfBirth, stack, stackOverflow, twitter, linkedIn, portfolio, description} = profil;
 
   const date = new Date().getFullYear();
 
@@ -145,7 +135,7 @@ const ProfileDetail = ({profil}) => {
   return (
     <div>
       <div className="avatar">
-        <img src={`avatars/${landscape}.svg`} alt="" />
+        <img src={`avatars/${name} - Landscape.svg`} alt="" />
       </div>
       <div className="profile">
         <div className="profile-name">
@@ -269,7 +259,7 @@ const SubFolder = ({el, setFolderIcon, folderStructure, selectedItem, setSelecti
             {setFolderIcon(isExpanded)}
           </div>
         )}
-        {kind === 'folder' ? <i className="fas fa-folder"></i> : <img src={`avatars/${avatar}.svg`} />}
+        {kind === 'folder' ? <i className="fas fa-folder"></i> : <img src={`avatars/${avatar || name}.svg`} />}
         <p> {name} </p>
       </div>
 

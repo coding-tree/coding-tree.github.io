@@ -19,7 +19,7 @@
   margin-top: 3rem;
   color: var(--font-color);
   font: {
-    family: $box-font;
+    family: var(--box-font);
   }
   &-wrapper {
     display: flex;
@@ -216,10 +216,15 @@
   border-radius: 20px;
   background-color: var(--folder-color);
   margin-right: 0.5rem;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
 }
 .slider-button {
   border-radius: 20px;
   height: 16px;
   width: 16px;
   outline: none;
+  transition: 0.3s ease-in-out;
+  border: none;
+  cursor: pointer;
 }
