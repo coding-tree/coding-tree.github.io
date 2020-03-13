@@ -99,5 +99,106 @@
         ]
       }
     ]
+  },
+  {
+    "id": 2,
+    "name": "Coding Monads",
+    "kind": "folder",
+    "children": [
+      {
+        "id": 1,
+        "kind": "folder",
+        "name": "Czarny Pas",
+        "children": [
+          {
+            "id": 1,
+            "kind": "person",
+            "name": "Damian Ospara",
+            "github": "https://github.com/damian0o",
+            "fb": "https://www.facebook.com/damian.ospara",
+            "stackOverflow": "https://stackoverflow.com/",
+            "twitter": "https://twitter.com/home",
+            "linkedIn": "https://www.linkedin.com/in/damian-ospara-2b615b35/",
+            "portfolio": "https://codingtree.pl",
+            "landscape": "Damian Ospara - Landscape",
+            "dateOfBirth": 1990,
+            "stack": [
+              {"id": 1, "title": "JavaScript"},
+              {"id": 2, "title": "Node.js"},
+              {"id": 3, "title": "SCALA"},
+              {"id": 4, "title": "Spark"}
+            ],
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat ex consectetur harum non laudantium deserunt, ratione est corrupti porro nesciunt enim minima sed modi repudiandae atque, reiciendis, ipsam adipisci. Sed. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto culpa tempore recusandae, numquam ut ex temporibus nam excepturi, laudantium dolores atque consequatur optio quos dolor modi? Quisquam maiores animi dolore?"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "kind": "folder",
+        "name": "Brązowy Pas",
+        "children": [
+          {"id": 1, "kind": "person", "name": "Józef Rzadkosz"},
+          {"id": 2, "kind": "person", "name": "Jakub Wojtoń"}
+        ]
+      },
+      {
+        "id": 3,
+        "kind": "folder",
+        "name": "Zielony Pas"
+      },
+      {
+        "id": 4,
+        "kind": "folder",
+        "name": "Żółty Pas",
+        "children": [
+          {"id": 1, "kind": "person", "name": "Kazimierz Bagrowski"},
+          {
+            "id": 2,
+            "kind": "person",
+            "name": "Emil Sankowski",
+            "github": "https://github.com/icemanek",
+            "linkedIn": "https://www.linkedin.com/in/emil-sankowski/",
+            "stackOverflow": "https://stackoverflow.com/users/9453376/icemanek",
+            "dateOfBirth": 1991,
+            "stack": [
+              {"id": 1, "title": "Java"},
+              {"id": 2, "title": "Spring"},
+              {"id": 3, "title": "Hibernate"},
+              {"id": 4, "title": "jQuery"},
+              {"id": 5, "title": "JSP"},
+              {"id": 6, "title": "Javascript"},
+              {"id": 7, "title": "Angular"},
+              {"id": 8, "title": "Windows"},
+              {"id": 9, "title": "Linux"},
+              {"id": 10, "title": "Groovy"},
+              {"id": 11, "title": "Flutter"}
+            ],
+            "description": "Zawodowo zajmuje się tworzeniem formularzy dla firm (głównie banków) takich jak: założenie konta online, wzięcie pożyczki online, wypożyczenie auta online itp. Po pracy zajmuje się tworzeniem własnych projektów, które kiedyś mam nadzieje wyjdą na świat. Lubię czytać o nowych technologiach, które prawie codziennie Nas zalewają. Moją pasją są motocykle więc i w tym temacie staram się prężnie rozwijać."
+          },
+          {"id": 3, "kind": "person", "name": "Łukasz Strobejko"},
+          {"id": 4, "kind": "person", "name": "Paweł Wojtkiewicz"},
+          {"id": 5, "kind": "person", "name": "Jędrzej Paulus"}
+        ]
+      },
+      {
+        "id": 5,
+        "kind": "folder",
+        "name": "Niebieski Pas",
+        "children": []
+      },
+      {
+        "id": 6,
+        "kind": "folder",
+        "name": "Biały Pas",
+        "children": [
+          {"id": 1, "kind": "person", "avatar": "Woman", "name": "Angelika Paterak"},
+          {"id": 2, "kind": "person", "avatar": "Man", "name": "Arkadiusz Świokło"},
+          {"id": 3, "kind": "person", "avatar": "Man", "name": "Bartosz Kamiński"},
+          {"id": 4, "kind": "person", "avatar": "Man", "name": "Paweł Kochowicz"},
+          {"id": 5, "kind": "person", "avatar": "Man", "name": "Paweł Marciniak"},
+          {"id": 6, "kind": "person", "avatar": "Man", "name": "Piotr Rasztemborski"}
+        ]
+      }
+    ]
   }
 ]
