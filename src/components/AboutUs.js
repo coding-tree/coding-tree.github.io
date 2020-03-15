@@ -213,11 +213,11 @@ const Folders = ({setSelectedElement, selectedElement, folderStructure}) => {
     !selectedElement && selectedItem && selectedItem.lastElementChild.classList.remove('folder-selected');
   }, [selectedItem, selectedElement]);
   return (
-    <div>
+    <div className="folders">
       {folderStructure.children.map(el => (
         <SubFolder
           key={el.id}
-          folderStructure={folderStructure}
+          folderStructure={folderStructure.children}
           selectedItem={selectedItem}
           setSelection={setSelection}
           setFolderIcon={setFolderIcon}
@@ -236,6 +236,8 @@ const SubFolder = ({el, setFolderIcon, folderStructure, selectedItem, setSelecti
     height: folderStructure.length === id && kind === 'person' && '30px',
     top: kind === 'person' && '-15px',
   };
+
+  console.log(folderStructure.length);
 
   const handleFolderClick = e => {
     const elem = e.currentTarget;
