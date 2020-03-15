@@ -50,7 +50,7 @@ const AboutUs = () => {
   };
 
   useEffect(() => {
-    updateFolders([updateFolderStructure(folderStructure[0], 'C:')]);
+    updateFolders(updateFolderStructure(folderStructure, 'C:'));
   }, []);
 
   return (
@@ -214,7 +214,7 @@ const Folders = ({setSelectedElement, selectedElement, folderStructure}) => {
   }, [selectedItem, selectedElement]);
   return (
     <div>
-      {folderStructure.map(el => (
+      {folderStructure.children.map(el => (
         <SubFolder
           key={el.id}
           folderStructure={folderStructure}

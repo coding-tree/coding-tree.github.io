@@ -1,4 +1,8 @@
-[
+{
+    "id": 1,
+    "name": "C://",
+    "kind": "folder",
+    "children": [
   {
     "id": 1,
     "name": "Coding Tree",
@@ -201,4 +205,4 @@
       }
     ]
   }
-]
+]}
