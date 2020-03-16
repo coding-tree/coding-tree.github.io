@@ -27,15 +27,15 @@ const darkTheme = {
 const AboutUs = () => {
   const [selectedElement, setSelectedElement] = useState(null);
   const [motive, toggleMotive] = useState(lightTheme);
+  
   const [folders, updateFolders] = useState(null);
 
-  const updateFolderStructure = (elem, currentPath) => {
-    const updatedChildren =
-      elem.children && elem.children.map(el => updateFolderStructure(el, currentPath + '\\' + elem.name));
-
+  const updateFolderStructure = (elem, parentPath) => {
+    const currentPath = (parentPath && parentPath + '\\' + elem.name) || elem.name;
+    const updatedChildren = elem.children && elem.children.map(el => updateFolderStructure(el, currentPath));
     return {
       ...elem,
-      path: currentPath + '\\' + elem.name,
+      path: currentPath,
       children: updatedChildren,
     };
   };
@@ -50,7 +50,7 @@ const AboutUs = () => {
   };
 
   useEffect(() => {
-    updateFolders(updateFolderStructure(folderStructure, 'C:'));
+    updateFolders(updateFolderStructure(folderStructure));
   }, []);
 
   return (
@@ -71,7 +71,7 @@ const AboutUs = () => {
             </div>
             <div className="box-path-breadcrumb">
               <i className="fas fa-folder"></i>
-              <h5>{(selectedElement && selectedElement.path) || 'C:\\'}</h5>
+              <h5>{(selectedElement && selectedElement.path) || (folders && folders.path)}</h5>
             </div>
 
             {/* // * CHANGE MOTIVE */}
