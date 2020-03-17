@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Navigation from './Navigation';
 import folderStructure from '../data/folderStructure.json';
+import DayNight from './DayNight';
 
 const lightTheme = {
   '--main-color': '#7f2538',
@@ -27,15 +28,15 @@ const darkTheme = {
 const AboutUs = () => {
   const [selectedElement, setSelectedElement] = useState(null);
   const [motive, toggleMotive] = useState(lightTheme);
+  const [dateTime, setDateTime] = useState('day');
   const [folders, updateFolders] = useState(null);
 
-  const updateFolderStructure = (elem, currentPath) => {
-    const updatedChildren =
-      elem.children && elem.children.map(el => updateFolderStructure(el, currentPath + '\\' + elem.name));
-
+  const updateFolderStructure = (elem, parentPath) => {
+    const currentPath = (parentPath && parentPath + '\\' + elem.name) || elem.name;
+    const updatedChildren = elem.children && elem.children.map(el => updateFolderStructure(el, currentPath));
     return {
       ...elem,
-      path: currentPath + '\\' + elem.name,
+      path: currentPath,
       children: updatedChildren,
     };
   };
@@ -46,11 +47,13 @@ const AboutUs = () => {
 
   const changeMotive = () => {
     const newTheme = motive === lightTheme ? darkTheme : lightTheme;
+    const newDateTime = dateTime === 'day' ? 'dayToNight' : 'nightToDay';
+    setDateTime(newDateTime);
     return toggleMotive(newTheme);
   };
 
   useEffect(() => {
-    updateFolders([updateFolderStructure(folderStructure[0], 'C:')]);
+    updateFolders(updateFolderStructure(folderStructure));
   }, []);
 
   return (
@@ -58,7 +61,9 @@ const AboutUs = () => {
       <Navigation></Navigation>
 
       {/* // * BACKGROUND IMAGE */}
-      <div className="background">{/* <BackgroundLarge></BackgroundLarge> */}</div>
+      <div className="background">
+        <DayNight dateTime={dateTime} setDateTime={setDateTime}></DayNight>
+      </div>
 
       {/* // * BOX */}
       <div onClick={e => removeSelection(e)} style={motive} className="box">
@@ -71,12 +76,14 @@ const AboutUs = () => {
             </div>
             <div className="box-path-breadcrumb">
               <i className="fas fa-folder"></i>
-              <h5>{(selectedElement && selectedElement.path) || 'C:\\'}</h5>
+              <h5>{(selectedElement && selectedElement.path) || (folders && folders.path)}</h5>
             </div>
 
             {/* // * CHANGE MOTIVE */}
             <div>
-              <div onClick={changeMotive} className="slider-background">
+              <div
+                onClick={() => dateTime !== 'dayToNight' && dateTime !== 'nightToDay' && changeMotive()}
+                className="slider-background">
                 <button style={{marginLeft: motive === lightTheme ? '2px' : '22px'}} className="slider-button"></button>
               </div>
               <input hidden type="checkbox" />
@@ -213,11 +220,11 @@ const Folders = ({setSelectedElement, selectedElement, folderStructure}) => {
     !selectedElement && selectedItem && selectedItem.lastElementChild.classList.remove('folder-selected');
   }, [selectedItem, selectedElement]);
   return (
-    <div>
-      {folderStructure.map(el => (
+    <div className="folders">
+      {folderStructure.children.map(el => (
         <SubFolder
           key={el.id}
-          folderStructure={folderStructure}
+          folderStructure={folderStructure.children}
           selectedItem={selectedItem}
           setSelection={setSelection}
           setFolderIcon={setFolderIcon}

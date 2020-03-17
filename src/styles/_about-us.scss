@@ -1,5 +1,4 @@
 #about-us {
-  background-color: $button-color; // Temporarly
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -11,12 +10,13 @@
     top: 0;
     left: 0;
     width: 100vw;
+    z-index: -1;
   }
 }
 
 .box {
   position: relative;
-  margin-top: 3rem;
+  margin-top: 10rem;
   color: var(--font-color);
   font: {
     family: var(--box-font);
@@ -75,6 +75,15 @@
     height: 563px;
     padding: 1rem;
     overflow-y: auto;
+    .folders {
+      > .folder .border-top {
+        top: 10px;
+        height: 100%;
+      }
+    }
+    .folders > .folder {
+      margin-left: 0;
+    }
     .folder {
       position: relative;
       z-index: 1;
@@ -82,10 +91,6 @@
       justify-content: center;
       flex-direction: column;
       margin-left: 1.4rem;
-      &:first-child {
-        margin-left: 0;
-      }
-
       &-kind {
         position: relative;
         display: flex;
