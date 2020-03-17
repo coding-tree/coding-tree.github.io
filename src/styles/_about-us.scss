@@ -1,5 +1,4 @@
 #about-us {
-  background-color: $button-color; // Temporarly
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -11,12 +10,13 @@
     top: 0;
     left: 0;
     width: 100vw;
+    z-index: -1;
   }
 }
 
 .box {
   position: relative;
-  margin-top: 3rem;
+  margin-top: 10rem;
   color: var(--font-color);
   font: {
     family: var(--box-font);

@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Navigation from './Navigation';
 import folderStructure from '../data/folderStructure.json';
+import DayNight from './DayNight';
 
 const lightTheme = {
   '--main-color': '#7f2538',
@@ -27,7 +28,7 @@ const darkTheme = {
 const AboutUs = () => {
   const [selectedElement, setSelectedElement] = useState(null);
   const [motive, toggleMotive] = useState(lightTheme);
-  
+  const [dateTime, setDateTime] = useState('day');
   const [folders, updateFolders] = useState(null);
 
   const updateFolderStructure = (elem, parentPath) => {
@@ -46,6 +47,8 @@ const AboutUs = () => {
 
   const changeMotive = () => {
     const newTheme = motive === lightTheme ? darkTheme : lightTheme;
+    const newDateTime = dateTime === 'day' ? 'dayToNight' : 'nightToDay';
+    setDateTime(newDateTime);
     return toggleMotive(newTheme);
   };
 
@@ -58,7 +61,9 @@ const AboutUs = () => {
       <Navigation></Navigation>
 
       {/* // * BACKGROUND IMAGE */}
-      <div className="background">{/* <BackgroundLarge></BackgroundLarge> */}</div>
+      <div className="background">
+        <DayNight dateTime={dateTime} setDateTime={setDateTime}></DayNight>
+      </div>
 
       {/* // * BOX */}
       <div onClick={e => removeSelection(e)} style={motive} className="box">
@@ -76,7 +81,9 @@ const AboutUs = () => {
 
             {/* // * CHANGE MOTIVE */}
             <div>
-              <div onClick={changeMotive} className="slider-background">
+              <div
+                onClick={() => dateTime !== 'dayToNight' && dateTime !== 'nightToDay' && changeMotive()}
+                className="slider-background">
                 <button style={{marginLeft: motive === lightTheme ? '2px' : '22px'}} className="slider-button"></button>
               </div>
               <input hidden type="checkbox" />
@@ -236,8 +243,6 @@ const SubFolder = ({el, setFolderIcon, folderStructure, selectedItem, setSelecti
     height: folderStructure.length === id && kind === 'person' && '30px',
     top: kind === 'person' && '-15px',
   };
-
-  console.log(folderStructure.length);
 
   const handleFolderClick = e => {
     const elem = e.currentTarget;
