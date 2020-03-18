@@ -9,7 +9,7 @@ networks:
 services:
 
   __BRANCH_NAME__:
-    image: 102421067040.dkr.ecr.eu-west-1.amazonaws.com/coding-tree-homepage:__BRANCH_NAME__
+    image: 102421067040.dkr.ecr.eu-central-1.amazonaws.com/coding-tree-homepage:__BRANCH_NAME__
     networks:
       - web
     labels:
