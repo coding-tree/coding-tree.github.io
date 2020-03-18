@@ -6,8 +6,8 @@ const WrapperContainer = lazy(() => import('./WrapperContainer'));
 const MainContent = lazy(() => import('./MainContent'));
 const Header = lazy(() => import('./Header'));
 const BackgroundContainer = lazy(() => import('./Background/BackgroundContainer'));
-const TreeItems = lazy(() => import('./TreeItems'));
-const TreeItem = lazy(() => import('./TreeItem'));
+const TreeItems = lazy(() => import('./Tree/TreeItems'));
+const TreeItem = lazy(() => import('./Tree/TreeItem'));
 // * Temporarily turned off
 // const Gallery = lazy(() => import('./Gallery'));
 const Faq = lazy(() => import('./Faq'));

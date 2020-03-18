@@ -4,7 +4,7 @@ import {easeCubicInOut} from 'd3-ease';
 import {string, node, bool, object, array} from 'prop-types';
 
 const TreeItemModal = lazy(() => import('./TreeItemModal'));
-const Bird = lazy(() => import('./Birds'));
+const Bird = lazy(() => import('../Birds'));
 
 function TreeItem({title, children, top, left = 'initial', right = 'initial', isLeft, bird, rwd}) {
   const [isVisible, setVisibility] = useState(false);
