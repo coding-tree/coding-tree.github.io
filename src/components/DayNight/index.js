@@ -1,9 +1,11 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Lottie from 'react-lottie';
 import * as day from './day.json';
 import * as night from './night.json';
 import * as dayToNight from './day-to-night.json';
 import * as nightToDay from './night-to-day.json';
+
+import {string, func} from 'prop-types';
 
 const DayNight = ({dateTime, setDateTime}) => {
   const background = {
@@ -23,10 +25,8 @@ const DayNight = ({dateTime, setDateTime}) => {
     },
   };
 
-  console.log(dateTime);
-
   return (
-    <div className="App" style={{height: '100vh'}}>
+    <div className="background">
       <Lottie
         isClickToPauseDisabled={true}
         speed={1}
@@ -36,13 +36,17 @@ const DayNight = ({dateTime, setDateTime}) => {
             eventName: 'complete',
             callback: () =>
               setDateTime(prevState => {
-                console.log(prevState);
                 return prevState === 'dayToNight' ? 'night' : 'day';
               }),
           },
         ]}></Lottie>
     </div>
   );
+};
+
+DayNight.propTypes = {
+  dateTime: string.isRequired,
+  setDateTime: func.isRequired,
 };
 
 export default DayNight;
