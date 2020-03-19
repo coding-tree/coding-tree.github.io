@@ -5,15 +5,16 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 
 import Loading from "./components/Loading";
 
-const Home = lazy(() => import("./components/Home"));
+import Home from "./components/Home";
 const NotFound = lazy(() => import("./components/NotFound"));
 const Regulations = lazy(() => import("./components/Regulations"));
 
-function App() {
-  const calculateViewportHeight = () => {
-    let vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty("--vh", `${vh}px`);
-  };
+const calculateViewportHeight = () => {
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty("--vh", `${vh}px`);
+};
+
+function useWindowSize() {
   useEffect(() => {
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty("--vh", `${vh}px`);
@@ -22,6 +23,11 @@ function App() {
       window.removeEventListener("resize", calculateViewportHeight);
     };
   }, []);
+}
+
+function App() {
+  useWindowSize();
+
   return (
     <Suspense fallback={<Loading>Wczytywanie...</Loading>}>
       <Switch>
