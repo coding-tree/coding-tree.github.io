@@ -3,7 +3,7 @@ commit_short_hash=$(shell git rev-parse --short HEAD)
 image_name = coding-tree-homepage:$(branch_name)
 container_name = ct-homepage-$(branch_name)
 deployment_dir = apso:coding-tree
-aws_url_prefix = 102421067040.dkr.ecr.eu-west-1.amazonaws.com
+aws_url_prefix = 102421067040.dkr.ecr.eu-central-1.amazonaws.com
 
 build:
 	docker build --build-arg git_branch=$(branch_name) --build-arg git_commit=$(commit_short_hash) -t $(image_name) .
