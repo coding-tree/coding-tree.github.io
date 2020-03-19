@@ -1,11 +1,18 @@
+FROM node:10.17.0 AS dependencies
+WORKDIR /app
+ADD package.json .
+ADD package-lock.json .
+RUN npm install
+
 FROM node:10.17.0 AS builder
 ARG git_branch
 ARG git_commit
 
 WORKDIR /app
+
 ADD package.json .
 ADD package-lock.json .
-RUN npm install
+COPY --from=dependencies /app/node_modules /app/node_modules
 
 ADD src src
 ADD public public
