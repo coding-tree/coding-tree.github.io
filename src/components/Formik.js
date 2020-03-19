@@ -5,8 +5,7 @@ import * as emailjs from "emailjs-com";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import dev from "../config/dev";
-import prod from "../config/prod";
+import config from "../configuration";
 
 const Formik = withFormik({
   mapPropsToValues: ({ person, email, message }) => {
@@ -46,7 +45,7 @@ const Formik = withFormik({
     };
 
     emailjs
-      .send("gmail", dev.templateId, templateParams, dev.userId)
+      .send("gmail", config.templateId, templateParams, config.userId)
       .then(() => {
         resetForm();
         return toast.success("Wysłano pomyślnie!", toastOptions);

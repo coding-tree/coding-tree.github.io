@@ -14,7 +14,6 @@ function Home() {
         <SocialLink url={FACEBOOK_LINK} className="fa-facebook-square" />
         <SocialLink url={GITHHUB_LINK} className="fa-github-square" />
       </FindUs>
-      <Formik></Formik>
     </PageUnderConstruction>
   );
 }

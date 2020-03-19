@@ -1,0 +1,29 @@
+version: "3"
+
+networks:
+  web:
+    external: true
+  internal:
+    external: false
+
+services:
+
+  master:
+    image: 102421067040.dkr.ecr.eu-west-1.amazonaws.com/coding-tree-homepage:master
+    networks:
+      - web
+    labels:
+      - traefik.backend=coding-tree-homepage-master
+      - traefik.frontend.rule=HostRegexp:master.codingtree.pl
+      - traefik.docker.network=web
+      - traefik.port=80
+
+  develop:
+    image: 102421067040.dkr.ecr.eu-west-1.amazonaws.com/coding-tree-homepage:develop
+    networks:
+      - web
+    labels:
+      - traefik.backend=coding-tree-homepage-develop
+      - traefik.frontend.rule=HostRegexp:develop.codingtree.pl
+      - traefik.docker.network=web
+      - traefik.port=80
