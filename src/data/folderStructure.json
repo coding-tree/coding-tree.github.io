@@ -87,19 +87,16 @@
           "id": 5,
           "kind": "folder",
           "name": "Niebieski Pas",
-          "children": []
+          "children": [{"id": 1, "kind": "person", "avatar": "Woman", "name": "Angelika Paterak"}]
         },
         {
           "id": 6,
           "kind": "folder",
           "name": "Biały Pas",
           "children": [
-            {"id": 1, "kind": "person", "avatar": "Woman", "name": "Angelika Paterak"},
-            {"id": 2, "kind": "person", "avatar": "Man", "name": "Arkadiusz Świokło"},
-            {"id": 3, "kind": "person", "avatar": "Man", "name": "Bartosz Kamiński"},
-            {"id": 4, "kind": "person", "avatar": "Man", "name": "Paweł Kochowicz"},
-            {"id": 5, "kind": "person", "avatar": "Man", "name": "Paweł Marciniak"},
-            {"id": 6, "kind": "person", "avatar": "Man", "name": "Piotr Rasztemborski"}
+            {"id": 1, "kind": "person", "avatar": "Man", "name": "Arkadiusz Świokło"},
+            {"id": 2, "kind": "person", "avatar": "Man", "name": "Paweł Kochowicz"},
+            {"id": 3, "kind": "person", "avatar": "Man", "name": "Paweł Marciniak"}
           ]
         }
       ]
