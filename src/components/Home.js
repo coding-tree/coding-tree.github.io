@@ -9,7 +9,7 @@ const BackgroundContainer = lazy(() => import('./Background/BackgroundContainer'
 const TreeItems = lazy(() => import('./Tree/TreeItems'));
 const TreeItem = lazy(() => import('./Tree/TreeItem'));
 // * Temporarily turned off
-// const Gallery = lazy(() => import('./Gallery'));
+const Gallery = lazy(() => import('./Gallery'));
 const Faq = lazy(() => import('./Faq'));
 const FaqItem = lazy(() => import('./FaqItem'));
 const Footer = lazy(() => import('./Footer'));
@@ -120,7 +120,7 @@ function Home() {
       {/* //TODO: Gallery project */}
       {/* <Gallery rwd={rwd}></Gallery> */}
 
-      <Faq>
+      {/* <Faq>
         <FaqItem title="Lorem Ipsum ?">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente dignissimos, ipsa dolore aspernatur iusto
           aliquam tenetur fugit! Cum accusantium adipisci recusandae laudantium labore maxime voluptas. Odio,
@@ -133,7 +133,7 @@ function Home() {
           natus facilis unde aliquam voluptatibus, error numquam perferendis odit voluptate repudiandae tempore corporis
           cum temporibus exercitationem doloribus! Quaerat, maiores culpa.
         </FaqItem>
-      </Faq>
+      </Faq> */}
 
       <Footer></Footer>
 

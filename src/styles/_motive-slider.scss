@@ -1,0 +1,40 @@
+.motive-slider {
+  .slider-background {
+    position: relative;
+    align-items: center;
+    background-color: var(--folder-color);
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    height: 25px;
+    margin-right: 0.5rem;
+    transition: 0.3s ease-in-out;
+    width: 50px;
+  }
+  i {
+    position: absolute;
+    font-size: 0.6rem;
+    top: 53%;
+    transform: translateY(-50%);
+    color: var(--selected-color);
+  }
+  i.sun {
+    right: 6px;
+  }
+  i.moon {
+    left: 6px;
+  }
+
+  .slider-button {
+    position: relative;
+    background-color: var(--selected-color);
+    border-radius: 20px;
+    cursor: pointer;
+    height: 16px;
+    outline: none;
+    transition: 0.3s ease-in-out;
+    width: 16px;
+    z-index: 10;
+    border: none;
+  }
+}
