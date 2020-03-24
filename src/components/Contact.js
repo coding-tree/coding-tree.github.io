@@ -1,19 +1,26 @@
-import React, { useState } from "react";
+import React from "react";
 import DayNight from "./DayNight";
 import Navigation from "./Navigation";
 import Box from "./Box/Box";
-import { lightTheme } from "./themes";
 import BoxImage from "./Box/BoxImage";
 import BoxWrapper from "./Box/BoxWrapper";
 import BoxContent from "./Box/BoxContent";
 import MotiveSlider from "./MotiveSlider";
 import { Form } from "formik";
 import Input from "./Input";
+import { withTheme } from "./hoc/withTheme";
+import { withTimeOfDay } from "./hoc/withTimeOfDay";
 
-const Contact = ({ errors, isSubmitting }) => {
-  const [dateTime, setDateTime] = useState("day");
-  const [motive, toggleMotive] = useState(lightTheme);
-
+const Contact = ({
+  errors,
+  isSubmitting,
+  motive,
+  changeMotive,
+  theme,
+  dateTime,
+  setDateTime,
+  changeTimeOfDay
+}) => {
   const hasErrors =
     Object.entries(errors).length > 0 && errors.constructor === Object;
 
@@ -22,20 +29,16 @@ const Contact = ({ errors, isSubmitting }) => {
       <Navigation></Navigation>
       <DayNight dateTime={dateTime} setDateTime={setDateTime}></DayNight>
       <Box motive={motive}>
-        <BoxImage
-          motive={motive}
-          light="box.svg"
-          dark="box_dark.svg"
-        ></BoxImage>
+        <BoxImage theme={theme} light="box.svg" dark="box_dark.svg"></BoxImage>
         <BoxWrapper>
           <BoxContent>
             <div className="box-contact">
               <MotiveSlider
                 title="Przełącz motyw"
                 dateTime={dateTime}
-                setDateTime={setDateTime}
-                motive={motive}
-                toggleMotive={toggleMotive}
+                changeTimeOfDay={changeTimeOfDay}
+                theme={theme}
+                changeMotive={changeMotive}
               ></MotiveSlider>
               <div className="box-contact-description">
                 <h1>Kontakt</h1>
@@ -78,4 +81,4 @@ const Contact = ({ errors, isSubmitting }) => {
   );
 };
 
-export default Contact;
+export default withTimeOfDay(withTheme(Contact));

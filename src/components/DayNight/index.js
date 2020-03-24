@@ -1,28 +1,28 @@
-import React from 'react';
-import Lottie from 'react-lottie';
-import * as day from './day.json';
-import * as night from './night.json';
-import * as dayToNight from './day-to-night.json';
-import * as nightToDay from './night-to-day.json';
+import React from "react";
+import Lottie from "react-lottie";
+import * as day from "./day.json";
+import * as night from "./night.json";
+import * as dayToNight from "./day-to-night.json";
+import * as nightToDay from "./night-to-day.json";
 
-import {string, func} from 'prop-types';
+import { string, func } from "prop-types";
 
-const DayNight = ({dateTime, setDateTime}) => {
+const DayNight = ({ dateTime, setDateTime }) => {
   const background = {
     day,
     night,
     dayToNight,
-    nightToDay,
+    nightToDay
   };
 
   const options = {
-    loop: dateTime === 'day' || dateTime === 'night',
+    loop: dateTime === "day" || dateTime === "night",
     autoplay: true,
-    viewBox: '',
-    animationData: background[dateTime].default,
+    viewBox: "",
+    animationData: dateTime && background[dateTime].default,
     rendererSettings: {
-      preserveAspectRatio: 'xMidYMid slice',
-    },
+      preserveAspectRatio: "xMidYMid slice"
+    }
   };
 
   return (
@@ -33,20 +33,21 @@ const DayNight = ({dateTime, setDateTime}) => {
         options={options}
         eventListeners={[
           {
-            eventName: 'complete',
+            eventName: "complete",
             callback: () =>
               setDateTime(prevState => {
-                return prevState === 'dayToNight' ? 'night' : 'day';
-              }),
-          },
-        ]}></Lottie>
+                return prevState === "dayToNight" ? "night" : "day";
+              })
+          }
+        ]}
+      ></Lottie>
     </div>
   );
 };
 
 DayNight.propTypes = {
-  dateTime: string.isRequired,
-  setDateTime: func.isRequired,
+  dateTime: string,
+  setDateTime: func.isRequired
 };
 
 export default DayNight;
