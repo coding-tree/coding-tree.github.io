@@ -7,6 +7,8 @@ export const lightTheme = {
   "--border-color": "#000",
   "--folder-color": "#df8230",
   "--text-color": "#000",
+  "--white-color": "#fff",
+  "--social-bg-color": "#7f2538",
   "--box-font": "Nunito Sans"
 };
 
@@ -19,5 +21,7 @@ export const darkTheme = {
   "--border-color": "#fff",
   "--folder-color": "#fff1b9",
   "--text-color": "#e3dede",
+  "--white-color": "#fff",
+  "--social-bg-color": "#5E5E5F99",
   "--box-font": "Nunito Sans"
 };

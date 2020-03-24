@@ -1,11 +1,10 @@
 footer {
   position: absolute;
-
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: 0;
+  width: 100%;
   display: flex;
   justify-content: center;
+  margin: 2rem 0;
   color: $white-color;
   font: {
     size: 0.6rem;

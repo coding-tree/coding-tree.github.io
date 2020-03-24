@@ -2,20 +2,23 @@ aside {
   position: fixed;
   top: 30%;
   left: 0;
-  background-color: var(--folder-color);
+  background-color: var(--social-bg-color);
   display: flex;
   flex-direction: column;
-  box-shadow: 0 0 6px #000000aa;
+  box-shadow: 0 0 10px #000000aa;
   z-index: 9999;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
+  transition: 0.3s ease-in-out;
   a {
     cursor: pointer;
     padding: 1rem;
     text-decoration: none;
     color: var(--white-color);
-  }
-  i {
-    color: var(--white-color);
+    font-size: 1.5rem;
+    transition: 0.3s ease-in-out;
+    &:hover {
+      color: var(--folder-color);
+    }
   }
 }

@@ -2,6 +2,8 @@ import React, { lazy, Suspense, useEffect } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
 import "./styles/main.scss";
+
+import { ThemeProvider } from "./components/contexts/ThemeContext";
 import GalleryPage from "./components/GalleryPage";
 import Formik from "./components/Formik";
 import SocialLinks from "./components/SocialLinks";
@@ -25,7 +27,7 @@ function App() {
   }, []);
 
   return (
-    <React.Fragment>
+    <ThemeProvider>
       <Suspense
         fallback={
           <div>
@@ -43,7 +45,7 @@ function App() {
           <Redirect to="/404"></Redirect>
         </Switch>
       </Suspense>
-    </React.Fragment>
+    </ThemeProvider>
   );
 }
 

@@ -1,10 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { withTheme } from "./hoc/withTheme";
 
-const SocialLinks = ({ motive, theme }) => {
-  useEffect(() => {
-    console.log(motive, theme);
-  }, [motive]);
+const SocialLinks = ({ motive }) => {
   return (
     <aside style={motive}>
       <a

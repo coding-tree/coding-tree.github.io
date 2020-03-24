@@ -1,10 +1,11 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useContext, useEffect, useMemo } from "react";
 import { lightTheme, darkTheme } from "../themes";
+import { ThemeContext } from "../contexts/ThemeContext";
 
 export const withTheme = WrappedComponent => {
   // eslint-disable-next-line react/display-name
   return props => {
-    const [theme, setTheme] = useState("lightTheme");
+    const [theme, setTheme] = useContext(ThemeContext);
     const getMotiveFromLocalStorage = () => localStorage.getItem("theme");
     const motives = {
       lightTheme: lightTheme,
@@ -17,8 +18,6 @@ export const withTheme = WrappedComponent => {
     useEffect(() => {
       setTheme(memory || "lightTheme");
     }, []);
-
-    console.log(motives[theme]);
 
     const changeMotive = () => {
       setTheme(theme => {
