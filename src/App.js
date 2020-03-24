@@ -2,9 +2,11 @@ import React, { lazy, Suspense, useEffect } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
 import "./styles/main.scss";
-import Contact from "./components/Contact";
+
+import { ThemeProvider } from "./components/contexts/ThemeContext";
 import GalleryPage from "./components/GalleryPage";
 import Formik from "./components/Formik";
+import SocialLinks from "./components/SocialLinks";
 
 const Home = lazy(() => import("./components/Home"));
 const AboutUs = lazy(() => import("./components/AboutUs"));
@@ -23,8 +25,9 @@ function App() {
       window.removeEventListener("resize", calculateViewportHeight);
     };
   }, []);
+
   return (
-    <React.Fragment>
+    <ThemeProvider>
       <Suspense
         fallback={
           <div>
@@ -32,6 +35,7 @@ function App() {
           </div>
         }
       >
+        <SocialLinks></SocialLinks>
         <Switch>
           <Route exact strict path="/" component={Home}></Route>
           <Route exact strict path="/o-nas" component={AboutUs}></Route>
@@ -41,7 +45,7 @@ function App() {
           <Redirect to="/404"></Redirect>
         </Switch>
       </Suspense>
-    </React.Fragment>
+    </ThemeProvider>
   );
 }
 

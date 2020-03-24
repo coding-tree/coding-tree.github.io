@@ -1,14 +1,14 @@
 import React from "react";
-import { lightTheme } from "../themes";
-import { object, string } from "prop-types";
+import { string } from "prop-types";
 
-const BoxImage = ({ motive, light = "box.svg", dark = "box_dark.svg" }) => {
-  const changeImageBox = () => (motive === lightTheme ? light : dark);
+const BoxImage = ({ theme, light = "box.svg", dark = "box_dark.svg" }) => {
+  const changeImageBox = () => (theme === "lightTheme" ? light : dark);
+
   return <img src={"./" + changeImageBox()} alt="" />;
 };
 
 BoxImage.propTypes = {
-  motive: object.isRequired,
+  theme: string.isRequired,
   light: string.isRequired,
   dark: string.isRequired
 };

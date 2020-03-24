@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Navigation from "./Navigation";
 import folderStructure from "../data/folderStructure.json";
 import DayNight from "./DayNight";
-import { lightTheme } from "./themes";
 import Footer from "./Footer";
 import Box from "./Box/Box";
 import BoxImage from "./Box/BoxImage";
@@ -19,11 +18,18 @@ import FolderDetail from "./FolderDetail";
 import Avatar from "./Avatar";
 import Profile from "./Profile/Profile";
 import { updateFolderStructure } from "./updateFolderStructure";
+import { withTheme } from "./hoc/withTheme";
+import { withTimeOfDay } from "./hoc/withTimeOfDay";
 
-const AboutUs = () => {
+const AboutUs = ({
+  motive,
+  changeMotive,
+  theme,
+  dateTime,
+  setDateTime,
+  changeTimeOfDay
+}) => {
   const [selectedElement, setSelectedElement] = useState(null);
-  const [motive, toggleMotive] = useState(lightTheme);
-  const [dateTime, setDateTime] = useState("day");
   const [folders, updateFolders] = useState(null);
 
   useEffect(() => {
@@ -36,11 +42,7 @@ const AboutUs = () => {
       <DayNight dateTime={dateTime} setDateTime={setDateTime}></DayNight>
 
       <Box motive={motive} setSelectedElement={setSelectedElement}>
-        <BoxImage
-          motive={motive}
-          light="box.svg"
-          dark="box_dark.svg"
-        ></BoxImage>
+        <BoxImage theme={theme} light="box.svg" dark="box_dark.svg"></BoxImage>
         <BoxWrapper>
           <BoxPath
             title="Lokalizacja"
@@ -50,9 +52,9 @@ const AboutUs = () => {
             <MotiveSlider
               title="Przełącz motyw"
               dateTime={dateTime}
-              setDateTime={setDateTime}
-              motive={motive}
-              toggleMotive={toggleMotive}
+              theme={theme}
+              changeMotive={changeMotive}
+              changeTimeOfDay={changeTimeOfDay}
             ></MotiveSlider>
           </BoxPath>
           <BoxContent>
@@ -95,4 +97,4 @@ const AboutUs = () => {
   );
 };
 
-export default AboutUs;
+export default withTimeOfDay(withTheme(AboutUs));

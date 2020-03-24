@@ -1,35 +1,39 @@
-import React from "react";
-import { lightTheme, darkTheme } from "./themes";
-import { object, func, string } from "prop-types";
+import React, { useEffect, useState } from "react";
+import { func, string } from "prop-types";
 
 const MotiveSlider = ({
   title,
-  motive,
-  toggleMotive,
-  setDateTime,
-  dateTime
+  theme,
+  dateTime,
+  changeMotive,
+  changeTimeOfDay
 }) => {
-  const changeMotive = () => {
-    const newTheme = motive === lightTheme ? darkTheme : lightTheme;
-    const newDateTime = dateTime === "day" ? "dayToNight" : "nightToDay";
-    setDateTime(newDateTime);
-    return toggleMotive(newTheme);
+  const [isLoading, setLoading] = useState(true);
+  useEffect(() => {
+    dateTime && setLoading(false);
+  }, [dateTime]);
+  const changeTheme = () => {
+    changeMotive();
+    changeTimeOfDay();
   };
 
+  const changeClassNames = () =>
+    isLoading ? "motive-slider preload" : "motive-slider";
+
   return (
-    <div className="motive-slider">
+    <div className={changeClassNames()}>
       <div
         onClick={() =>
           dateTime !== "dayToNight" &&
           dateTime !== "nightToDay" &&
-          changeMotive()
+          changeTheme()
         }
         className="slider-background"
       >
         <i className="fas fa-sun sun"></i>
         <i className="fas fa-moon moon"></i>
         <button
-          style={{ marginLeft: motive === lightTheme ? "6px" : "30px" }}
+          style={{ marginLeft: theme === "lightTheme" ? "6px" : "30px" }}
           className="slider-button"
         ></button>
       </div>
@@ -41,10 +45,11 @@ const MotiveSlider = ({
 
 MotiveSlider.propTypes = {
   title: string.isRequired,
-  motive: object.isRequired,
-  toggleMotive: func.isRequired,
-  setDateTime: func.isRequired,
-  dateTime: string.isRequired
+  theme: string.isRequired,
+  setDateTime: func,
+  dateTime: string,
+  changeMotive: func.isRequired,
+  changeTimeOfDay: func.isRequired
 };
 
 export default MotiveSlider;

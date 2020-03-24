@@ -2,8 +2,8 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  padding-top: 2rem;
+  min-height: 100vh;
+  padding: 2rem 0 3rem 0;
   width: 100%;
 
   .background {
@@ -192,7 +192,6 @@
       .folder-selected {
         background-color: var(--main-color);
         color: var(--selected-color);
-
         font-weight: bold;
       }
 
