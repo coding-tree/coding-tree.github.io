@@ -1,8 +1,10 @@
 main {
+  height: 100%;
   .container {
     position: relative;
     max-width: 100vw;
     height: 100%;
+
     header {
       position: absolute;
       top: 0;
@@ -11,7 +13,6 @@ main {
       width: 100%;
       height: 100%;
       .logo-container {
-        position: relative;
         display: flex;
         padding-top: 2rem;
         flex-direction: column;
@@ -21,12 +22,16 @@ main {
           family: $body-font;
         }
         text-align: justify;
+        #desktop {
+          position: relative;
+          z-index: 2;
+        }
       }
 
       .description {
         max-width: 1600px;
         margin: 0 auto;
-        color: $tree-color;
+        color: var(--main-font-color);
         font-size: 1rem;
         font-weight: bold;
       }
@@ -114,14 +119,22 @@ main {
         }
       }
     }
-    .background {
+
+    .trees {
       position: relative;
-      z-index: -1;
-      &-image {
-        height: 100%;
-        width: 100%;
+      min-height: 100%;
+      backface-visibility: hidden;
+      svg {
+        margin-bottom: -5px;
       }
     }
+  }
+  .background {
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    z-index: -1;
   }
 }
 

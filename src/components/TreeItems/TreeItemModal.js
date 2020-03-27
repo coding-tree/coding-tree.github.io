@@ -1,9 +1,9 @@
-import React from 'react';
-import {node, string, func, bool} from 'prop-types';
+import React from "react";
+import { node, string, func, bool } from "prop-types";
 
-function TreeItemModal({children, title, setVisibility, visibility}) {
+function TreeItemModal({ children, title, setVisibility, visibility }) {
   const closeModal = e => {
-    e.target.className === 'modal' && setVisibility(false);
+    e.target.className === "modal" && setVisibility(false);
   };
 
   return (
@@ -29,7 +29,7 @@ TreeItemModal.propTypes = {
   children: node.isRequired,
   title: string.isRequired,
   setVisibility: func.isRequired,
-  visibility: bool.isRequired,
+  visibility: bool.isRequired
 };
 
 export default TreeItemModal;

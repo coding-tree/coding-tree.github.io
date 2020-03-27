@@ -1,12 +1,16 @@
-import React from 'react';
-import {node} from 'prop-types';
+import React from "react";
+import { node } from "prop-types";
 
-const WrapperContainer = ({children}) => {
-  return <div className="container">{children}</div>;
+const WrapperContainer = ({ children, motive }) => {
+  return (
+    <div style={motive} className="container">
+      {children}
+    </div>
+  );
 };
 
 WrapperContainer.propTypes = {
-  children: node.isRequired,
+  children: node.isRequired
 };
 
 export default WrapperContainer;

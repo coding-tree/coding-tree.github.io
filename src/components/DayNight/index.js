@@ -1,24 +1,31 @@
 import React from "react";
 import Lottie from "react-lottie";
 import * as day from "./day.json";
+import * as mainday from "./main-day.json";
 import * as night from "./night.json";
+import * as mainnight from "./main-night.json";
 import * as dayToNight from "./day-to-night.json";
 import * as nightToDay from "./night-to-day.json";
 
 import { string, func } from "prop-types";
 
-const DayNight = ({ dateTime, setDateTime }) => {
+const DayNight = ({ dateTime = "day", setDateTime }) => {
   const background = {
     day,
+    mainday,
+    mainnight,
     night,
     dayToNight,
     nightToDay
   };
 
   const options = {
-    loop: dateTime === "day" || dateTime === "night",
+    loop:
+      dateTime === "day" ||
+      dateTime === "night" ||
+      dateTime === "mainday" ||
+      dateTime === "mainnight",
     autoplay: true,
-    viewBox: "",
     animationData: dateTime && background[dateTime].default,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice"
