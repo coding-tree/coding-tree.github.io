@@ -5,6 +5,7 @@ import { withTimeOfDay } from "./hoc/withTimeOfDay";
 
 import TreeContainer from "./Tree/TreeContainer";
 import { withTheme } from "./hoc/withTheme";
+import MotiveSlider from "./MotiveSlider";
 
 const MainWrapper = lazy(() => import("./MainWrapper"));
 const WrapperContainer = lazy(() => import("./WrapperContainer"));
@@ -14,16 +15,21 @@ const TreeItems = lazy(() => import("./TreeItems/TreeItems"));
 const TreeItem = lazy(() => import("./TreeItems/TreeItem"));
 const Footer = lazy(() => import("./Footer"));
 
-function Home({ dateTime, setDateTime, motive, changeMotive }) {
-  const is2K = useMedia("(min-width: 1986px)");
-  const isLargeDesktop = useMedia("(max-width:1985px) and (min-width: 1260px)");
-  const isDesktop = useMedia("(max-width:1259px) and (min-width: 896px)");
-  const isTablet = useMedia("(max-width:896px) and (min-width: 612px)");
+function Home({
+  dateTime,
+  changeTimeOfDay,
+  setDateTime,
+  motive,
+  changeMotive,
+  theme
+}) {
+  const isLargeDesktop = useMedia("(min-width: 1515px)");
+  const isDesktop = useMedia("(max-width:1514px) and (min-width: 1150px)");
+  const isTablet = useMedia("(max-width:1149px) and (min-width: 613px)");
   const isMobile = useMedia("(max-width:612px) and (min-width: 500px)");
   const isSmallMobile = useMedia("(max-width: 499px)");
 
   const rwd = {
-    is2K,
     isLargeDesktop,
     isDesktop,
     isTablet,
@@ -52,6 +58,14 @@ function Home({ dateTime, setDateTime, motive, changeMotive }) {
             repudiandae modi possimus repellat iusto optio enim repellendus
             maiores.
           </MainContent>
+          <MotiveSlider
+            title="Przełącz motyw"
+            theme={theme}
+            dateTime={dateTime}
+            motive={motive}
+            changeMotive={changeMotive}
+            changeTimeOfDay={changeTimeOfDay}
+          ></MotiveSlider>
         </Header>
 
         <TreeContainer dateTime={dateTime} rwd={rwd}>
@@ -60,8 +74,8 @@ function Home({ dateTime, setDateTime, motive, changeMotive }) {
               rwd={rwd}
               bird="baby"
               title="Baby Bird"
-              top={["24.2%", "29.9%", "35.1%", "26.8%", "30%", "39.1%"]}
-              right={["20%", "21%", "24%", "28%", "29%", "32%"]}
+              top={["30.2%", "31.5%", "24.1%", "26.8%", "30%"]}
+              right={["6%", "9%", "5%", "28%", "29%"]}
             >
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
               porro assumenda quisquam quos, similique eius nemo quod minima
@@ -77,8 +91,8 @@ function Home({ dateTime, setDateTime, motive, changeMotive }) {
               rwd={rwd}
               bird="white"
               title="Pas biały"
-              top={["25.2%", "34%", "40.2%", "38.4%", "39.8%", "47.5%"]}
-              left={["20%", "20%", "15%", "19%", "27%", "28%"]}
+              top={["29.9%", "33.4%", "31.6%", "38.4%", "39.8%"]}
+              left={["20%", "20%", "15%", "19%", "27%"]}
             >
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
               porro assumenda quisquam quos, similique eius nemo quod minima
@@ -90,8 +104,8 @@ function Home({ dateTime, setDateTime, motive, changeMotive }) {
               rwd={rwd}
               bird="blue"
               title="Pas niebieski"
-              top={["45%", "49.3%", "52.6%", "42.7%", "45.9%", "52.6%"]}
-              right={["12.5%", "16%", "20%", "19%", "20%", "20%"]}
+              top={["41.7%", "41.3%", "40.9%", "42.7%", "45.9%"]}
+              right={["14.5%", "18%", "20%", "19%", "20%"]}
             >
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem
               magnam ipsa enim excepturi tempore. Nobis, eaque ad illum sapiente
@@ -103,8 +117,8 @@ function Home({ dateTime, setDateTime, motive, changeMotive }) {
               rwd={rwd}
               bird="yellow"
               title="Pas żółty"
-              top={["45.4%", "51.3%", "53.9%", "55%", "57.9%", "62.8%"]}
-              left={["19%", "20%", "28%", "27%", "28%", "24%"]}
+              top={["44.3%", "46%", "46.8%", "55%", "57.9%"]}
+              left={["19%", "20%", "28%", "27%", "28%"]}
             >
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit,
               est totam sapiente ipsum debitis nihil cum odit commodi sequi fuga
@@ -116,8 +130,8 @@ function Home({ dateTime, setDateTime, motive, changeMotive }) {
               rwd={rwd}
               bird="green"
               title="Pas zielony"
-              top={["64.5%", "64.6%", "67.8%", "62.8%", "65.5%", "69.4%"]}
-              right={["25.5%", "26%", "28%", "29%", "28%", "30%"]}
+              top={["54.5%", "53.8%", "55.4%", "62.8%", "65.5%"]}
+              right={["25.5%", "26%", "28%", "29%", "28%"]}
             >
               Lorem ipsum dolor, sit amet consectetur adipisicing elit.
               Dignissimos nostrum ea recusandae, modi est libero rerum unde
@@ -129,8 +143,8 @@ function Home({ dateTime, setDateTime, motive, changeMotive }) {
               rwd={rwd}
               bird="brown"
               title="Pas brązowy"
-              top={["69.6%", "72.5%", "72.7%", "74.5%", "77.4%", "79.1%"]}
-              left={["22.7%", "24.7%", "19%", "19%", "20%", "20%"]}
+              top={["61.8%", "61.7%", "64.7%", "74.5%", "77.4%"]}
+              left={["23.7%", "28.7%", "17%", "19%", "20%"]}
             >
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
               porro assumenda quisquam quos, similique eius nemo quod minima
@@ -141,8 +155,8 @@ function Home({ dateTime, setDateTime, motive, changeMotive }) {
               rwd={rwd}
               bird="black"
               title="Pas czarny - Sensei"
-              top={["83%", "0", "0", "0", "0", "0"]}
-              right={["35%", "0", "0", "0", "0", "0"]}
+              top={["78.5%", "76%", "76.7%", "0", "0"]}
+              right={["35%", "35%", "35%", "0", "0"]}
             >
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
               porro assumenda quisquam quos, similique eius nemo quod minima

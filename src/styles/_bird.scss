@@ -1,44 +1,150 @@
-.bird {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-
-  &-container {
-    position: absolute;
-    width: 13%;
-    height: 13%;
-    .hover-container {
-      position: absolute;
-      width: 400px;
+.trees {
+  position: relative;
+  min-height: 100%;
+  backface-visibility: hidden;
+  svg {
+    margin-bottom: -5px;
+    backface-visibility: hidden;
+  }
+  .tree-left {
+    path {
+      fill: var(--tree-color);
+      transition: 2s;
     }
-    .hover-description {
+  }
+  .tree-right {
+    path {
+      fill: var(--tree-color);
+      transition: 2s;
+    }
+  }
+  .ground {
+    path {
+      fill: var(--ground-color);
+      transition: 2s;
+    }
+  }
+  .grass {
+    path {
+      fill: var(--grass-color);
+      transition: 2s;
+    }
+  }
+
+  .bird {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+
+    &-container {
       position: absolute;
-      overflow: hidden;
-      background-color: $white-color;
-      border-radius: 20px;
-      z-index: -2;
-      cursor: default;
-      user-select: none;
-      h3 {
-        padding: 0 30px;
-        padding-top: 20px;
-        text-transform: uppercase;
-        color: $leaf-color;
-        font: {
-          family: $header-font;
-        }
+      width: 12%;
+      height: 12%;
+      .hover-container {
+        position: absolute;
+        width: 400px;
       }
-      p {
-        padding: 20px 30px;
+      .hover-description {
+        position: absolute;
         overflow: hidden;
-        color: $tree-color;
-        font-size: 0.8rem;
+        background-color: $white-color;
+        border-radius: 20px;
+        z-index: -2;
+        cursor: default;
+        user-select: none;
+        h3 {
+          padding: 0 30px;
+          padding-top: 20px;
+          text-transform: uppercase;
+          color: $leaf-color;
+          font: {
+            family: $header-font;
+          }
+        }
+        p {
+          padding: 20px 30px;
+          overflow: hidden;
+          color: $tree-color;
+          font-size: 0.8rem;
+          font: {
+            family: $body-font;
+          }
+        }
       }
     }
   }
-}
+  .button-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    width: 30px;
+    background-color: $button-color;
+    border-radius: 100%;
+    position: absolute;
+    border: none;
+    &:focus {
+      outline: none;
+    }
+    &::after {
+      @include sunshineElement(2s);
+    }
 
+    &::before {
+      @include sunshineElement(3s);
+    }
+    &-container {
+      z-index: 5;
+    }
+  }
+  .modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+    z-index: 999;
+
+    &-box {
+      width: 80%;
+      border-radius: 10px;
+      box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.4);
+      overflow: hidden;
+    }
+    &-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #f0f0f0;
+      padding: 1vmin 3vmin;
+      border-bottom: 1px solid #ccc;
+      button {
+        border: none;
+      }
+      i {
+        font-size: 1rem;
+      }
+      h2 {
+        color: $font-color;
+        font: {
+          size: 1.3rem;
+        }
+      }
+    }
+    p {
+      background-color: $white-color;
+      padding: 3vmin;
+      color: $font-color;
+    }
+  }
+}
 @media only screen and (max-width: 2000px) {
   .logo-container {
     .bird-container {
@@ -53,5 +159,36 @@
         }
       }
     }
+  }
+}
+
+@media only screen and (min-width: 2000px) {
+  .trees {
+    margin-top: -10%;
+  }
+}
+@media only screen and (max-width: 1149px) {
+  .trees {
+    margin-top: -10rem;
+    .bird {
+      &-container {
+        width: 15%;
+        height: 15%;
+        &:nth-child(2) {
+          width: 20%;
+          height: 20%;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 963px) {
+  .trees {
+    margin-top: -3rem;
+  }
+}
+
+@media only screen and (max-width: 896px) {
+  .trees {
   }
 }

@@ -17,7 +17,7 @@ export const withTheme = WrappedComponent => {
 
     useEffect(() => {
       setTheme(memory || "lightTheme");
-    }, []);
+    }, [memory]);
 
     const changeMotive = () => {
       setTheme(theme => {

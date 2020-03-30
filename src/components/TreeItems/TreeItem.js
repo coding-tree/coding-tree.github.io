@@ -20,22 +20,14 @@ function TreeItem({
 
   isLeft = right === "initial";
 
-  const {
-    is2K,
-    isLargeDesktop,
-    isDesktop,
-    isTablet,
-    isMobile,
-    isSmallMobile
-  } = rwd;
+  const { isLargeDesktop, isDesktop, isTablet, isMobile, isSmallMobile } = rwd;
 
   const calculateRwd = array => {
-    if (is2K) return array[0];
-    if (isLargeDesktop) return array[1];
-    if (isDesktop) return array[2];
-    if (isTablet) return array[3];
-    if (isMobile) return array[4];
-    if (isSmallMobile) return array[5];
+    if (isLargeDesktop) return array[0];
+    if (isDesktop) return array[1];
+    if (isTablet) return array[2];
+    if (isMobile) return array[3];
+    if (isSmallMobile) return array[4];
   };
 
   const descAnimation = useSpring({
@@ -50,8 +42,8 @@ function TreeItem({
   const containerAnimation = useSpring({
     config: { duration: 300, easing: easeCubicInOut },
     zIndex: isVisible ? 100 : -5,
-    left: isLeft ? "80%" : "initial",
-    right: !isLeft ? "80%" : "initial",
+    left: isLeft ? "90%" : "initial",
+    right: !isLeft ? "90%" : "initial",
     transform: !isLeft ? "rotateZ(-180deg)" : "initial",
     willChange: "auto"
   });
@@ -68,7 +60,7 @@ function TreeItem({
       <Bird rwd={rwd} bird={bird} setVisibility={setVisibility}></Bird>
 
       {/* ifDesktop */}
-      {is2K || isLargeDesktop || isDesktop ? (
+      {isLargeDesktop || isDesktop ? (
         <animated.div style={containerAnimation} className="hover-container">
           <animated.div style={descAnimation} className="hover-description">
             <h3>{title}</h3>

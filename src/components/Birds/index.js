@@ -1,12 +1,12 @@
-import React, {useState, useEffect} from 'react';
-import Lottie from 'react-lottie';
-import {string, object, func} from 'prop-types';
+import React, { useState, useEffect } from "react";
+import Lottie from "react-lottie";
+import { string, object, func } from "prop-types";
 
-function Bird({bird, setVisibility, rwd}) {
+function Bird({ bird, setVisibility, rwd }) {
   const animations = {
-    INITIAL: 'initial',
-    HOVERON: 'hoverOn',
-    HOVEROFF: 'hoverOff',
+    INITIAL: "initial",
+    HOVERON: "hoverOn",
+    HOVEROFF: "hoverOff"
   };
   const [animation, setAnimation] = useState(animations.INITIAL);
 
@@ -14,14 +14,14 @@ function Bird({bird, setVisibility, rwd}) {
   const [hoverOn, setHoverOn] = useState(null);
   const [hoverOff, setHoverOff] = useState(null);
 
-  const {is2K, isLargeDesktop, isDesktop} = rwd;
+  const { is2K, isLargeDesktop, isDesktop } = rwd;
   const largeDevices = is2K || isLargeDesktop || isDesktop;
 
   const loadData = async () => {
     const [initialData, hoverOnData, hoverOffData] = await Promise.all([
       import(`./${bird}_bird_initial.json`),
       import(`./${bird}_bird_hover_on.json`),
-      import(`./${bird}_bird_hover_off.json`),
+      import(`./${bird}_bird_hover_off.json`)
     ]);
 
     setInitial(initialData);
@@ -36,13 +36,13 @@ function Bird({bird, setVisibility, rwd}) {
   const data = {
     initial: initial || {},
     hoverOn: hoverOn || {},
-    hoverOff: hoverOff || {},
+    hoverOff: hoverOff || {}
   };
 
   const options = {
     loop: animation === animations.INITIAL,
     autoplay: true,
-    animationData: data[animation].default,
+    animationData: data[animation].default
   };
 
   return (
@@ -64,17 +64,21 @@ function Bird({bird, setVisibility, rwd}) {
           setAnimation(animations.HOVEROFF);
         }
       }}
-      className="bird">
+      className="bird"
+    >
       <Lottie
         isClickToPauseDisabled={true}
         speed={1}
         eventListeners={[
           {
-            eventName: 'complete',
-            callback: () => animation === animations.HOVEROFF && setAnimation(animations.INITIAL),
-          },
+            eventName: "complete",
+            callback: () =>
+              animation === animations.HOVEROFF &&
+              setAnimation(animations.INITIAL)
+          }
         ]}
-        options={options}></Lottie>
+        options={options}
+      ></Lottie>
     </div>
   );
 }
@@ -82,7 +86,7 @@ function Bird({bird, setVisibility, rwd}) {
 Bird.propTypes = {
   bird: string.isRequired,
   setVisibility: func.isRequired,
-  rwd: object.isRequired,
+  rwd: object.isRequired
 };
 
 export default Bird;

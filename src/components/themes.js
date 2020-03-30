@@ -10,7 +10,10 @@ export const lightTheme = {
   "--text-color": "#000",
   "--white-color": "#fff",
   "--social-bg-color": "#7f2538",
-  "--box-font": "Nunito Sans"
+  "--box-font": "Nunito Sans",
+  "--tree-color": "#4B101F",
+  "--grass-color": "#330B15",
+  "--ground-color": "#330B15"
 };
 
 export const darkTheme = {
@@ -25,5 +28,8 @@ export const darkTheme = {
   "--text-color": "#e3dede",
   "--white-color": "#fff",
   "--social-bg-color": "#5E5E5F99",
-  "--box-font": "Nunito Sans"
+  "--box-font": "Nunito Sans",
+  "--tree-color": "#323333",
+  "--grass-color": "#3f4040",
+  "--ground-color": "#272625"
 };

@@ -9,12 +9,22 @@ const MotiveSlider = ({
   changeTimeOfDay
 }) => {
   const [isLoading, setLoading] = useState(true);
+
   useEffect(() => {
     dateTime && setLoading(false);
   }, [dateTime]);
+
   const changeTheme = () => {
     changeMotive();
     changeTimeOfDay();
+  };
+
+  const toggleSlider = () => {
+    dateTime !== "dayToNight" &&
+      dateTime !== "nightToDay" &&
+      dateTime !== "maindayToNight" &&
+      dateTime !== "mainnightToDay" &&
+      changeTheme();
   };
 
   const changeClassNames = () =>
@@ -22,14 +32,7 @@ const MotiveSlider = ({
 
   return (
     <div className={changeClassNames()}>
-      <div
-        onClick={() =>
-          dateTime !== "dayToNight" &&
-          dateTime !== "nightToDay" &&
-          changeTheme()
-        }
-        className="slider-background"
-      >
+      <div onClick={toggleSlider} className="slider-background">
         <i className="fas fa-sun sun"></i>
         <i className="fas fa-moon moon"></i>
         <button
@@ -37,7 +40,7 @@ const MotiveSlider = ({
           className="slider-button"
         ></button>
       </div>
-      <input hidden type="checkbox" />
+
       <h5>{title}</h5>
     </div>
   );

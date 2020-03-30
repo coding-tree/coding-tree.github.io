@@ -1,19 +1,23 @@
 import React from "react";
 import Lottie from "react-lottie";
-import * as day from "./day.json";
 import * as mainday from "./main-day.json";
-import * as night from "./night.json";
 import * as mainnight from "./main-night.json";
+import * as maindayToNight from "./main-day-to-night.json";
+import * as mainnightToDay from "./main-night-to-day.json";
+import * as day from "./day.json";
 import * as dayToNight from "./day-to-night.json";
 import * as nightToDay from "./night-to-day.json";
+import * as night from "./night.json";
 
 import { string, func } from "prop-types";
 
 const DayNight = ({ dateTime = "day", setDateTime }) => {
   const background = {
-    day,
     mainday,
     mainnight,
+    maindayToNight,
+    mainnightToDay,
+    day,
     night,
     dayToNight,
     nightToDay
