@@ -1,0 +1,43 @@
+#green-bird {
+  top: 54.5%;
+  right: 25.5%;
+  .right-eyelid path {
+    fill: #025918;
+  }
+  .left-eyelid path {
+    fill: #025918;
+  }
+  .left-eye path {
+    fill: #8c9184;
+  }
+  .right-eye path {
+    fill: #8c9184;
+  }
+  .body path:first-of-type {
+    fill: #038c33;
+  }
+  .mane-first path {
+    fill: #025918;
+  }
+  .mane-second path {
+    fill: #025918;
+  }
+  .mane-third path {
+    fill: #025918;
+  }
+  .tail path {
+    fill: #025918;
+  }
+}
+
+@media only screen and (max-width: 1514px) {
+  #green-bird {
+    top: 54%;
+    right: 27%;
+  }
+}
+@media only screen and (max-width: 1149px) {
+  #green-bird {
+    top: 55.4%;
+  }
+}

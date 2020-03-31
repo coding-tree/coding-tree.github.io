@@ -38,7 +38,7 @@ function NavigationMobile() {
   return (
     <div id="navigation-mobile">
       <h1>
-        <img src="/logo.svg" alt="" />
+        <img src="/logo_homepage.svg" alt="" />
       </h1>
       <button onClick={handleMenuVisibility} className="menu">
         <i className={isVisible ? 'fas fa-times' : 'fas fa-ellipsis-v'}></i>
@@ -46,7 +46,7 @@ function NavigationMobile() {
 
       <animated.nav style={menuAnimation}>
         <animated.h1 style={textAnimation}>
-          <animated.img style={textAnimation} src="/logo.svg" alt="" />
+          <animated.img style={textAnimation} src="/logo_homepage.svg" alt="" />
         </animated.h1>
         <animated.div style={textAnimation}>
           <NavLink exact strict to="/">

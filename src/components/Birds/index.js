@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import Lottie from 'react-lottie';
-import {string, object, func} from 'prop-types';
+import {string, func, bool} from 'prop-types';
 
-function Bird({bird, setVisibility, rwd}) {
+function Bird({birdType = 'bird', className, setVisibility, largeDevice}) {
   const animations = {
     INITIAL: 'initial',
     HOVERON: 'hoverOn',
@@ -14,14 +14,11 @@ function Bird({bird, setVisibility, rwd}) {
   const [hoverOn, setHoverOn] = useState(null);
   const [hoverOff, setHoverOff] = useState(null);
 
-  const {is2K, isLargeDesktop, isDesktop} = rwd;
-  const largeDevices = is2K || isLargeDesktop || isDesktop;
-
   const loadData = async () => {
     const [initialData, hoverOnData, hoverOffData] = await Promise.all([
-      import(`./${bird}_bird_initial.json`),
-      import(`./${bird}_bird_hover_on.json`),
-      import(`./${bird}_bird_hover_off.json`),
+      import(`./${birdType}_initial.json`),
+      import(`./${birdType}_hover_on.json`),
+      import(`./${birdType}_hover_off.json`),
     ]);
 
     setInitial(initialData);
@@ -48,23 +45,23 @@ function Bird({bird, setVisibility, rwd}) {
   return (
     <div
       onClick={() => {
-        if (!largeDevices) {
+        if (!largeDevice) {
           setVisibility(true);
         }
       }}
       onMouseOver={() => {
-        if (largeDevices) {
+        if (largeDevice) {
           setVisibility(true);
           setAnimation(animations.HOVERON);
         }
       }}
       onMouseLeave={() => {
-        if (largeDevices) {
+        if (largeDevice) {
           setVisibility(false);
           setAnimation(animations.HOVEROFF);
         }
       }}
-      className="bird">
+      className={'bird ' + className}>
       <Lottie
         isClickToPauseDisabled={true}
         speed={1}
@@ -80,9 +77,10 @@ function Bird({bird, setVisibility, rwd}) {
 }
 
 Bird.propTypes = {
-  bird: string.isRequired,
+  birdType: string,
+  className: string.isRequired,
+  largeDevice: bool.isRequired,
   setVisibility: func.isRequired,
-  rwd: object.isRequired,
 };
 
 export default Bird;

@@ -1,15 +1,14 @@
 import React, {lazy} from 'react';
-import {object, node} from 'prop-types';
+import {node, bool} from 'prop-types';
 
 const Navigation = lazy(() => import('./Navigation'));
 const NavigationMobile = lazy(() => import('./NavigationMobile'));
 
-function Header({rwd, children}) {
-  const {is2K, isLargeDesktop, isDesktop} = rwd;
+function Header({largeDevice, children}) {
   return (
     <header>
       <div className="logo-container">
-        {is2K || isLargeDesktop || isDesktop ? <Navigation></Navigation> : <NavigationMobile></NavigationMobile>}
+        {largeDevice ? <Navigation></Navigation> : <NavigationMobile></NavigationMobile>}
         {children}
       </div>
     </header>
@@ -17,7 +16,7 @@ function Header({rwd, children}) {
 }
 
 Header.propTypes = {
-  rwd: object.isRequired,
+  largeDevice: bool.isRequired,
   children: node.isRequired,
 };
 
