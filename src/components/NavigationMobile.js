@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
-import { useSpring, animated } from "react-spring";
-import { easeBackInOut } from "d3-ease";
+import React, {useState, useEffect} from 'react';
+import {NavLink} from 'react-router-dom';
+import {useSpring, animated} from 'react-spring';
+import {easeBackInOut} from 'd3-ease';
 
-const { disableBodyScroll, enableBodyScroll } = require("body-scroll-lock");
+const {disableBodyScroll, enableBodyScroll} = require('body-scroll-lock');
 
 function NavigationMobile() {
   const [isVisible, toggleMenu] = useState(false);
@@ -14,21 +14,21 @@ function NavigationMobile() {
   const date = new Date().getFullYear();
 
   const menuAnimation = useSpring({
-    width: isVisible ? "100%" : "0%",
-    height: isVisible ? "100%" : "0%",
-    bottom: isVisible ? "0px" : "35px",
-    right: isVisible ? "0px" : "35px",
-    borderRadius: isVisible ? "0%" : "100%",
+    width: isVisible ? '100%' : '0%',
+    height: isVisible ? '100%' : '0%',
+    bottom: isVisible ? '0px' : '35px',
+    right: isVisible ? '0px' : '35px',
+    borderRadius: isVisible ? '0%' : '100%',
     opacity: isVisible ? 1 : 0,
     zIndex: isVisible ? 99 : 50,
     delay: isVisible ? 0 : 400,
-    config: { duration: 500, easing: easeBackInOut }
+    config: {duration: 500, easing: easeBackInOut},
   });
 
   const textAnimation = useSpring({
-    width: isVisible ? "200px" : "0px",
+    width: isVisible ? '200px' : '0px',
     opacity: isVisible ? 1 : 0,
-    delay: isVisible ? 400 : 0
+    delay: isVisible ? 400 : 0,
   });
 
   const handleMenuVisibility = () => {
@@ -41,7 +41,7 @@ function NavigationMobile() {
         <img src="/logo_homepage.svg" alt="" />
       </h1>
       <button onClick={handleMenuVisibility} className="menu">
-        <i className={isVisible ? "fas fa-times" : "fas fa-ellipsis-v"}></i>
+        <i className={isVisible ? 'fas fa-times' : 'fas fa-ellipsis-v'}></i>
       </button>
 
       <animated.nav style={menuAnimation}>

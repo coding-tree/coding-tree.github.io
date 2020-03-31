@@ -1,8 +1,8 @@
-import React from "react";
-import { object } from "prop-types";
+import React from 'react';
+import {object} from 'prop-types';
 
-const Avatar = ({ profile }) => {
-  const { name } = profile;
+const Avatar = ({profile}) => {
+  const {name} = profile;
   return (
     <div className="avatar">
       <img src={`avatars/${name} - Landscape.svg`} alt="" />
@@ -11,7 +11,7 @@ const Avatar = ({ profile }) => {
 };
 
 Avatar.propTypes = {
-  profile: object
+  profile: object,
 };
 
 export default Avatar;

@@ -1,0 +1,44 @@
+#blue-bird {
+  top: 41.7%;
+  right: 14.5%;
+  .right-eyelid path {
+    fill: #0054a4;
+  }
+  .left-eyelid path {
+    fill: #0054a4;
+  }
+  .left-eye path {
+    fill: yellow;
+  }
+  .right-eye path {
+    fill: yellow;
+  }
+  .body path:first-of-type {
+    fill: #0076e5;
+  }
+  .mane-first path {
+    fill: #0054a4;
+  }
+  .mane-second path {
+    fill: #0054a4;
+  }
+  .mane-third path {
+    fill: #0054a4;
+  }
+  .tail path {
+    fill: #0054a4;
+  }
+}
+
+@media only screen and (max-width: 1514px) {
+  #blue-bird {
+    top: 42%;
+    right: 20%;
+  }
+}
+@media only screen and (max-width: 1149px) {
+  #blue-bird {
+    top: 36.4%;
+    right: 14%;
+  }
+}

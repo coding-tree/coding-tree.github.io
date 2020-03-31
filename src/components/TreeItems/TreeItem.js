@@ -1,78 +1,44 @@
-import React, { useState, lazy } from "react";
-import { useSpring, animated } from "react-spring";
-import { easeCubicInOut } from "d3-ease";
-import { string, node, bool, object, array } from "prop-types";
+import React, {useState, lazy} from 'react';
+import {useSpring, animated} from 'react-spring';
+import {easeCubicInOut} from 'd3-ease';
+import {string, node, bool, oneOfType, arrayOf} from 'prop-types';
 
-const TreeItemModal = lazy(() => import("./TreeItemModal"));
-const Bird = lazy(() => import("../Birds"));
+const TreeItemModal = lazy(() => import('./TreeItemModal'));
+const Bird = lazy(() => import('../Birds'));
 
-function TreeItem({
-  title,
-  children,
-  top,
-  left = "initial",
-  right = "initial",
-  isLeft,
-  bird,
-  rwd
-}) {
+function TreeItem({title, children, className = 'left', bird, id = bird + '-bird', largeDevice, birdType}) {
   const [isVisible, setVisibility] = useState(false);
 
-  isLeft = right === "initial";
-
-  const { isLargeDesktop, isDesktop, isTablet, isMobile, isSmallMobile } = rwd;
-
-  const calculateRwd = array => {
-    if (isLargeDesktop) return array[0];
-    if (isDesktop) return array[1];
-    if (isTablet) return array[2];
-    if (isMobile) return array[3];
-    if (isSmallMobile) return array[4];
-  };
-
   const descAnimation = useSpring({
-    config: { duration: 300, easing: easeCubicInOut },
+    config: {duration: 300, easing: easeCubicInOut},
     delay: isVisible && 200,
-    transform: !isLeft ? "rotate(180deg)" : "initial",
-    bottom: !isLeft ? "-30px" : "initial",
-    top: isLeft ? "-30px" : "initial",
     opacity: isVisible ? 1 : 0,
-    willChange: "opacity"
+    willChange: 'opacity',
   });
   const containerAnimation = useSpring({
-    config: { duration: 300, easing: easeCubicInOut },
+    config: {duration: 300, easing: easeCubicInOut},
     zIndex: isVisible ? 100 : -5,
-    left: isLeft ? "90%" : "initial",
-    right: !isLeft ? "90%" : "initial",
-    transform: !isLeft ? "rotateZ(-180deg)" : "initial",
-    willChange: "auto"
+    willChange: 'auto',
   });
 
   return (
-    <div
-      className="bird-container"
-      style={{
-        top: calculateRwd(top),
-        left: calculateRwd(left),
-        right: calculateRwd(right)
-      }}
-    >
-      <Bird rwd={rwd} bird={bird} setVisibility={setVisibility}></Bird>
+    <div className="bird-container" id={id}>
+      <Bird
+        className={className}
+        birdType={birdType}
+        largeDevice={largeDevice}
+        bird={bird}
+        setVisibility={setVisibility}></Bird>
 
-      {/* ifDesktop */}
-      {isLargeDesktop || isDesktop ? (
-        <animated.div style={containerAnimation} className="hover-container">
-          <animated.div style={descAnimation} className="hover-description">
+      {largeDevice ? (
+        <animated.div style={containerAnimation} className={'hover-container ' + className}>
+          <animated.div style={descAnimation} className={'hover-description ' + className}>
             <h3>{title}</h3>
             <p>{children}</p>
           </animated.div>
         </animated.div>
       ) : (
-        <TreeItemModal
-          title={title}
-          visibility={isVisible}
-          setVisibility={setVisibility}
-        >
+        <TreeItemModal title={title} visibility={isVisible} setVisibility={setVisibility}>
           {children}
         </TreeItemModal>
       )}
@@ -82,13 +48,12 @@ function TreeItem({
 
 TreeItem.propTypes = {
   title: string.isRequired,
-  children: node.isRequired,
-  top: array,
-  left: array,
-  right: array,
-  isLeft: bool,
+  children: oneOfType([arrayOf(node), node]).isRequired,
+  className: string,
   bird: string.isRequired,
-  rwd: object.isRequired
+  id: string,
+  largeDevice: bool.isRequired,
+  birdType: string,
 };
 
 export default TreeItem;
