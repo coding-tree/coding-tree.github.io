@@ -4,7 +4,7 @@ import {withTheme} from './hoc/withTheme';
 const SocialLinks = ({motive}) => {
   return (
     <aside style={motive}>
-      <a target="_blank" rel="noopener noreferrer" href="https://discord.gg/ZevtyMf">
+      <a target="_blank" rel="noopener noreferrer" href="https://discord.gg/eZP8s2m">
         <i className="fab fa-discord"></i>
       </a>
       <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/CodingTreeFoundation/">
