@@ -1,10 +1,13 @@
 import React, {lazy} from 'react';
 import {node, bool} from 'prop-types';
+import {useMedia} from './hooks/useMedia';
 
 const Navigation = lazy(() => import('./Navigation'));
 const NavigationMobile = lazy(() => import('./NavigationMobile'));
 
-function Header({largeDevice, children}) {
+function Header({children}) {
+  const largeDevice = useMedia('(min-width: 896px)');
+
   return (
     <header>
       <div className="logo-container">
@@ -16,7 +19,6 @@ function Header({largeDevice, children}) {
 }
 
 Header.propTypes = {
-  largeDevice: bool.isRequired,
   children: node.isRequired,
 };
 

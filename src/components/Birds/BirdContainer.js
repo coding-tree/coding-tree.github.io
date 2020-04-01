@@ -2,12 +2,14 @@ import React, {useState, lazy} from 'react';
 import {useSpring, animated} from 'react-spring';
 import {easeCubicInOut} from 'd3-ease';
 import {string, node, bool, oneOfType, arrayOf} from 'prop-types';
+import {useMedia} from '../hooks/useMedia';
 
-const TreeItemModal = lazy(() => import('./TreeItemModal'));
-const Bird = lazy(() => import('../Birds'));
+const BirdModal = lazy(() => import('./BirdModal'));
+const Bird = lazy(() => import('../Birds/Bird'));
 
-function TreeItem({title, children, className = 'left', bird, id = bird + '-bird', largeDevice, birdType}) {
+function BirdContainer({title, children, className = 'left', bird, id, birdType}) {
   const [isVisible, setVisibility] = useState(false);
+  const largeDevice = useMedia('(min-width: 896px)');
 
   const descAnimation = useSpring({
     config: {duration: 300, easing: easeCubicInOut},
@@ -22,13 +24,8 @@ function TreeItem({title, children, className = 'left', bird, id = bird + '-bird
   });
 
   return (
-    <div className="bird-container" id={id}>
-      <Bird
-        className={className}
-        birdType={birdType}
-        largeDevice={largeDevice}
-        bird={bird}
-        setVisibility={setVisibility}></Bird>
+    <div className={'bird-container ' + bird} id={id}>
+      <Bird className={className} largeDevice={largeDevice} birdType={birdType} setVisibility={setVisibility}></Bird>
 
       {largeDevice ? (
         <animated.div style={containerAnimation} className={'hover-container ' + className}>
@@ -38,22 +35,21 @@ function TreeItem({title, children, className = 'left', bird, id = bird + '-bird
           </animated.div>
         </animated.div>
       ) : (
-        <TreeItemModal title={title} visibility={isVisible} setVisibility={setVisibility}>
+        <BirdModal title={title} visibility={isVisible} setVisibility={setVisibility}>
           {children}
-        </TreeItemModal>
+        </BirdModal>
       )}
     </div>
   );
 }
 
-TreeItem.propTypes = {
+BirdContainer.propTypes = {
   title: string.isRequired,
   children: oneOfType([arrayOf(node), node]).isRequired,
   className: string,
   bird: string.isRequired,
   id: string,
-  largeDevice: bool.isRequired,
   birdType: string,
 };
 
-export default TreeItem;
+export default BirdContainer;

@@ -1,10 +1,9 @@
 .trees {
   position: relative;
   min-height: 100%;
-  backface-visibility: hidden;
+
   svg {
     margin-bottom: -5px;
-    backface-visibility: hidden;
   }
   .tree-left {
     path {
@@ -37,7 +36,10 @@
     height: 100%;
     cursor: pointer;
     &.left {
-      transform: rotateY(180deg);
+      -webkit-transform: rotateY(-180deg);
+      -moz-transform: rotateY(-180deg);
+      -o-transform: rotateY(-180deg);
+      transform: rotateY(-180deg);
     }
 
     &-container {
@@ -167,15 +169,12 @@
 @media only screen and (max-width: 2000px) {
   .logo-container {
     .bird-container {
-      &:nth-child(odd) {
-        .hover-container {
-          right: 90% !important;
-        }
+      .hover-container.right {
+        right: 90%;
       }
-      &:nth-child(even) {
-        .hover-container {
-          left: 90% !important;
-        }
+
+      .hover-container.left {
+        left: 90%;
       }
     }
   }
@@ -186,18 +185,26 @@
     margin-top: -10%;
   }
 }
+@media only screen and (max-width: 1514px) {
+  .trees {
+    .bird {
+      &-container {
+        .hover-container {
+          &.left {
+            left: 100%;
+          }
+          &.right {
+            right: 100%;
+          }
+        }
+      }
+    }
+  }
+}
 @media only screen and (max-width: 1149px) {
   .trees {
     margin-top: -5rem;
     .bird {
-      &-container {
-        width: 15%;
-        height: 15%;
-        &:nth-child(2) {
-          width: 20%;
-          height: 20%;
-        }
-      }
     }
   }
 }
@@ -209,5 +216,29 @@
 
 @media only screen and (max-width: 896px) {
   .trees {
+    margin-top: -4rem;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .trees {
+    margin-top: -12rem;
+    .bird {
+      &-container {
+        width: 18%;
+        .hover-container {
+          &.left {
+            left: 100%;
+          }
+          &.right {
+            right: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 640px) {
+  .trees {
+    margin-top: -7rem;
   }
 }

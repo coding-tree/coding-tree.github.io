@@ -1,7 +1,7 @@
 import React from 'react';
 import {node, string, func, bool} from 'prop-types';
 
-function TreeItemModal({children, title, setVisibility, visibility}) {
+function BirdContainerModal({children, title, setVisibility, visibility}) {
   const closeModal = e => {
     e.target.className === 'modal' && setVisibility(false);
   };
@@ -25,11 +25,11 @@ function TreeItemModal({children, title, setVisibility, visibility}) {
   );
 }
 
-TreeItemModal.propTypes = {
+BirdContainerModal.propTypes = {
   children: node.isRequired,
   title: string.isRequired,
   setVisibility: func.isRequired,
   visibility: bool.isRequired,
 };
 
-export default TreeItemModal;
+export default BirdContainerModal;

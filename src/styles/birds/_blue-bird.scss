@@ -1,6 +1,4 @@
-#blue-bird {
-  top: 41.7%;
-  right: 14.5%;
+.blue {
   .right-eyelid path {
     fill: #0054a4;
   }
@@ -27,18 +25,5 @@
   }
   .tail path {
     fill: #0054a4;
-  }
-}
-
-@media only screen and (max-width: 1514px) {
-  #blue-bird {
-    top: 42%;
-    right: 20%;
-  }
-}
-@media only screen and (max-width: 1149px) {
-  #blue-bird {
-    top: 36.4%;
-    right: 14%;
   }
 }

@@ -1,6 +1,4 @@
-#black-bird {
-  top: 78.5%;
-  right: 35%;
+.black {
   .right-eyelid path {
     fill: #41393a;
   }
@@ -27,18 +25,5 @@
   }
   .tail path {
     fill: #41393a;
-  }
-}
-
-@media only screen and (max-width: 1514px) {
-  #black-bird {
-    top: 76%;
-    right: 39%;
-  }
-}
-@media only screen and (max-width: 1149px) {
-  #black-bird {
-    top: 77%;
-    right: 33%;
   }
 }

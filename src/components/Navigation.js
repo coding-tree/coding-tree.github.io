@@ -2,13 +2,16 @@ import React from 'react';
 import {NavLink} from 'react-router-dom';
 
 function Navigation() {
+  const disableLink = e => {
+    e.preventDefault();
+  };
   return (
     <nav id="desktop">
       <div className="left">
         <NavLink exact strict to="/">
           Strona główna
         </NavLink>
-        <NavLink exact strict to="/galeria">
+        <NavLink className="disabled" onClick={e => disableLink(e)} exact strict to="/galeria">
           Galeria
         </NavLink>
       </div>

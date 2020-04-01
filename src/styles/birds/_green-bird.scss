@@ -1,6 +1,4 @@
-#green-bird {
-  top: 54.5%;
-  right: 25.5%;
+.green {
   .right-eyelid path {
     fill: #025918;
   }
@@ -27,17 +25,5 @@
   }
   .tail path {
     fill: #025918;
-  }
-}
-
-@media only screen and (max-width: 1514px) {
-  #green-bird {
-    top: 54%;
-    right: 27%;
-  }
-}
-@media only screen and (max-width: 1149px) {
-  #green-bird {
-    top: 55.4%;
   }
 }

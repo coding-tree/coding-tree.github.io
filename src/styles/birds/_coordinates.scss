@@ -1,0 +1,112 @@
+#bird-one {
+  top: 28.2%;
+  right: 15%;
+}
+#bird-two {
+  top: 29.9%;
+  left: 20%;
+}
+#bird-three {
+  top: 41.7%;
+  right: 14.5%;
+}
+#bird-four {
+  top: 44.3%;
+  left: 19%;
+}
+#bird-five {
+  top: 54.5%;
+  right: 25.5%;
+}
+#bird-six {
+  top: 61.8%;
+  left: 23.7%;
+}
+#bird-seven {
+  top: 78.5%;
+  right: 35%;
+}
+
+@media only screen and (max-width: 1514px) {
+  #bird-one {
+    top: 31.2%;
+  }
+  #bird-two {
+    top: 33%;
+    left: 20%;
+  }
+  #bird-three {
+    top: 42%;
+    right: 20%;
+  }
+  #bird-four {
+    top: 46%;
+    left: 20%;
+  }
+  #bird-five {
+    top: 54%;
+    right: 27%;
+  }
+  #bird-six {
+    top: 61.7%;
+    left: 29%;
+  }
+  #bird-seven {
+    top: 76%;
+    right: 39%;
+  }
+}
+
+@media only screen and (max-width: 1149px) {
+  #bird-one {
+    top: 28.2%;
+  }
+  #bird-two {
+    top: 32.5%;
+  }
+  #bird-three {
+    top: 38.4%;
+    right: 16%;
+  }
+  #bird-four {
+    top: 48.8%;
+  }
+  #bird-five {
+    top: 57.3%;
+  }
+  #bird-six {
+    top: 67.3%;
+    left: 33%;
+  }
+  #bird-seven {
+    top: 78.7%;
+    right: 33%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  #bird-one {
+    top: 31.2%;
+  }
+  #bird-two {
+    top: 36.6%;
+  }
+  #bird-three {
+    top: 42.6%;
+    right: 10%;
+  }
+  #bird-four {
+    top: 48%;
+  }
+  #bird-five {
+    top: 57.2%;
+    right: 12%;
+  }
+  #bird-six {
+    top: 71.5%;
+    left: 22%;
+  }
+  #bird-seven {
+    top: 80.3%;
+    right: 29%;
+  }
+}
