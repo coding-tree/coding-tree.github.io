@@ -15,31 +15,32 @@ function BirdContainer({title, children, className = 'left', bird, id, birdType}
     config: {duration: 300, easing: easeCubicInOut},
     delay: isVisible && 200,
     opacity: isVisible ? 1 : 0,
-    willChange: 'opacity',
   });
   const containerAnimation = useSpring({
     config: {duration: 300, easing: easeCubicInOut},
-    zIndex: isVisible ? 100 : -5,
-    willChange: 'auto',
+    zIndex: isVisible ? 30000 : -5,
   });
 
   return (
-    <div className={'bird-container ' + bird} id={id}>
-      <Bird className={className} largeDevice={largeDevice} birdType={birdType} setVisibility={setVisibility}></Bird>
+    <>
+      <div className={'bird-container ' + bird} id={id}>
+        <Bird className={className} largeDevice={largeDevice} birdType={birdType} setVisibility={setVisibility}></Bird>
 
-      {largeDevice ? (
-        <animated.div style={containerAnimation} className={'hover-container ' + className}>
-          <animated.div style={descAnimation} className={'hover-description ' + className}>
-            <h3>{title}</h3>
-            <p>{children}</p>
+        {largeDevice && (
+          <animated.div style={containerAnimation} className={'hover-container ' + className}>
+            <animated.div style={descAnimation} className={'hover-description ' + className}>
+              <h3>{title}</h3>
+              <p>{children}</p>
+            </animated.div>
           </animated.div>
-        </animated.div>
-      ) : (
+        )}
+      </div>
+      {!largeDevice && (
         <BirdModal title={title} visibility={isVisible} setVisibility={setVisibility}>
           {children}
         </BirdModal>
       )}
-    </div>
+    </>
   );
 }
 

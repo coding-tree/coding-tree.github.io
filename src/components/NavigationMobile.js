@@ -3,14 +3,8 @@ import {NavLink} from 'react-router-dom';
 import {useSpring, animated} from 'react-spring';
 import {easeBackInOut} from 'd3-ease';
 
-const {disableBodyScroll, enableBodyScroll} = require('body-scroll-lock');
-
 function NavigationMobile() {
   const [isVisible, toggleMenu] = useState(false);
-  const body = document.body;
-  useEffect(() => {
-    isVisible ? disableBodyScroll(body) : enableBodyScroll(body);
-  });
   const date = new Date().getFullYear();
 
   const menuAnimation = useSpring({
@@ -20,7 +14,7 @@ function NavigationMobile() {
     right: isVisible ? '0px' : '35px',
     borderRadius: isVisible ? '0%' : '100%',
     opacity: isVisible ? 1 : 0,
-    zIndex: isVisible ? 99 : 50,
+    zIndex: isVisible ? 999 : 100,
     delay: isVisible ? 0 : 400,
     config: {duration: 500, easing: easeBackInOut},
   });

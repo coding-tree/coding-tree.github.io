@@ -14,11 +14,7 @@ const MotiveSlider = ({title, theme, dateTime, changeMotive, changeTimeOfDay}) =
   };
 
   const toggleSlider = () => {
-    dateTime !== 'dayToNight' &&
-      dateTime !== 'nightToDay' &&
-      dateTime !== 'maindayToNight' &&
-      dateTime !== 'mainnightToDay' &&
-      changeTheme();
+    dateTime !== 'dayToNight' && dateTime !== 'nightToDay' && changeTheme();
   };
 
   const changeClassNames = () => (isLoading ? 'motive-slider preload' : 'motive-slider');

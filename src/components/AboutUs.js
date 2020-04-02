@@ -21,7 +21,7 @@ import {updateFolderStructure} from './updateFolderStructure';
 import {withTheme} from './hoc/withTheme';
 import {withTimeOfDay} from './hoc/withTimeOfDay';
 
-const AboutUs = ({motive, changeMotive, theme, dateTime, setDateTime, changeTimeOfDay}) => {
+const AboutUs = ({motive, changeMotive, theme, dateTime, changeTimeOfDay}) => {
   const [selectedElement, setSelectedElement] = useState(null);
   const [folders, updateFolders] = useState(null);
 
@@ -31,9 +31,6 @@ const AboutUs = ({motive, changeMotive, theme, dateTime, setDateTime, changeTime
 
   return (
     <section id="about-us">
-      <Navigation></Navigation>
-      <DayNight dateTime={dateTime} setDateTime={setDateTime}></DayNight>
-
       <Box motive={motive} setSelectedElement={setSelectedElement}>
         <BoxImage theme={theme} light="box.svg" dark="box_dark.svg"></BoxImage>
         <BoxWrapper>
