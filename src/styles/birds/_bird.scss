@@ -1,12 +1,7 @@
 .trees {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
   min-height: 100%;
   width: 100%;
-  z-index: 55;
-  -webkit-transform: translate3d(0px, 0px, 0px);
-  transform: translate3d(0px, 0px, 0px);
 
   svg {
     margin-bottom: -5px;
@@ -41,7 +36,9 @@
     position: absolute;
     width: 100%;
     height: 100%;
+    z-index: 5;
     cursor: pointer;
+
     &.left {
       transform: rotateY(180deg);
     }
@@ -50,11 +47,14 @@
       position: absolute;
       width: 12%;
       height: 12%;
-      // z-index: 1;
+      z-index: 2;
+
       .hover-container {
         position: absolute;
-        z-index: -5;
         width: 400px;
+        visibility: hidden;
+        transition: 0.3s linear;
+
         &.right {
           right: 90%;
           transform: rotateZ(-180deg);
@@ -69,9 +69,9 @@
         overflow: hidden;
         background-color: $white-color;
         border-radius: 20px;
-        z-index: 15;
         cursor: default;
         user-select: none;
+
         &.right {
           transform: rotate(180deg);
           bottom: -30px;
@@ -125,54 +125,64 @@
       z-index: 5;
     }
   }
-  .modal {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, 0.3);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    height: calc(var(--vh, 1vh) * 100);
-    z-index: 999;
+}
+.modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+  z-index: 99999;
 
-    &-box {
-      width: 80%;
-      border-radius: 10px;
-      box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.4);
-      overflow: hidden;
+  &-box {
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+  }
+  &-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 1vmin 3vmin;
+    border-bottom: 1px solid #ccc;
+    button {
+      border: none;
     }
-    &-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: #f0f0f0;
-      padding: 1vmin 3vmin;
-      border-bottom: 1px solid #ccc;
-      button {
-        border: none;
-      }
-      i {
-        font-size: 1rem;
-      }
-      h2 {
-        color: $font-color;
-        font: {
-          size: 1.3rem;
-        }
-      }
+    i {
+      font-size: 1rem;
     }
-    p {
-      background-color: $white-color;
-      padding: 3vmin;
+    h2 {
       color: $font-color;
+      font: {
+        size: 1.3rem;
+      }
     }
   }
+  p {
+    background-color: $white-color;
+    padding: 3vmin;
+    color: $font-color;
+  }
 }
+
+@media only screen and (min-width: 2000px) {
+  .trees {
+    margin-top: -350px;
+  }
+}
+
 @media only screen and (max-width: 2000px) {
+  .trees {
+    margin-top: -400px;
+  }
   .logo-container {
     .bird-container {
       .hover-container.right {
@@ -186,11 +196,6 @@
   }
 }
 
-@media only screen and (min-width: 2000px) {
-  .trees {
-    margin-top: -10%;
-  }
-}
 @media only screen and (max-width: 1514px) {
   .trees {
     .bird {
@@ -209,25 +214,23 @@
 }
 @media only screen and (max-width: 1149px) {
   .trees {
-    margin-top: -5rem;
-    .bird {
-    }
+    margin-top: -25rem;
   }
 }
 @media only screen and (max-width: 963px) {
   .trees {
-    margin-top: 0rem;
+    margin-top: -20rem;
   }
 }
 
 @media only screen and (max-width: 896px) {
   .trees {
-    margin-top: -4rem;
+    margin-top: -20rem;
   }
 }
 @media only screen and (max-width: 768px) {
   .trees {
-    margin-top: -12rem;
+    margin-top: -25rem;
     .bird {
       &-container {
         width: 18%;
@@ -245,6 +248,21 @@
 }
 @media only screen and (max-width: 640px) {
   .trees {
-    margin-top: -7rem;
+    margin-top: -20rem;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .trees {
+    margin-top: -35rem;
+    .bird {
+      &-container {
+        width: 28%;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 400px) {
+  .trees {
+    margin-top: -30rem;
   }
 }

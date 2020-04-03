@@ -27,10 +27,14 @@ const Background = ({children, treeFile}) => {
     },
   };
   return (
-    <div>
-      <Lottie isClickToPauseDisabled={true} speed={1} options={options}></Lottie>
+    <>
+      <Lottie
+        style={{zIndex: 1, position: 'relative'}}
+        isClickToPauseDisabled={true}
+        speed={1}
+        options={options}></Lottie>
       {children}
-    </div>
+    </>
   );
 };
 

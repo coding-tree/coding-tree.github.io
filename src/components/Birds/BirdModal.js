@@ -2,14 +2,14 @@ import React from 'react';
 import {node, string, func, bool} from 'prop-types';
 
 function BirdContainerModal({children, title, setVisibility, visibility}) {
-  const closeModal = e => {
+  const closeModal = (e) => {
     e.target.className === 'modal' && setVisibility(false);
   };
 
   return (
-    <div>
+    <>
       {visibility && (
-        <div onClick={e => closeModal(e)} className="modal">
+        <div onClick={(e) => closeModal(e)} className="modal">
           <div className="modal-box">
             <div className="modal-container">
               <h2>{title}</h2>
@@ -21,7 +21,7 @@ function BirdContainerModal({children, title, setVisibility, visibility}) {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 }
 

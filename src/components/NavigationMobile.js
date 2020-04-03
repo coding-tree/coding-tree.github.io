@@ -26,7 +26,7 @@ function NavigationMobile() {
   });
 
   const handleMenuVisibility = () => {
-    toggleMenu(prev => !prev);
+    toggleMenu((prev) => !prev);
   };
 
   return (
@@ -43,11 +43,14 @@ function NavigationMobile() {
           <animated.img style={textAnimation} src="/logo_homepage.svg" alt="" />
         </animated.h1>
         <animated.div style={textAnimation}>
-          <NavLink exact strict to="/">
+          <NavLink onClick={() => toggleMenu(false)} exact strict to="/">
             Strona główna
           </NavLink>
-          <NavLink exact strict to="/o-nas">
+          <NavLink onClick={() => toggleMenu(false)} exact strict to="/o-nas">
             Członkowie
+          </NavLink>
+          <NavLink onClick={() => toggleMenu(false)} exact strict to="/kontakt">
+            Kontakt
           </NavLink>
         </animated.div>
         <animated.footer style={textAnimation}>

@@ -6,7 +6,7 @@
       height: 100px;
     }
   }
-  .menu {
+  button.menu {
     position: fixed;
     bottom: 30px;
     right: 20px;
@@ -14,10 +14,10 @@
     height: 50px;
     width: 50px;
     border: none;
-    background-color: $menu-color;
+    background-color: var(--menu-color);
     border-radius: 100%;
     font-size: 1rem;
-    color: $white-color;
+    color: var(--selected-color);
     box-shadow: 0px 0px 35px rgba($color: #000000, $alpha: 0.5);
   }
   nav {
@@ -31,7 +31,7 @@
     width: 0;
     height: 0;
     padding-bottom: 20px;
-    background-color: $button-color;
+    background-color: var(--tree-color);
     z-index: 9999;
     overflow: hidden;
     white-space: nowrap;
@@ -70,6 +70,9 @@
       font-weight: bold;
       font-family: $header-font;
     }
+    .active {
+      color: var(--folder-color) !important;
+    }
 
     footer {
       position: absolute;
@@ -86,6 +89,9 @@
       img {
         height: 120px;
       }
+    }
+    button.menu {
+      bottom: 0.7rem;
     }
   }
 }

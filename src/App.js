@@ -10,10 +10,10 @@ import {withTimeOfDay} from './components/hoc/withTimeOfDay';
 import Navigation from './components/Navigation';
 import NavigationMobile from './components/NavigationMobile';
 import {useMedia} from './components/hooks/useMedia';
-import Footer from './components/Footer';
 import {withTheme} from './components/hoc/withTheme';
 import MainWrapper from './components/MainWrapper';
 import WrapperContainer from './components/WrapperContainer';
+import Footer from './components/Footer';
 
 const Home = lazy(() => import('./components/Home'));
 const AboutUs = lazy(() => import('./components/AboutUs'));
@@ -43,11 +43,12 @@ function App({dateTime, setDateTime, motive}) {
             <h1 style={{color: '#fff'}}>Loading...</h1>
           </div>
         }>
+        <DayNight setDateTime={setDateTime} dateTime={dateTime}></DayNight>
         <MainWrapper motive={motive}>
           <WrapperContainer>
             {largeDevice ? <Navigation></Navigation> : <NavigationMobile></NavigationMobile>}
             <SocialLinks></SocialLinks>
-            <DayNight setDateTime={setDateTime} dateTime={dateTime}></DayNight>
+
             <Switch>
               <Route exact strict path="/" component={Home}></Route>
               <Route exact strict path="/o-nas" component={AboutUs}></Route>

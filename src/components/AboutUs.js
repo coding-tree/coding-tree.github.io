@@ -32,7 +32,7 @@ const AboutUs = ({motive, changeMotive, theme, dateTime, changeTimeOfDay}) => {
   return (
     <section id="about-us">
       <Box motive={motive} setSelectedElement={setSelectedElement}>
-        <BoxImage theme={theme} light="box.svg" dark="box_dark.svg"></BoxImage>
+        <BoxImage theme={theme} light="box" dark="box_dark"></BoxImage>
         <BoxWrapper>
           <BoxPath title="Lokalizacja" folders={folders} selectedElement={selectedElement}>
             <MotiveSlider

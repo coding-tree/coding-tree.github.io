@@ -83,6 +83,7 @@
     right: 33%;
   }
 }
+
 @media only screen and (max-width: 768px) {
   #bird-one {
     top: 31.2%;
@@ -108,5 +109,36 @@
   #bird-seven {
     top: 80.3%;
     right: 29%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  #bird-one {
+    top: 39.2%;
+    right: 6%;
+  }
+  #bird-two {
+    top: 42.6%;
+    left: 7%;
+  }
+  #bird-three {
+    top: 48.9%;
+    right: 4%;
+  }
+  #bird-four {
+    top: 54.5%;
+    left: 5%;
+  }
+  #bird-five {
+    top: 63.5%;
+    right: 2%;
+  }
+  #bird-six {
+    top: 70.4%;
+    left: 3%;
+  }
+  #bird-seven {
+    top: 81.6%;
+    right: 18%;
   }
 }

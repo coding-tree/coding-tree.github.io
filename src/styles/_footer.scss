@@ -6,6 +6,7 @@ footer {
   justify-content: center;
   margin: 2rem 0;
   color: $white-color;
+  z-index: 1;
   font: {
     size: 0.6rem;
     family: $body-font;
@@ -15,7 +16,7 @@ footer {
 
 @media only screen and (max-width: 896px) {
   footer {
-    margin-bottom: 3rem;
+    margin-bottom: 5rem;
     font: {
       size: 0.6rem;
     }

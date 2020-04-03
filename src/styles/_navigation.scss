@@ -45,7 +45,7 @@ nav#desktop {
       }
     }
     > a {
-      color: var(--main-color);
+      color: var(--font-color);
       text: {
         decoration: none;
       }
@@ -55,11 +55,10 @@ nav#desktop {
       }
       transition: 0.3s;
       &:hover {
-        color: $white-color;
+        color: var(--folder-color);
         transition: 0.3s;
       }
       &.disabled {
-        color: black;
         cursor: not-allowed;
         &:hover {
           text-decoration: line-through;
@@ -70,7 +69,7 @@ nav#desktop {
 }
 
 .active {
-  color: $leaf-color !important;
+  color: var(--folder-color) !important;
 }
 
 @media only screen and (max-width: 1149px) {

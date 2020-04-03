@@ -9,7 +9,6 @@ const Bird = lazy(() => import('../Birds/Bird'));
 
 function BirdContainer({title, children, className = 'left', bird, id, birdType}) {
   const [isVisible, setVisibility] = useState(false);
-  const [isFinished, setFinish] = useState(false);
   const largeDevice = useMedia('(min-width: 896px)');
 
   const descAnimation = useSpring({
@@ -18,14 +17,13 @@ function BirdContainer({title, children, className = 'left', bird, id, birdType}
     opacity: isVisible ? 1 : 0,
   });
   const containerAnimation = useSpring({
-    config: {duration: 300, easing: easeCubicInOut},
-    zIndex: isVisible ? 1 : -5,
+    visibility: isVisible ? 'visible' : 'hidden',
   });
   const birdContainerAnimation = useSpring({
     config: {duration: 300, easing: easeCubicInOut},
-    zIndex: isVisible ? '2' : '1',
+    zIndex: isVisible ? 5 : 3,
   });
-  console.log(isVisible, isFinished);
+
   return (
     <>
       <animated.div style={birdContainerAnimation} className={'bird-container ' + bird} id={id}>
