@@ -1,18 +1,14 @@
 import React from 'react';
-import DayNight from './DayNight';
 import {withTimeOfDay} from './hoc/withTimeOfDay';
 import TreeContainer from './Tree/TreeContainer';
 import {withTheme} from './hoc/withTheme';
 import MotiveSlider from './MotiveSlider';
-import MainWrapper from './MainWrapper';
-import WrapperContainer from './WrapperContainer';
 import MainContent from './MainContent';
 import Header from './Header';
 import Birds from './Birds/Birds';
 import BirdContainer from './Birds/BirdContainer';
-import Footer from './Footer';
 
-function Home({dateTime, changeTimeOfDay, motive, changeMotive, theme}) {
+function Home({dateTime, changeTimeOfDay, changeMotive, theme}) {
   return (
     <>
       <Header>
@@ -27,7 +23,6 @@ function Home({dateTime, changeTimeOfDay, motive, changeMotive, theme}) {
           title="Przełącz motyw"
           theme={theme}
           dateTime={dateTime}
-          motive={motive}
           changeMotive={changeMotive}
           changeTimeOfDay={changeTimeOfDay}></MotiveSlider>
       </Header>

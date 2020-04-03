@@ -45,7 +45,7 @@ nav#desktop {
       }
     }
     > a {
-      color: $tree-color;
+      color: var(--main-color);
       text: {
         decoration: none;
       }

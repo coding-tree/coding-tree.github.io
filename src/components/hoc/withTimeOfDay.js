@@ -1,9 +1,9 @@
 import React, {useEffect, useMemo, useContext} from 'react';
-import {DayContext} from '../contexts/DayContext';
+import {ThemeContext} from '../contexts/ThemeContext';
 
 export const withTimeOfDay = WrappedComponent => {
   return props => {
-    const [dateTime, setDateTime] = useContext(DayContext);
+    const {dateTime, setDateTime} = useContext(ThemeContext);
     const getTimeFromLocalStorage = () => localStorage.getItem('timeOfDay');
     const memory = useMemo(() => getTimeFromLocalStorage(), [getTimeFromLocalStorage]);
 

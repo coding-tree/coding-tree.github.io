@@ -9,6 +9,7 @@ const Bird = lazy(() => import('../Birds/Bird'));
 
 function BirdContainer({title, children, className = 'left', bird, id, birdType}) {
   const [isVisible, setVisibility] = useState(false);
+  const [isFinished, setFinish] = useState(false);
   const largeDevice = useMedia('(min-width: 896px)');
 
   const descAnimation = useSpring({
@@ -18,12 +19,16 @@ function BirdContainer({title, children, className = 'left', bird, id, birdType}
   });
   const containerAnimation = useSpring({
     config: {duration: 300, easing: easeCubicInOut},
-    zIndex: isVisible ? 30000 : -5,
+    zIndex: isVisible ? 1 : -5,
   });
-
+  const birdContainerAnimation = useSpring({
+    config: {duration: 300, easing: easeCubicInOut},
+    zIndex: isVisible ? '2' : '1',
+  });
+  console.log(isVisible, isFinished);
   return (
     <>
-      <div className={'bird-container ' + bird} id={id}>
+      <animated.div style={birdContainerAnimation} className={'bird-container ' + bird} id={id}>
         <Bird className={className} largeDevice={largeDevice} birdType={birdType} setVisibility={setVisibility}></Bird>
 
         {largeDevice && (
@@ -34,7 +39,7 @@ function BirdContainer({title, children, className = 'left', bird, id, birdType}
             </animated.div>
           </animated.div>
         )}
-      </div>
+      </animated.div>
       {!largeDevice && (
         <BirdModal title={title} visibility={isVisible} setVisibility={setVisibility}>
           {children}

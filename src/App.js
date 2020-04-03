@@ -7,7 +7,6 @@ import Formik from './components/Formik';
 import SocialLinks from './components/SocialLinks';
 import DayNight from './components/DayNight';
 import {withTimeOfDay} from './components/hoc/withTimeOfDay';
-
 import Navigation from './components/Navigation';
 import NavigationMobile from './components/NavigationMobile';
 import {useMedia} from './components/hooks/useMedia';
@@ -45,7 +44,7 @@ function App({dateTime, setDateTime, motive}) {
           </div>
         }>
         <MainWrapper motive={motive}>
-          <WrapperContainer motive={motive}>
+          <WrapperContainer>
             {largeDevice ? <Navigation></Navigation> : <NavigationMobile></NavigationMobile>}
             <SocialLinks></SocialLinks>
             <DayNight setDateTime={setDateTime} dateTime={dateTime}></DayNight>
