@@ -9,11 +9,11 @@ networks:
 services:
 
   __BRANCH_NAME__:
-    image: 102421067040.dkr.ecr.eu-central-1.amazonaws.com/coding-tree-homepage:__BRANCH_NAME__
+    image: 102421067040.dkr.ecr.eu-central-1.amazonaws.com/coding-tree-homepage:__HOMEPAGE_DOCKER_TAG__
     networks:
       - web
     labels:
-      - traefik.backend=coding-tree-homepage-__BRANCH_NAME__
-      - traefik.frontend.rule=HostRegexp:__BRANCH_NAME__.hp.codingtree.pl
+      - traefik.backend=coding-tree-homepage-__HOMEPAGE_TREAFIK_NAME__
+      - traefik.frontend.rule=HostRegexp:__HOMEPAGE_DOMAIN__.codingtree.pl
       - traefik.docker.network=web
       - traefik.port=80
