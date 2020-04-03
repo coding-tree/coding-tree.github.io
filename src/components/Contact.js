@@ -16,8 +16,6 @@ const Contact = ({errors, isSubmitting, motive, changeMotive, theme, dateTime, s
 
   return (
     <section id="contact">
-      <Navigation></Navigation>
-      <DayNight dateTime={dateTime} setDateTime={setDateTime}></DayNight>
       <Box motive={motive}>
         <BoxImage theme={theme} light="box.svg" dark="box_dark.svg"></BoxImage>
         <BoxWrapper>

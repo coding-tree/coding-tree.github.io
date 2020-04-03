@@ -1,7 +1,19 @@
 .motive-slider {
-  position: relative;
   transition: 0.3s;
-  z-index: 9999;
+  z-index: 99;
+  position: fixed;
+  right: 8rem;
+  top: 0;
+  padding: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  display: flex;
+  background-color: var(--background-color);
+
+  h5 {
+    color: var(--main-color);
+  }
+
   .slider-background {
     position: relative;
     align-items: center;
@@ -48,4 +60,20 @@
   -ms-transition: none !important;
   -o-transition: none !important;
   transition: none !important;
+}
+
+@media only screen and (max-width: 1149px) {
+  .motive-slider {
+    right: 3rem;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .motive-slider {
+    padding: 0.5rem;
+    background-color: transparent;
+    right: 7vw;
+    h5 {
+      display: none;
+    }
+  }
 }

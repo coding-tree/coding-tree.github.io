@@ -1,6 +1,4 @@
-#brown-bird {
-  top: 61.8%;
-  left: 23.7%;
+.brown {
   .right-eyelid path {
     fill: #403022;
   }
@@ -27,18 +25,5 @@
   }
   .tail path {
     fill: #403022;
-  }
-}
-
-@media only screen and (max-width: 1514px) {
-  #brown-bird {
-    top: 61.7%;
-    left: 29%;
-  }
-}
-@media only screen and (max-width: 1149px) {
-  #brown-bird {
-    top: 65.2%;
-    left: 31%;
   }
 }

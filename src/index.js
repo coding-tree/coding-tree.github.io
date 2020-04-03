@@ -4,6 +4,7 @@ import App from './App';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import {unregister} from './serviceWorker';
 import {BrowserRouter} from 'react-router-dom';
+import {ThemeProvider} from './components/contexts/ThemeContext';
 
 window.buildDetails = {
   commit: process.env.REACT_APP_GIT_COMMIT,
@@ -12,7 +13,9 @@ window.buildDetails = {
 
 ReactDOM.render(
   <BrowserRouter>
-    <App />
+    <ThemeProvider>
+      <App />
+    </ThemeProvider>
   </BrowserRouter>,
   document.getElementById('root')
 );

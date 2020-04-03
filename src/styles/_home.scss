@@ -1,147 +1,105 @@
 main {
+  position: relative;
   height: 100%;
-  .container {
-    max-width: 100vw;
+  z-index: 2;
+  header {
+    width: 100%;
+  }
+  .logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     height: 100%;
+    width: 100%;
 
-    header {
-      position: absolute;
-      top: 0;
-      left: 0;
-      max-width: 100vw;
-      width: 100%;
-      height: 100%;
-      .logo-container {
-        display: flex;
-        padding-top: 2rem;
-        flex-direction: column;
-        align-items: center;
-        height: 100%;
-        font: {
-          family: $body-font;
-        }
-        text-align: justify;
-        #desktop {
-          position: relative;
-          z-index: 2;
-        }
-      }
-
-      .description {
-        max-width: 1600px;
-        margin: 0 auto;
-        color: var(--main-font-color);
-        font-size: 1rem;
-        font-weight: bold;
-      }
-
-      .motive-slider {
-        position: fixed;
-        right: 0.3rem;
-        top: 0.15rem;
-        transform: scale(1.3);
-        .slider-background {
-          margin-right: 0;
-          border-radius: 0;
-          border-bottom-left-radius: 10px;
-        }
-        h5 {
-          display: none;
-        }
-      }
+    font: {
+      family: $body-font;
+    }
+    text-align: justify;
+    #desktop {
+      position: relative;
     }
   }
-  .background {
-    height: 100%;
-    left: 0;
-    position: fixed;
-    top: 0;
-    width: 100vw;
-    z-index: -1;
+
+  .description {
+    max-width: 1600px;
+    margin: 0 auto;
+    color: var(--main-font-color);
+    font-size: 1rem;
+    font-weight: bold;
+    // background-color: var(--background-text);
   }
-  .remove-ground .ground {
-    display: none !important;
-  }
+}
+
+.background {
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 1;
+}
+.remove-ground .ground {
+  display: none !important;
 }
 
 @media only screen and (max-width: 2000px) {
   main {
-    .container {
-      header {
-        .description {
-          width: 1200px;
-        }
-      }
+    .description {
+      width: 1200px;
     }
   }
 }
 
-@media only screen and (max-width: 1600px) {
+@media only screen and (max-width: 1514px) {
   main {
-    .container {
-      header {
-        .description {
-          max-width: 80%;
-          font-size: 1rem;
-        }
-      }
-    }
-  }
-}
-@media only screen and (max-width: 1200px) {
-  main {
-    .container {
-      header {
-        .description {
-          max-width: 80%;
-          font-size: 0.8rem;
-        }
-      }
-    }
-  }
-}
-@media only screen and (max-width: 910px) {
-  main {
-    .container {
-      header {
-        .description {
-          max-width: 80%;
-          font-size: 1.5vw;
-        }
-      }
+    .description {
+      max-width: 80%;
+      font-size: 1rem;
     }
   }
 }
 
-@media only screen and (max-width: 626px) {
+@media only screen and (max-width: 1149px) {
   main {
-    .container {
-      header {
-        .description {
-          max-width: 80%;
-          font-size: 3vw;
-        }
-      }
+    .description {
+      max-width: 80%;
+      font-size: 0.8rem;
     }
   }
 }
-@media only screen and (max-width: 514px) {
+
+@media only screen and (max-width: 896px) {
   main {
-    .container {
-      header {
-        .description {
-          max-width: 80%;
-          font-size: 4vw;
-        }
-        .modal {
-          &-container {
-            padding: 3vmin 5vmin;
-          }
-          p {
-            font-size: 0.8rem;
-            padding: 5vmin;
-          }
-        }
+    .description {
+      max-width: 80%;
+      font-size: 2.2vw;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  main {
+    .description {
+      max-width: 80%;
+      font-size: 2.5vw;
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  main {
+    .description {
+      max-width: 80%;
+      font-size: 4vw;
+    }
+    .modal {
+      &-container {
+        padding: 3vmin 5vmin;
+      }
+      p {
+        font-size: 0.8rem;
+        padding: 5vmin;
       }
     }
   }
@@ -149,28 +107,20 @@ main {
 
 @media only screen and (max-width: 433px) {
   main {
-    .container {
-      header {
-        .logo-container {
-          padding-top: 1rem;
-        }
-        .description {
-          max-width: 80%;
-          font-size: 4vw;
-        }
-      }
+    .logo-container {
+      padding-top: 1rem;
+    }
+    .description {
+      max-width: 80%;
+      font-size: 4vw;
     }
   }
 }
 
 @media only screen and (max-width: 320px) {
   main {
-    .container {
-      header {
-        .description {
-          font-size: 0.6rem;
-        }
-      }
+    .description {
+      font-size: 0.6rem;
     }
   }
 }

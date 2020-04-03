@@ -4,7 +4,7 @@ import {ThemeContext} from '../contexts/ThemeContext';
 
 export const withTheme = WrappedComponent => {
   return props => {
-    const [theme, setTheme] = useContext(ThemeContext);
+    const {theme, setTheme} = useContext(ThemeContext);
     const getMotiveFromLocalStorage = () => localStorage.getItem('theme');
     const motives = {
       lightTheme: lightTheme,

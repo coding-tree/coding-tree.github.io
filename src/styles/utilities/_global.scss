@@ -17,11 +17,26 @@ html {
 }
 body {
   background-color: $tree-color;
+  height: 100%;
+  &::-webkit-scrollbar {
+    border-radius: 20px;
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: var(--folder-color);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--main-color);
+  }
 }
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 3rem;
 }
 
 h1 {
@@ -32,14 +47,7 @@ h1 {
   }
 }
 
-@media only screen and (max-width: 1600px) {
-  .container {
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-}
-
-// Block resizing on below 320px screen width
+// Block resizing below 320px screen width
 @media only screen and (max-width: 320px) {
   body {
     width: 320px;

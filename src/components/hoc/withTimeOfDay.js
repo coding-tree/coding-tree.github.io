@@ -1,15 +1,15 @@
-import React, {useState, useEffect, useMemo} from 'react';
+import React, {useEffect, useMemo, useContext} from 'react';
+import {ThemeContext} from '../contexts/ThemeContext';
 
 export const withTimeOfDay = WrappedComponent => {
   return props => {
-    const [dateTime, setDateTime] = useState(null);
+    const {dateTime, setDateTime} = useContext(ThemeContext);
     const getTimeFromLocalStorage = () => localStorage.getItem('timeOfDay');
-
     const memory = useMemo(() => getTimeFromLocalStorage(), [getTimeFromLocalStorage]);
 
     useEffect(() => {
-      setDateTime(memory || 'day');
-    }, []);
+      (dateTime === 'day' || dateTime === 'night') && setDateTime(memory || 'day');
+    });
 
     const changeTimeOfDay = () => {
       setDateTime(prevTime => {

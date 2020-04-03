@@ -1,6 +1,4 @@
-#yellow-bird {
-  top: 44.3%;
-  left: 19%;
+.yellow {
   .right-eyelid path {
     fill: #fc913a;
   }
@@ -27,17 +25,5 @@
   }
   .tail path {
     fill: #fc913a;
-  }
-}
-
-@media only screen and (max-width: 1514px) {
-  #yellow-bird {
-    top: 46%;
-    left: 20%;
-  }
-}
-@media only screen and (max-width: 1149px) {
-  #yellow-bird {
-    top: 46.8%;
   }
 }
