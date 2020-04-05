@@ -9,6 +9,7 @@ ARG git_branch
 ARG git_commit
 ARG git_tag
 ARG homepage_url
+ARG build_time
 
 WORKDIR /app
 
@@ -22,6 +23,7 @@ ENV REACT_APP_GIT_BRANCH=${git_branch}
 ENV REACT_APP_GIT_COMMIT=${git_commit}
 ENV REACT_APP_GIT_TAG=${git_tag}
 ENV REACT_APP_HOMEPAGE_URL=${homepage_url}
+ENV REACT_APP_BUILD_TIME=${build_time}
 RUN npm run build
 
 FROM nginx

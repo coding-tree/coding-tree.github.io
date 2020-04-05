@@ -11,6 +11,7 @@ window.buildDetails = {
   branch: process.env.REACT_APP_GIT_BRANCH,
   tag: process.env.REACT_APP_GIT_TAG,
   url: process.env.REACT_APP_HOMEPAGE_URL,
+  buildTime: process.env.REACT_APP_BUILD_TIME
 };
 
 ReactDOM.render(
