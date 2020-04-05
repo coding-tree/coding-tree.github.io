@@ -7,6 +7,8 @@ RUN npm install
 FROM node:10.17.0 AS builder
 ARG git_branch
 ARG git_commit
+ARG git_tag
+ARG homepage_url
 
 WORKDIR /app
 
@@ -18,6 +20,8 @@ ADD src src
 ADD public public
 ENV REACT_APP_GIT_BRANCH=${git_branch}
 ENV REACT_APP_GIT_COMMIT=${git_commit}
+ENV REACT_APP_GIT_TAG=${git_tag}
+ENV REACT_APP_HOMEPAGE_URL=${homepage_url}
 RUN npm run build
 
 FROM nginx
