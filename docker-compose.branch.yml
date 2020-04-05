@@ -13,6 +13,6 @@ services:
       - web
     labels:
       - traefik.backend=coding-tree-homepage-__HOMEPAGE_TREAFIK_NAME__
-      - traefik.frontend.rule=HostRegexp:__HOMEPAGE_DOMAIN__.codingtree.pl
+      - traefik.frontend.rule=HostRegexp:__HOMEPAGE_URL__
       - traefik.docker.network=web
       - traefik.port=80
