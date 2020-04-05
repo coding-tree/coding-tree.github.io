@@ -6,7 +6,7 @@ current_tags=$(shell git tag --points-at HEAD | xargs -I{} echo {} | paste -s -d
 container_name = codingtree-homepage-$(safe_image_name)
 deployment_dir = apso:coding-tree
 aws_url_prefix = 102421067040.dkr.ecr.eu-central-1.amazonaws.com
-build_time=$(shell date +"%Y-%m-%d/%H:%M:%S")
+build_time=$(shell date -u +"%Y-%m-%dT%H:%M:%SZ")
 
 AWS_LOGIN := $(@shell aws --profile ecradmin ecr get-login --region eu-central-1)
 
