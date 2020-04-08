@@ -29,11 +29,17 @@ function App({dateTime, setDateTime, motive}) {
   useEffect(() => {
     const vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
+
     window.addEventListener('resize', calculateViewportHeight);
     return () => {
       window.removeEventListener('resize', calculateViewportHeight);
     };
   }, []);
+
+  useEffect(() => {
+    document.body.style.setProperty('--main-color', motive ? motive['--main-color'] : '');
+    document.body.style.setProperty('--folder-color', motive ? motive['--folder-color'] : '');
+  }, [motive]);
 
   return (
     <>

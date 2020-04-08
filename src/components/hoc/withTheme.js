@@ -2,8 +2,8 @@ import React, {useContext, useEffect, useMemo} from 'react';
 import {lightTheme, darkTheme} from '../themes';
 import {ThemeContext} from '../contexts/ThemeContext';
 
-export const withTheme = WrappedComponent => {
-  return props => {
+export const withTheme = (WrappedComponent) => {
+  return (props) => {
     const {theme, setTheme} = useContext(ThemeContext);
     const getMotiveFromLocalStorage = () => localStorage.getItem('theme');
     const motives = {
@@ -17,7 +17,7 @@ export const withTheme = WrappedComponent => {
     }, []);
 
     const changeMotive = () => {
-      setTheme(theme => {
+      setTheme((theme) => {
         const newTheme = theme === 'lightTheme' ? 'darkTheme' : 'lightTheme';
         localStorage.setItem('theme', newTheme);
         return newTheme;

@@ -1,6 +1,4 @@
 import React from 'react';
-import DayNight from './DayNight';
-import Navigation from './Navigation';
 import Box from './Box/Box';
 import BoxImage from './Box/BoxImage';
 import BoxWrapper from './Box/BoxWrapper';
@@ -11,13 +9,13 @@ import Input from './Input';
 import {withTheme} from './hoc/withTheme';
 import {withTimeOfDay} from './hoc/withTimeOfDay';
 
-const Contact = ({errors, isSubmitting, motive, changeMotive, theme, dateTime, setDateTime, changeTimeOfDay}) => {
+const Contact = ({errors, isSubmitting, motive, changeMotive, theme, dateTime, changeTimeOfDay}) => {
   const hasErrors = Object.entries(errors).length > 0 && errors.constructor === Object;
 
   return (
     <section id="contact">
       <Box motive={motive}>
-        <BoxImage theme={theme} light="box.svg" dark="box_dark.svg"></BoxImage>
+        <BoxImage theme={theme} light="box" dark="box_dark"></BoxImage>
         <BoxWrapper>
           <BoxContent>
             <div className="box-contact">
