@@ -31,14 +31,6 @@ main {
   }
 }
 
-.background {
-  height: 100%;
-  left: 0;
-  position: fixed;
-  top: 0;
-  width: 100vw;
-  z-index: 1;
-}
 .remove-ground .ground {
   display: none !important;
 }

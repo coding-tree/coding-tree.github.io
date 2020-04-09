@@ -17,7 +17,7 @@ const BoxPath = ({title, selectedElement, folders, children}) => {
 };
 
 BoxPath.propTypes = {
-  children: oneOfType([arrayOf(node), node]).isRequired,
+  children: oneOfType([arrayOf(node), node]),
   title: string.isRequired,
   selectedElement: object,
   folders: object,

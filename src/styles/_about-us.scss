@@ -4,19 +4,10 @@
   flex-direction: column;
   width: 100%;
   padding-bottom: 5rem;
-  .background {
-    height: 100vh;
-    left: 0;
-    position: fixed;
-    top: 0;
-    width: 100vw;
-    z-index: -1;
-  }
 }
 
 .box {
   color: var(--font-color);
-  margin-bottom: 2rem;
   margin-top: 2rem;
   position: relative;
 
@@ -218,7 +209,9 @@
     overflow-x: hidden;
     overflow-y: auto;
     width: 70%;
-
+    .folder-detail {
+      padding: 1rem;
+    }
     &::-webkit-scrollbar {
       border-radius: 20px;
       width: 10px;
@@ -281,6 +274,10 @@
         font-size: 0.8rem;
         font-weight: bold;
         margin-bottom: 0.5rem;
+        text-align: justify;
+      }
+      &-stack {
+        margin-bottom: 1rem;
       }
     }
   }
@@ -307,7 +304,7 @@
       }
       .folder-detail {
         flex-direction: column;
-        padding: 1rem;
+
         h2 {
           padding-bottom: 0.5rem;
         }
@@ -356,6 +353,158 @@
           margin-bottom: 1rem;
           a:first-child {
             margin-left: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 896px) {
+  .box {
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin: 1rem 0;
+    &-wrapper {
+      position: relative;
+      padding: 0 1rem;
+      height: auto;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+    &-path {
+      display: none;
+    }
+    &-content {
+      height: auto;
+      flex-direction: row;
+      min-width: 70%;
+    }
+    &-folders {
+      height: auto;
+      border: 5px solid var(--social-bg-color);
+      overflow-y: auto;
+      margin: 0;
+      .folder {
+        margin: 0;
+      }
+    }
+    &-info {
+      width: 0;
+      height: 0;
+      .profile-box {
+        background-color: var(--background-color);
+        position: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+      }
+      .profile-modal {
+        background-color: var(--modal-color);
+        width: 90%;
+        max-height: 90%;
+        position: relative;
+        .avatar {
+          width: 100%;
+          height: 400px;
+        }
+        .profile {
+          width: 100%;
+          overflow-y: auto;
+          height: auto;
+          padding: 1rem;
+          &::-webkit-scrollbar {
+            border-radius: 0;
+            width: 5px;
+          }
+
+          &::-webkit-scrollbar-track {
+            border-radius: 0;
+          }
+
+          &::-webkit-scrollbar-thumb {
+            border-radius: 0;
+          }
+          &-name {
+            h2 {
+              font-size: 1.2rem;
+            }
+          }
+          &-age {
+            font-size: 0.7rem;
+          }
+          &-stack {
+            font-size: 0.7rem;
+          }
+          &-description {
+            font-size: 0.6rem;
+          }
+        }
+        .close {
+          position: absolute;
+          background-color: transparent;
+          border: none;
+          top: 0.5rem;
+          right: 0.5rem;
+          z-index: 999999;
+          font-size: 1.5rem;
+          color: $white-color;
+          text-shadow: 0 0 6px rgba($black-color, 0.3);
+        }
+      }
+      .folder-detail,
+      &-startup {
+        display: none;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 896px) and (orientation: landscape) {
+  .box {
+    &-info {
+      .profile-modal {
+        display: flex;
+        .avatar {
+          height: auto;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .box {
+    &-content {
+      width: 100%;
+      min-width: auto;
+    }
+    &-info {
+      .profile-modal {
+        .avatar {
+          height: 200px;
+        }
+        .profile {
+          max-height: 300px;
+          overflow-y: scroll;
+
+          &-stack {
+            margin-bottom: 1.5rem;
+          }
+          &-social a {
+            i {
+              margin-left: 0.5rem;
+            }
+            &:first-child i {
+              margin-left: 0;
+            }
           }
         }
       }

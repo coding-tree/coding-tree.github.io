@@ -114,13 +114,6 @@
     &:focus {
       outline: none;
     }
-    &::after {
-      @include sunshineElement(2s);
-    }
-
-    &::before {
-      @include sunshineElement(3s);
-    }
     &-container {
       z-index: 5;
     }
@@ -150,26 +143,27 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #f0f0f0;
+    background-color: var(--modal-header-color);
     padding: 1vmin 3vmin;
     border-bottom: 1px solid #ccc;
     button {
       border: none;
     }
     i {
+      color: var(--main-color);
       font-size: 1rem;
     }
     h2 {
-      color: $font-color;
+      color: var(--main-color);
       font: {
         size: 1.3rem;
       }
     }
   }
   p {
-    background-color: $white-color;
+    background-color: var(--modal-color);
     padding: 3vmin;
-    color: $font-color;
+    color: var(--font-color);
   }
 }
 

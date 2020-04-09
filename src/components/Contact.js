@@ -1,6 +1,4 @@
 import React from 'react';
-import DayNight from './DayNight';
-import Navigation from './Navigation';
 import Box from './Box/Box';
 import BoxImage from './Box/BoxImage';
 import BoxWrapper from './Box/BoxWrapper';
@@ -10,14 +8,15 @@ import {Form} from 'formik';
 import Input from './Input';
 import {withTheme} from './hoc/withTheme';
 import {withTimeOfDay} from './hoc/withTimeOfDay';
+import {ToastContainer} from 'react-toastify';
 
-const Contact = ({errors, isSubmitting, motive, changeMotive, theme, dateTime, setDateTime, changeTimeOfDay}) => {
+const Contact = ({errors, isSubmitting, motive, changeMotive, theme, dateTime, changeTimeOfDay}) => {
   const hasErrors = Object.entries(errors).length > 0 && errors.constructor === Object;
 
   return (
     <section id="contact">
       <Box motive={motive}>
-        <BoxImage theme={theme} light="box.svg" dark="box_dark.svg"></BoxImage>
+        <BoxImage theme={theme} light="box" dark="box_dark"></BoxImage>
         <BoxWrapper>
           <BoxContent>
             <div className="box-contact">
@@ -48,7 +47,7 @@ const Contact = ({errors, isSubmitting, motive, changeMotive, theme, dateTime, s
                     component="textarea"></Input>
 
                   <button disabled={hasErrors} type="submit">
-                    Wyślij
+                    {isSubmitting ? 'Wysyłanie...' : 'Wyślij'}
                   </button>
                 </Form>
               </div>
@@ -56,8 +55,14 @@ const Contact = ({errors, isSubmitting, motive, changeMotive, theme, dateTime, s
           </BoxContent>
         </BoxWrapper>
       </Box>
+      <ToastContainer></ToastContainer>
     </section>
   );
 };
 
 export default withTimeOfDay(withTheme(Contact));
+
+// Login: email@codingtree.pl
+// Hasło: bqb7DbDLZ.7GdYi
+
+// API KEY: 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

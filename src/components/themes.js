@@ -15,6 +15,10 @@ export const lightTheme = {
   '--grass-color': '#330B15',
   '--ground-color': '#330B15',
   '--menu-color': '#e84855',
+  '--modal-header-color': '#f1f3f4',
+  '--modal-color': '#fff',
+  '--border-color-box': '#f1f3f4',
+  '--success-color': '#6bba62',
 };
 
 export const darkTheme = {
@@ -28,10 +32,14 @@ export const darkTheme = {
   '--folder-color': '#fff1b9',
   '--text-color': '#e3dede',
   '--white-color': '#fff',
-  '--social-bg-color': '#5E5E5F99',
+  '--social-bg-color': '#5E5E5F',
   '--box-font': 'Nunito Sans',
   '--tree-color': '#323333',
   '--grass-color': '#3f4040',
   '--ground-color': '#272625',
   '--menu-color': '#fff1b9',
+  '--modal-header-color': '#272625',
+  '--modal-color': '#3f4040',
+  '--border-color-box': '#272625',
+  '--success-color': '#64a36f',
 };

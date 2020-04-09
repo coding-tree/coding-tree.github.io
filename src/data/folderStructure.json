@@ -40,7 +40,39 @@
           "kind": "folder",
           "name": "Brązowy Pas",
           "children": [
-            {"id": 1, "kind": "person", "name": "Józef Rzadkosz"},
+            {
+              "id": 1,
+              "kind": "person",
+              "name": "Józef Rzadkosz",
+              "github": "https://github.com/freestyle09",
+              "stackOverflow": "https://stackoverflow.com/users/9833763/freestyle09?tab=profile",
+              "linkedIn": "https://www.linkedin.com/in/jozef-rzadkosz/",
+              "portfolio": "https://jozefrzadkosz-portfolio.pl/",
+              "landscape": "Józef Rzadkosz - Landscape",
+              "dateOfBirth": 1993,
+              "stack": [
+                {"id": 1, "title": "JavaScript"},
+                {"id": 2, "title": "Node.js"},
+                {"id": 3, "title": "Express.js"},
+                {"id": 4, "title": "React"},
+                {"id": 5, "title": "Angular"},
+                {"id": 6, "title": "Redux"},
+                {"id": 7, "title": "jQuery"},
+                {"id": 8, "title": "HTML5"},
+                {"id": 9, "title": "CSS3"},
+                {"id": 10, "title": "SASS"},
+                {"id": 11, "title": "Adobe Illustrator"},
+                {"id": 12, "title": "Adobe Photoshop"},
+                {"id": 13, "title": "Adobe After Effects"},
+                {"id": 14, "title": "Adobe Xd"},
+                {"id": 15, "title": "Mac OS"},
+                {"id": 16, "title": "Blender"},
+                {"id": 17, "title": "3Ds MAX"},
+                {"id": 18, "title": "Webpack"},
+                {"id": 19, "title": "Git"}
+              ],
+              "description": "Zawodowo zajmuję się projektowaniem UX/UI aplikacji webowych oraz pracuję jako Full Stack Developer w technologiach Node.js oraz React. Moim celem zawodowym jest zostać expertem CSS/SASS oraz tworzyć coraz lepsze unikalne rozwiązania graficzne pod kątem aplikacji webowych oraz animacji. Pomagam równie innym osobom zaprzyjaźnić się ze światem grafiki i CSS. Poza pracą interesuję się muzyką oraz astronomią."
+            },
             {"id": 2, "kind": "person", "name": "Jakub Wojtoń"}
           ]
         },
@@ -78,8 +110,41 @@
               ],
               "description": "Zawodowo zajmuje się tworzeniem formularzy dla firm (głównie banków) takich jak: założenie konta online, wzięcie pożyczki online, wypożyczenie auta online itp. Po pracy zajmuje się tworzeniem własnych projektów, które kiedyś mam nadzieje wyjdą na świat. Lubię czytać o nowych technologiach, które prawie codziennie Nas zalewają. Moją pasją są motocykle więc i w tym temacie staram się prężnie rozwijać."
             },
-            {"id": 3, "kind": "person", "name": "Łukasz Strobejko"},
-            {"id": 4, "kind": "person", "name": "Paweł Wojtkiewicz"},
+            {
+              "id": 3,
+              "kind": "person",
+              "name": "Łukasz Strobejko",
+              "github": "https://github.com/z1gonzo",
+              "linkedIn": "https://www.linkedin.com/in/%C5%82ukasz-strobejko-702134163/",
+              "dateOfBirth": 1992,
+              "stack": [
+                {"id": 1, "title": "JavaScript"},
+                {"id": 2, "title": "React.js"},
+                {"id": 3, "title": "Node.js"},
+                {"id": 4, "title": "Webpack"},
+                {"id": 5, "title": "RESTful API"},
+                {"id": 6, "title": "Postman"},
+                {"id": 7, "title": "Git"},
+                {"id": 8, "title": "Buddy"},
+                {"id": 9, "title": "Nginx"},
+                {"id": 10, "title": "Linux"}
+              ],
+              "description": "Lubię pracę z komputerami, już jako dziecko interesowałem się grami komputerowymi :D. W czasach gimnazjów 'zacząłem programować', przeczytałem Programowanie w PHP Poradnik dla webmasterów, taka mała książeczka wydawana przez Komputer Świat. Niestety nie miałem pojęcia co mogę z tym dalej zrobić, wtedy jeszcze nie było zbyt wielu informacji w internecie i porzuciłem zajawkę. Z początkiem 2018 roku zacząłem zgłębiać wiedzę na nowo, kiedy usłyszałem o Coding Tree pomyślałem, że to świetne miejsce, żeby się szkolić. Teraz jestem programistą i szukam pracy za 15k/miesiąc."
+            },
+            {
+              "id": 4,
+              "kind": "person",
+              "name": "Paweł Wojtkiewicz",
+              "github": "https://github.com/pawelwojtkiewicz",
+              "linkedIn": "https://www.linkedin.com/in/pawe%C5%82-wojtkiewicz-a1b240184/",
+              "fb": "https://www.facebook.com/pawelwojtkiewicz66",
+              "dateOfBirth": 1999,
+              "stack": [
+                {"id": 1, "title": "React"},
+                {"id": 2, "title": "Javascript"}
+              ],
+              "description": "Pracuję jako specjalista ds. IT. Głównie działam jako frontend developer, lecz zajmuje się również utrzymaniem infrastruktury sieciowej. Programowanie mnie opętało, po kodowaniu w pracy wciąż mi mało i zaraz po przyjeździe do domu czytam nowe materiały, oglądam różne rozwiązania, testuje ciekawe fragmenty kodu oraz rozwijam aplikację dla Coding Tree jak i swoją. Poza kodowaniem moją pasją jest muzyka metalowa, uwielbiam również tematy okultystyczne, Audi i kolor czarny."
+            },
             {"id": 5, "kind": "person", "name": "Jędrzej Paulus"}
           ]
         },
@@ -94,7 +159,20 @@
           "kind": "folder",
           "name": "Biały Pas",
           "children": [
-            {"id": 1, "kind": "person", "avatar": "Man", "name": "Arkadiusz Świokło"},
+            {
+              "id": 1,
+              "kind": "person",
+              "name": "Arkadiusz Świokło",
+              "github": "https://github.com/bulamen7",
+              "linkedIn": "https://www.linkedin.com/in/arkadiusz-%C5%9Bwiok%C5%82o-766633179/",
+              "dateOfBirth": 1992,
+              "stack": [
+                {"id": 1, "title": "Java"},
+                {"id": 2, "title": "Spring"},
+                {"id": 3, "title": "MySQL"}
+              ],
+              "description": "Zawodowo związany ze światem lotniczym, a nie jak można przypuszczać  IT.  Od niedawna jestem wielkim pasjonatem programowania, szczególnie w jezyku Java, i tym co z nią związane. Po godzinach w codziennej pracy piszę swoje małe projekty, które z czasem zamierzam rozbudowywać. Jeżeli tylko mi sie uda, z pomocą CodingTree zamierzam zmienić branżę na IT, głównie na nieograniczoną możliwość rozwoju."
+            },
             {"id": 2, "kind": "person", "avatar": "Man", "name": "Paweł Kochowicz"},
             {"id": 3, "kind": "person", "avatar": "Man", "name": "Paweł Marciniak"}
           ]

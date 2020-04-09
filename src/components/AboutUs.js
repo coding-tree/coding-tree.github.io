@@ -1,7 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import Navigation from './Navigation';
 import folderStructure from '../data/folderStructure.json';
-import DayNight from './DayNight';
 import Footer from './Footer';
 import Box from './Box/Box';
 import BoxImage from './Box/BoxImage';
@@ -34,14 +32,13 @@ const AboutUs = ({motive, changeMotive, theme, dateTime, changeTimeOfDay}) => {
       <Box motive={motive} setSelectedElement={setSelectedElement}>
         <BoxImage theme={theme} light="box" dark="box_dark"></BoxImage>
         <BoxWrapper>
-          <BoxPath title="Lokalizacja" folders={folders} selectedElement={selectedElement}>
-            <MotiveSlider
-              title="Przełącz motyw"
-              dateTime={dateTime}
-              theme={theme}
-              changeMotive={changeMotive}
-              changeTimeOfDay={changeTimeOfDay}></MotiveSlider>
-          </BoxPath>
+          <BoxPath title="Lokalizacja" folders={folders} selectedElement={selectedElement}></BoxPath>
+          <MotiveSlider
+            title="Przełącz motyw"
+            dateTime={dateTime}
+            theme={theme}
+            changeMotive={changeMotive}
+            changeTimeOfDay={changeTimeOfDay}></MotiveSlider>
           <BoxContent>
             <BoxFolders folders={folders}>
               <Folders
@@ -52,7 +49,7 @@ const AboutUs = ({motive, changeMotive, theme, dateTime, changeTimeOfDay}) => {
             <BoxInfo selectedElement={selectedElement}>
               {selectedElement ? (
                 <>
-                  <ProfileDetail selectedElement={selectedElement}>
+                  <ProfileDetail setSelectedElement={setSelectedElement} selectedElement={selectedElement}>
                     <Avatar profile={selectedElement}></Avatar>
                     <Profile emptyDescription="Brak opisu profilu" profile={selectedElement}></Profile>
                   </ProfileDetail>
@@ -69,8 +66,6 @@ const AboutUs = ({motive, changeMotive, theme, dateTime, changeTimeOfDay}) => {
           </BoxContent>
         </BoxWrapper>
       </Box>
-
-      <Footer></Footer>
     </section>
   );
 };
