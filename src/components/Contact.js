@@ -59,3 +59,8 @@ const Contact = ({errors, isSubmitting, motive, changeMotive, theme, dateTime, c
 };
 
 export default withTimeOfDay(withTheme(Contact));
+
+// Login: email@codingtree.pl
+// Hasło: bqb7DbDLZ.7GdYi
+
+// API KEY: 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

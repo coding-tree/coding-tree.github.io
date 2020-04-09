@@ -9,6 +9,8 @@
     "@types/yup": "^0.26.33",
     "body-scroll-lock": "^2.6.4",
     "d3-ease": "^1.0.6",
+    "emailjs": "^2.2.0",
+    "emailjs-com": "^2.4.1",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-prettier": "^3.1.2",
     "formik": "^2.1.4",

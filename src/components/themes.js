@@ -17,6 +17,7 @@ export const lightTheme = {
   '--menu-color': '#e84855',
   '--modal-header-color': '#f1f3f4',
   '--modal-color': '#fff',
+  '--border-color-box': '#f1f3f4',
 };
 
 export const darkTheme = {
@@ -38,4 +39,5 @@ export const darkTheme = {
   '--menu-color': '#fff1b9',
   '--modal-header-color': '#272625',
   '--modal-color': '#3f4040',
+  '--border-color-box': '#272625',
 };
