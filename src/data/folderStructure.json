@@ -159,7 +159,20 @@
           "kind": "folder",
           "name": "Biały Pas",
           "children": [
-            {"id": 1, "kind": "person", "avatar": "Man", "name": "Arkadiusz Świokło"},
+            {
+              "id": 1,
+              "kind": "person",
+              "name": "Arkadiusz Świokło",
+              "github": "https://github.com/bulamen7",
+              "linkedIn": "https://www.linkedin.com/in/arkadiusz-%C5%9Bwiok%C5%82o-766633179/",
+              "dateOfBirth": 1992,
+              "stack": [
+                {"id": 1, "title": "Java"},
+                {"id": 2, "title": "Spring"},
+                {"id": 3, "title": "MySQL"}
+              ],
+              "description": "Zawodowo związany ze światem lotniczym, a nie jak można przypuszczać  IT.  Od niedawna jestem wielkim pasjonatem programowania, szczególnie w jezyku Java, i tym co z nią związane. Po godzinach w codziennej pracy piszę swoje małe projekty, które z czasem zamierzam rozbudowywać. Jeżeli tylko mi sie uda, z pomocą CodingTree zamierzam zmienić branżę na IT, głównie na nieograniczoną możliwość rozwoju."
+            },
             {"id": 2, "kind": "person", "avatar": "Man", "name": "Paweł Kochowicz"},
             {"id": 3, "kind": "person", "avatar": "Man", "name": "Paweł Marciniak"}
           ]
