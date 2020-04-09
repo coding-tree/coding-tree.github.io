@@ -6,6 +6,7 @@ import {unregister} from './serviceWorker';
 import {BrowserRouter} from 'react-router-dom';
 import {ThemeProvider} from './components/contexts/ThemeContext';
 import './styles/main.scss';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 window.buildDetails = {
   commit: process.env.REACT_APP_GIT_COMMIT,

@@ -79,7 +79,7 @@ h3 {
     min-height: calc((var(--vh, 1vh) * 100) - 72px);
   }
   .background {
-    min-height: calc((var(--vh, 1vh) * 100) - 72px);
+    min-height: 100vh; /* Fallback for browsers that do not support Custom Properties */
   }
   main > footer {
     display: none;

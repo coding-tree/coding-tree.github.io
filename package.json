@@ -5,6 +5,7 @@
   "dependencies": {
     "@types/eslint-plugin-prettier": "^2.2.0",
     "@types/prop-types": "^15.7.3",
+    "@types/react-toastify": "^4.1.0",
     "@types/stylelint": "^9.10.1",
     "@types/yup": "^0.26.33",
     "body-scroll-lock": "^2.6.4",
@@ -27,6 +28,7 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
     "react-spring": "^8.0.27",
+    "react-toastify": "^5.5.0",
     "yup": "^0.28.3"
   },
   "scripts": {

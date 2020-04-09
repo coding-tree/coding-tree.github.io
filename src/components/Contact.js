@@ -8,6 +8,7 @@ import {Form} from 'formik';
 import Input from './Input';
 import {withTheme} from './hoc/withTheme';
 import {withTimeOfDay} from './hoc/withTimeOfDay';
+import {ToastContainer} from 'react-toastify';
 
 const Contact = ({errors, isSubmitting, motive, changeMotive, theme, dateTime, changeTimeOfDay}) => {
   const hasErrors = Object.entries(errors).length > 0 && errors.constructor === Object;
@@ -46,7 +47,7 @@ const Contact = ({errors, isSubmitting, motive, changeMotive, theme, dateTime, c
                     component="textarea"></Input>
 
                   <button disabled={hasErrors} type="submit">
-                    Wyślij
+                    {isSubmitting ? 'Wysyłanie...' : 'Wyślij'}
                   </button>
                 </Form>
               </div>
@@ -54,6 +55,7 @@ const Contact = ({errors, isSubmitting, motive, changeMotive, theme, dateTime, c
           </BoxContent>
         </BoxWrapper>
       </Box>
+      <ToastContainer></ToastContainer>
     </section>
   );
 };

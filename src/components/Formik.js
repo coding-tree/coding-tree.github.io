@@ -2,6 +2,7 @@ import {withFormik} from 'formik';
 import Contact from './Contact';
 import * as Yup from 'yup';
 import * as emailjs from 'emailjs-com';
+import {toast} from 'react-toastify';
 
 const Formik = withFormik({
   mapPropsToValues: ({person, email, message}) => {
@@ -21,6 +22,15 @@ const Formik = withFormik({
   }),
 
   handleSubmit: ({person, email, message}, {resetForm}) => {
+    const toastOptions = {
+      position: 'top-right',
+      autoClose: 5000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      className: 'toastify',
+    };
     let templateParams = {
       from_name: person,
       from_email: email,
@@ -30,11 +40,12 @@ const Formik = withFormik({
     };
 
     emailjs
-      .send('sendgrid', 'codingtree', templateParams, 'user_dIvEpD7E5qSWtvsKbDOu6')
+      .send('sendgrid', 'template_MFWAMonF', templateParams, 'user_nmrVdn2H5DRl7IDZs9zbm')
       .then(() => {
         resetForm();
+        return toast.success('Wysłano pomyślnie', toastOptions);
       })
-      .catch((err) => console.log('errir', err));
+      .catch(() => toast.error('Coś poszło nie tak, Spróbuj ponownie później...', toastOptions));
   },
 })(Contact);
 
