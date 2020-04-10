@@ -7,7 +7,19 @@ import ProfileName from './ProfileName';
 import ProfileAge from './ProfileAge';
 
 const Profile = ({profile, emptyDescription}) => {
-  const {name, github, fb, stackOverflow, twitter, linkedIn, portfolio, dateOfBirth, stack, description} = profile;
+  const {
+    name,
+    github,
+    fb,
+    stackOverflow,
+    twitter,
+    linkedIn,
+    portfolio,
+    dateOfBirth,
+    stack,
+    description,
+    spotify,
+  } = profile;
 
   return (
     <div className="profile">
@@ -18,6 +30,7 @@ const Profile = ({profile, emptyDescription}) => {
         <ProfileSocial social={twitter} icon="fab fa-twitter-square"></ProfileSocial>
         <ProfileSocial social={linkedIn} icon="fab fa-linkedin"></ProfileSocial>
         <ProfileSocial social={portfolio} icon="fas fa-globe"></ProfileSocial>
+        <ProfileSocial social={spotify} icon="fab fa-spotify"></ProfileSocial>
       </ProfileName>
       <ProfileAge dateOfBirth={dateOfBirth}></ProfileAge>
       <ProfileStack stack={stack}></ProfileStack>

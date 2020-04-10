@@ -2,10 +2,10 @@ import React from 'react';
 import {object} from 'prop-types';
 
 const Avatar = ({profile}) => {
-  const {name} = profile;
+  const {name, avatar} = profile;
   return (
     <div className="avatar">
-      <img src={`avatars/${name} - Landscape.svg`} alt="" />
+      <img src={`avatars/${avatar || name} - Landscape.svg`} alt="" />
     </div>
   );
 };

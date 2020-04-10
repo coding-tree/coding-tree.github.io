@@ -73,42 +73,26 @@
               ],
               "description": "Zawodowo zajmuję się projektowaniem UX/UI aplikacji webowych oraz pracuję jako Full Stack Developer w technologiach Node.js oraz React. Moim celem zawodowym jest zostać expertem CSS/SASS oraz tworzyć coraz lepsze unikalne rozwiązania graficzne pod kątem aplikacji webowych oraz animacji. Pomagam równie innym osobom zaprzyjaźnić się ze światem grafiki i CSS. Poza pracą interesuję się muzyką oraz astronomią."
             },
-            {"id": 2, "kind": "person", "name": "Jakub Wojtoń"}
-          ]
-        },
-        {
-          "id": 3,
-          "kind": "folder",
-          "name": "Zielony Pas"
-        },
-        {
-          "id": 4,
-          "kind": "folder",
-          "name": "Żółty Pas",
-          "children": [
-            {"id": 1, "kind": "person", "name": "Kazimierz Bagrowski"},
             {
               "id": 2,
               "kind": "person",
-              "name": "Emil Sankowski",
-              "github": "https://github.com/icemanek",
-              "linkedIn": "https://www.linkedin.com/in/emil-sankowski/",
-              "stackOverflow": "https://stackoverflow.com/users/9453376/icemanek",
-              "dateOfBirth": 1991,
+              "name": "Jakub Wojtoń",
+              "fb": "https://www.facebook.com/kuba.wojton.33/",
+              "github": "https://github.com/xtermalq",
+              "portfolio": "https://jwojton.pl/",
+              "dateOfBirth": 2000,
               "stack": [
-                {"id": 1, "title": "Java"},
-                {"id": 2, "title": "Spring"},
-                {"id": 3, "title": "Hibernate"},
-                {"id": 4, "title": "jQuery"},
-                {"id": 5, "title": "JSP"},
-                {"id": 6, "title": "Javascript"},
-                {"id": 7, "title": "Angular"},
-                {"id": 8, "title": "Windows"},
-                {"id": 9, "title": "Linux"},
-                {"id": 10, "title": "Groovy"},
-                {"id": 11, "title": "Flutter"}
+                {"id": 1, "title": "Adobe Illustrator"},
+                {"id": 2, "title": "Adobe Photoshop"},
+                {"id": 3, "title": "Adobe Xd"},
+                {"id": 4, "title": "HTML"},
+                {"id": 5, "title": "CSS"},
+                {"id": 6, "title": "SASS"},
+                {"id": 7, "title": "PHP"},
+                {"id": 8, "title": "JavaScript"},
+                {"id": 9, "title": "jQuery"}
               ],
-              "description": "Zawodowo zajmuje się tworzeniem formularzy dla firm (głównie banków) takich jak: założenie konta online, wzięcie pożyczki online, wypożyczenie auta online itp. Po pracy zajmuje się tworzeniem własnych projektów, które kiedyś mam nadzieje wyjdą na świat. Lubię czytać o nowych technologiach, które prawie codziennie Nas zalewają. Moją pasją są motocykle więc i w tym temacie staram się prężnie rozwijać."
+              "description": "Od zawsze ciągnęło mnie do informatyki. Swoją pierwszą przygodę z programowaniem zacząłem od stawiania serwerów TeamSpeak3. Tworzyłem proste boty Query pisane w PHP.  Frontendem interesuje się stosunkowo od nie dawna. Posługuje się HTML/CSS/SASS/JavaScript/jQuery, a z Backendu PHP. Od 2 lat co raz bardziej ciągnie mnie do grafiki, głównie grafiki użytkowej - reklamowej.  Po dołączeniu do Coding Tree zacząłem rozwijać UX/UI i w tym kierunku chciałbym się najbardziej rozwijać. W wolnym czasie lubię pograć w World of Tanks i oglądać SpongeBob Kanciastoporty"
             },
             {
               "id": 3,
@@ -134,6 +118,72 @@
             {
               "id": 4,
               "kind": "person",
+              "name": "Jędrzej Paulus",
+              "fb": "https://www.facebook.com/jmt.paulus",
+              "github": "https://github.com/JMPaulus",
+              "linkedIn": "https://www.linkedin.com/in/jedrzejpaulus/",
+              "portfolio": "https://codeboy.pl/",
+              "spotify": "https://podfollow.com/developer-wannabe",
+              "dateOfBirth": 1985,
+              "stack": [{"id": 1, "title": "JavaScript"}],
+              "description": "Pracuję jako IT account manager w amerykańskiej firmie IT. Programowanie pozwala mi zrozumieć o czym rozmawiam z klientami. W ten sposób jestem w stanie pewniej się wypowiadać i jednocześnie rozwijać się w branży, poznawać nowe technologie. Programowanie pozwala mi zrozumieć jak ułożony jest świat technologii, która nas otacza. Kiedy kilka lat temu przeszedłem do IT, to nikt nie miał dla mnie czasu. Założyłem podcast Developer Wannabe, do którego zapraszam mądrych ludzi, zadaje im pytania o technologii IT. Rozmowy nagrywam i wpuszczam w formie podcastu, aby każdy mógł się zainspirować do tworzenia, nauki, rozwoju czy biznesu. W Coding Tree pomagam tworzyć kontent i wspieram kolegów w rozwoju, tak jak oni mnie. Poza IT jestem zakochany w bieganiu. Lubię też astronomię, muzykę rockową i podróże."
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "kind": "folder",
+          "name": "Zielony Pas"
+        },
+        {
+          "id": 4,
+          "kind": "folder",
+          "name": "Żółty Pas",
+          "children": [
+            {"id": 1, "kind": "person", "name": "Kazimierz Bagrowski"},
+            {
+              "id": 2,
+              "kind": "person",
+              "name": "Angelika Paterak",
+              "fb": "https://www.facebook.com/angelika.paterak",
+              "linkedIn": "https://www.linkedin.com/in/angelika-paterak-000006178/",
+              "portfolio": "https://www.zglowawksiazkach.pl",
+              "dateOfBirth": 1998,
+              "stack": [
+                {"id": 1, "title": "Adobe Illustrator"},
+                {"id": 2, "title": "Adobe Photoshop"},
+                {"id": 3, "title": "Adobe Xd"},
+                {"id": 4, "title": "Mac OS"}
+              ],
+              "description": "Studiuję Logistykę Międzynarodową i jednocześnie dorabiam sobie jako copywriter. Coding Tree stało się dla mnie miejscem, w którym odkryłam na nowo pasję do grafiki. Obecnie kształcę się w kierunku UX/UI i z tym wiążę swoją przyszłość. Uwielbiam szeroko pojętą sztukę i poza grafikowaniem śpiewam, słucham bardzo różnorodnej muzyki, czytam i kolekcjonuję książki. Kiedy udaje mi się magicznie rozciągnąć dobę, publikuję recenzje książek na swoim blogu o literaturze."
+            },
+            {
+              "id": 3,
+              "kind": "person",
+              "name": "Emil Sankowski",
+              "github": "https://github.com/icemanek",
+              "linkedIn": "https://www.linkedin.com/in/emil-sankowski/",
+              "stackOverflow": "https://stackoverflow.com/users/9453376/icemanek",
+              "dateOfBirth": 1991,
+              "stack": [
+                {"id": 1, "title": "Java"},
+                {"id": 2, "title": "Spring"},
+                {"id": 3, "title": "Hibernate"},
+                {"id": 4, "title": "jQuery"},
+                {"id": 5, "title": "JSP"},
+                {"id": 6, "title": "Javascript"},
+                {"id": 7, "title": "Angular"},
+                {"id": 8, "title": "Windows"},
+                {"id": 9, "title": "Linux"},
+                {"id": 10, "title": "Groovy"},
+                {"id": 11, "title": "Flutter"}
+              ],
+              "description": "Zawodowo zajmuje się tworzeniem formularzy dla firm (głównie banków) takich jak: założenie konta online, wzięcie pożyczki online, wypożyczenie auta online itp. Po pracy zajmuje się tworzeniem własnych projektów, które kiedyś mam nadzieje wyjdą na świat. Lubię czytać o nowych technologiach, które prawie codziennie Nas zalewają. Moją pasją są motocykle więc i w tym temacie staram się prężnie rozwijać."
+            },
+
+            {
+              "id": 4,
+              "kind": "person",
               "name": "Paweł Wojtkiewicz",
               "github": "https://github.com/pawelwojtkiewicz",
               "linkedIn": "https://www.linkedin.com/in/pawe%C5%82-wojtkiewicz-a1b240184/",
@@ -144,15 +194,13 @@
                 {"id": 2, "title": "Javascript"}
               ],
               "description": "Pracuję jako specjalista ds. IT. Głównie działam jako frontend developer, lecz zajmuje się również utrzymaniem infrastruktury sieciowej. Programowanie mnie opętało, po kodowaniu w pracy wciąż mi mało i zaraz po przyjeździe do domu czytam nowe materiały, oglądam różne rozwiązania, testuje ciekawe fragmenty kodu oraz rozwijam aplikację dla Coding Tree jak i swoją. Poza kodowaniem moją pasją jest muzyka metalowa, uwielbiam również tematy okultystyczne, Audi i kolor czarny."
-            },
-            {"id": 5, "kind": "person", "name": "Jędrzej Paulus"}
+            }
           ]
         },
         {
           "id": 5,
           "kind": "folder",
-          "name": "Niebieski Pas",
-          "children": [{"id": 1, "kind": "person", "avatar": "Woman", "name": "Angelika Paterak"}]
+          "name": "Niebieski Pas"
         },
         {
           "id": 6,
@@ -163,6 +211,7 @@
               "id": 1,
               "kind": "person",
               "name": "Arkadiusz Świokło",
+              "avatar": "White Belt",
               "github": "https://github.com/bulamen7",
               "linkedIn": "https://www.linkedin.com/in/arkadiusz-%C5%9Bwiok%C5%82o-766633179/",
               "dateOfBirth": 1992,
@@ -173,8 +222,8 @@
               ],
               "description": "Zawodowo związany ze światem lotniczym, a nie jak można przypuszczać  IT.  Od niedawna jestem wielkim pasjonatem programowania, szczególnie w jezyku Java, i tym co z nią związane. Po godzinach w codziennej pracy piszę swoje małe projekty, które z czasem zamierzam rozbudowywać. Jeżeli tylko mi sie uda, z pomocą CodingTree zamierzam zmienić branżę na IT, głównie na nieograniczoną możliwość rozwoju."
             },
-            {"id": 2, "kind": "person", "avatar": "Man", "name": "Paweł Kochowicz"},
-            {"id": 3, "kind": "person", "avatar": "Man", "name": "Paweł Marciniak"}
+            {"id": 2, "kind": "person", "avatar": "White Belt", "name": "Paweł Kochowicz"},
+            {"id": 3, "kind": "person", "avatar": "White Belt", "name": "Paweł Marciniak"}
           ]
         }
       ]

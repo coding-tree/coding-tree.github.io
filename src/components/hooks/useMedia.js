@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 
-export const useMedia = query => {
+export const useMedia = (query) => {
   const [matches, setMatches] = useState(window.matchMedia(query).matches);
 
   useEffect(() => {
@@ -11,7 +11,7 @@ export const useMedia = query => {
     const listener = () => setMatches(media.matches);
     media.addListener(listener);
     return () => media.removeListener(listener);
-  }, [query]);
+  }, [query, matches]);
 
   return matches;
 };

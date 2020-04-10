@@ -3,11 +3,18 @@ import {array} from 'prop-types';
 
 const ProfileStack = ({stack}) => {
   if (stack) {
+    const [lastItem] = stack.slice(-1);
     return (
       <div className="profile-stack">
         <p>
           Technologie:{' '}
-          {stack.length > 1 ? stack.map(el => <span key={el.id}>{el.title}, </span>) : <span>{stack}</span>}
+          {stack &&
+            stack.map((el) => (
+              <span key={el.id}>
+                {el.title}
+                {el !== lastItem && ', '}
+              </span>
+            ))}
         </p>
       </div>
     );

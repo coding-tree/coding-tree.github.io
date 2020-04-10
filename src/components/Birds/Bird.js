@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 import Lottie from 'react-lottie';
 import {string, func, bool} from 'prop-types';
 
@@ -14,7 +14,7 @@ function Bird({birdType = 'bird', className, setVisibility, largeDevice}) {
   const [hoverOn, setHoverOn] = useState(null);
   const [hoverOff, setHoverOff] = useState(null);
 
-  const loadData = async () => {
+  const loadData = useCallback(async () => {
     const [initialData, hoverOnData, hoverOffData] = await Promise.all([
       import(`./${birdType}_initial.json`),
       import(`./${birdType}_hover_on.json`),
@@ -24,11 +24,11 @@ function Bird({birdType = 'bird', className, setVisibility, largeDevice}) {
     setInitial(initialData);
     setHoverOn(hoverOnData);
     setHoverOff(hoverOffData);
-  };
+  }, [birdType]);
 
   useEffect(() => {
     loadData();
-  }, []);
+  }, [loadData]);
 
   const data = {
     initial: initial || {},

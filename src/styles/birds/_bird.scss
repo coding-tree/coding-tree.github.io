@@ -4,7 +4,7 @@
   width: 100%;
 
   svg {
-    margin-bottom: -5px;
+    margin-bottom: -10px;
     will-change: transform;
   }
   .tree-left {
@@ -45,8 +45,8 @@
 
     &-container {
       position: absolute;
-      width: 12%;
-      height: 12%;
+      width: 10%;
+      height: 10%;
       z-index: 2;
 
       .hover-container {
@@ -56,11 +56,11 @@
         transition: 0.3s linear;
 
         &.right {
-          right: 90%;
+          right: 110%;
           transform: rotateZ(-180deg);
         }
         &.left {
-          left: 90%;
+          left: 110%;
           transform: rotateZ(180deg);
         }
       }
@@ -134,7 +134,7 @@
   z-index: 99999;
 
   &-box {
-    width: 80%;
+    width: 95%;
     border-radius: 10px;
     box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.4);
     overflow: hidden;
@@ -148,6 +148,7 @@
     border-bottom: 1px solid #ccc;
     button {
       border: none;
+      background-color: transparent;
     }
     i {
       color: var(--main-color);
@@ -169,94 +170,61 @@
 
 @media only screen and (min-width: 2000px) {
   .trees {
-    margin-top: -350px;
+    margin-top: -70vw;
+    > div:first-child svg {
+      margin-bottom: -20vw;
+    }
+    .bird-container {
+      .hover-container.right {
+        right: 110%;
+      }
+
+      .hover-container.left {
+        left: 110%;
+      }
+    }
   }
 }
 
 @media only screen and (max-width: 2000px) {
   .trees {
-    margin-top: -400px;
-  }
-  .logo-container {
-    .bird-container {
-      .hover-container.right {
-        right: 90%;
-      }
-
-      .hover-container.left {
-        left: 90%;
-      }
+    margin-top: -70vw;
+    > div:first-child svg {
+      margin-bottom: -20vw;
     }
   }
 }
 
 @media only screen and (max-width: 1514px) {
   .trees {
-    .bird {
-      &-container {
-        .hover-container {
-          &.left {
-            left: 100%;
-          }
-          &.right {
-            right: 100%;
-          }
-        }
-      }
+    margin-top: -70vw;
+    > div:first-child svg {
+      margin-bottom: -10vw;
     }
   }
 }
 @media only screen and (max-width: 1149px) {
   .trees {
-    margin-top: -25rem;
-  }
-}
-@media only screen and (max-width: 963px) {
-  .trees {
-    margin-top: -20rem;
+    margin-top: -45vw;
+    > div:first-child svg {
+      margin-bottom: -10px;
+    }
+    .bird-container {
+      width: 15%;
+      height: 15%;
+    }
   }
 }
 
 @media only screen and (max-width: 896px) {
   .trees {
-    margin-top: -20rem;
-  }
-}
-@media only screen and (max-width: 768px) {
-  .trees {
-    margin-top: -25rem;
-    .bird {
-      &-container {
-        width: 18%;
-        .hover-container {
-          &.left {
-            left: 100%;
-          }
-          &.right {
-            right: 100%;
-          }
-        }
-      }
+    margin-top: -170vw;
+    > div:first-child svg {
+      margin-bottom: -20vw;
     }
-  }
-}
-@media only screen and (max-width: 640px) {
-  .trees {
-    margin-top: -20rem;
-  }
-}
-@media only screen and (max-width: 480px) {
-  .trees {
-    margin-top: -35rem;
-    .bird {
-      &-container {
-        width: 28%;
-      }
+    .bird-container {
+      width: 25%;
+      height: 10%;
     }
-  }
-}
-@media only screen and (max-width: 400px) {
-  .trees {
-    margin-top: -30rem;
   }
 }

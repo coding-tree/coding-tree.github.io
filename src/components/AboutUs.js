@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import folderStructure from '../data/folderStructure.json';
-import Footer from './Footer';
 import Box from './Box/Box';
 import BoxImage from './Box/BoxImage';
 import BoxWrapper from './Box/BoxWrapper';

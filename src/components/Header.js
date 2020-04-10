@@ -1,5 +1,5 @@
-import React, {lazy} from 'react';
-import {node, bool} from 'prop-types';
+import React from 'react';
+import {node} from 'prop-types';
 
 function Header({children}) {
   return (

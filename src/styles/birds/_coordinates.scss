@@ -1,144 +1,111 @@
 #bird-one {
-  top: 28.2%;
+  top: 50.7%;
   right: 15%;
 }
 #bird-two {
-  top: 29.9%;
+  top: 50.5%;
   left: 20%;
 }
 #bird-three {
-  top: 41.7%;
-  right: 14.5%;
+  top: 57.9%;
+  right: 15.5%;
 }
 #bird-four {
-  top: 44.3%;
+  top: 59.6%;
   left: 19%;
 }
 #bird-five {
-  top: 54.5%;
+  top: 66.1%;
   right: 25.5%;
 }
 #bird-six {
-  top: 61.8%;
+  top: 70.6%;
   left: 23.7%;
 }
 #bird-seven {
-  top: 78.5%;
+  top: 81.3%;
   right: 35%;
 }
 
 @media only screen and (max-width: 1514px) {
   #bird-one {
-    top: 31.2%;
+    top: 47.2%;
   }
   #bird-two {
-    top: 33%;
+    top: 46.9%;
     left: 20%;
   }
   #bird-three {
-    top: 42%;
-    right: 20%;
+    top: 54%;
   }
   #bird-four {
-    top: 46%;
-    left: 20%;
+    top: 55.5%;
   }
   #bird-five {
-    top: 54%;
-    right: 27%;
+    top: 61.5%;
   }
   #bird-six {
-    top: 61.7%;
-    left: 29%;
+    top: 65.8%;
   }
   #bird-seven {
     top: 76%;
-    right: 39%;
   }
 }
 
 @media only screen and (max-width: 1149px) {
   #bird-one {
-    top: 28.2%;
+    top: 26.2%;
   }
   #bird-two {
-    top: 32.5%;
+    top: 30%;
   }
   #bird-three {
-    top: 38.4%;
-    right: 16%;
+    top: 36.5%;
+    right: 14%;
   }
   #bird-four {
-    top: 48.8%;
+    top: 46.8%;
   }
   #bird-five {
-    top: 57.3%;
+    top: 55.3%;
   }
   #bird-six {
-    top: 67.3%;
-    left: 33%;
+    top: 64.7%;
+    left: 15%;
   }
   #bird-seven {
-    top: 78.7%;
-    right: 33%;
+    top: 76.7%;
+    right: 28%;
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 896px) {
   #bird-one {
-    top: 31.2%;
+    top: 40.2%;
+    right: 8%;
   }
   #bird-two {
-    top: 36.6%;
+    top: 43.8%;
+    left: 8%;
   }
   #bird-three {
-    top: 42.6%;
-    right: 10%;
+    top: 50.6%;
+    right: 5%;
   }
   #bird-four {
-    top: 48%;
+    top: 56.2%;
+    left: 9%;
   }
   #bird-five {
-    top: 57.2%;
-    right: 12%;
-  }
-  #bird-six {
-    top: 71.5%;
-    left: 22%;
-  }
-  #bird-seven {
-    top: 80.3%;
-    right: 29%;
-  }
-}
-
-@media only screen and (max-width: 480px) {
-  #bird-one {
-    top: 39.2%;
-    right: 6%;
-  }
-  #bird-two {
-    top: 42.6%;
-    left: 7%;
-  }
-  #bird-three {
-    top: 48.9%;
-    right: 4%;
-  }
-  #bird-four {
-    top: 54.5%;
-    left: 5%;
-  }
-  #bird-five {
-    top: 63.5%;
+    top: 65.9%;
     right: 2%;
   }
   #bird-six {
-    top: 70.4%;
-    left: 3%;
+    top: 73%;
+    left: 9%;
   }
   #bird-seven {
-    top: 81.6%;
+    top: 84.7%;
     right: 18%;
   }
 }

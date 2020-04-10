@@ -1,5 +1,5 @@
 import React from 'react';
-import {node, object} from 'prop-types';
+import {node} from 'prop-types';
 
 const WrapperContainer = ({children}) => {
   return <div className="container">{children}</div>;

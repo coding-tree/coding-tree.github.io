@@ -52,8 +52,15 @@ function App({dateTime, setDateTime, motive}) {
         <DayNight setDateTime={setDateTime} dateTime={dateTime}></DayNight>
         <MainWrapper motive={motive}>
           <WrapperContainer>
-            {largeDevice ? <Navigation></Navigation> : <NavigationMobile></NavigationMobile>}
-            <SocialLinks></SocialLinks>
+            {largeDevice ? (
+              <Navigation>
+                <SocialLinks></SocialLinks>
+              </Navigation>
+            ) : (
+              <NavigationMobile>
+                <SocialLinks></SocialLinks>
+              </NavigationMobile>
+            )}
 
             <Switch>
               <Route exact strict path="/" component={Home}></Route>

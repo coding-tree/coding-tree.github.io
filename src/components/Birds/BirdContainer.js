@@ -1,7 +1,7 @@
 import React, {useState, lazy} from 'react';
 import {useSpring, animated} from 'react-spring';
 import {easeCubicInOut} from 'd3-ease';
-import {string, node, bool, oneOfType, arrayOf} from 'prop-types';
+import {string, node, oneOfType, arrayOf} from 'prop-types';
 import {useMedia} from '../hooks/useMedia';
 
 const BirdModal = lazy(() => import('./BirdModal'));

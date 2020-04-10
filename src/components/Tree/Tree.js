@@ -1,18 +1,18 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useCallback} from 'react';
 import Lottie from 'react-lottie';
 
 const Background = ({children, treeFile}) => {
   const [animation] = useState('tree');
   const [tree, setTree] = useState(null);
 
-  const loadData = async () => {
+  const loadData = useCallback(async () => {
     const [tree] = await Promise.all([import(`./${treeFile}.json`)]);
     setTree(tree);
-  };
+  }, [treeFile]);
 
   useEffect(() => {
     loadData();
-  }, []);
+  }, [loadData]);
 
   const data = {
     tree: tree || {},

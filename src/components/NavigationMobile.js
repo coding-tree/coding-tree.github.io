@@ -1,9 +1,9 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {NavLink} from 'react-router-dom';
 import {useSpring, animated} from 'react-spring';
 import {easeBackInOut} from 'd3-ease';
 
-function NavigationMobile() {
+function NavigationMobile({children}) {
   const [isVisible, toggleMenu] = useState(false);
   const date = new Date().getFullYear();
 
@@ -17,6 +17,7 @@ function NavigationMobile() {
     zIndex: isVisible ? 999 : 100,
     delay: isVisible ? 0 : 400,
     config: {duration: 500, easing: easeBackInOut},
+    overflow: 'hidden',
   });
 
   const textAnimation = useSpring({
@@ -42,7 +43,9 @@ function NavigationMobile() {
         <animated.h1 style={textAnimation}>
           <animated.img style={textAnimation} src="/logo_homepage.svg" alt="" />
         </animated.h1>
+
         <animated.div style={textAnimation}>
+          {children}
           <NavLink onClick={() => toggleMenu(false)} exact strict to="/">
             Strona główna
           </NavLink>
