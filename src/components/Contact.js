@@ -10,7 +10,7 @@ import {withTheme} from './hoc/withTheme';
 import {withTimeOfDay} from './hoc/withTimeOfDay';
 import {ToastContainer} from 'react-toastify';
 
-const Contact = ({errors, isSubmitting, motive, changeMotive, theme, dateTime, changeTimeOfDay}) => {
+const Contact = ({errors, isSubmitting, touched, motive, changeMotive, theme, dateTime, changeTimeOfDay}) => {
   const hasErrors = Object.entries(errors).length > 0 && errors.constructor === Object;
 
   return (
@@ -39,8 +39,16 @@ const Contact = ({errors, isSubmitting, motive, changeMotive, theme, dateTime, c
                     name="person"
                     label="Imię i nazwisko"
                     placeholder="Wpisz imię i nazwisko (opcjonalnie)"></Input>
-                  <Input name="email" type="email" label="Adres E-mail" placeholder="Wpisz adres email"></Input>
                   <Input
+                    name="email"
+                    error={errors['email']}
+                    touched={touched['email']}
+                    type="email"
+                    label="Adres E-mail"
+                    placeholder="Wpisz adres email"></Input>
+                  <Input
+                    error={errors['message']}
+                    touched={touched['message']}
                     name="message"
                     label="Treść wiadomości"
                     placeholder="Wpisz treść wiadomości"
@@ -61,8 +69,3 @@ const Contact = ({errors, isSubmitting, motive, changeMotive, theme, dateTime, c
 };
 
 export default withTimeOfDay(withTheme(Contact));
-
-// Login: email@codingtree.pl
-// Hasło: bqb7DbDLZ.7GdYi
-
-// API KEY: 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

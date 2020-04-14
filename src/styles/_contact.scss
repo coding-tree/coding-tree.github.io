@@ -3,6 +3,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding-bottom: 5rem;
   .box {
     &-wrapper {
       padding-bottom: 2.5rem;
@@ -64,9 +65,12 @@
       height: 30px;
     }
     textarea {
-      min-height: 70px;
+      min-height: 150px;
       padding: 0.5rem 1rem;
       resize: none;
+    }
+    .input-error {
+      border: 1px solid red;
     }
     .error {
       padding-left: 1rem;
@@ -120,6 +124,23 @@
     }
     .box-content {
       padding: 1rem;
+      overflow-y: auto;
+      &::-webkit-scrollbar {
+        border-radius: 20px;
+        width: 10px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background-color: var(--main-color);
+        border-bottom-right-radius: 10px;
+        border-top-right-radius: 10px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: var(--folder-color);
+        border-bottom-right-radius: 10px;
+        border-top-right-radius: 10px;
+      }
     }
     .form-control {
       flex-direction: column;

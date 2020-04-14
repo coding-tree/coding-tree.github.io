@@ -1,11 +1,21 @@
 import React from 'react';
 import {Field, ErrorMessage} from 'formik';
 
-const Input = ({name, label, type = 'text', component = 'input', placeholder, children}) => {
+const Input = ({name, touched, label, error, type = 'text', component = 'input', placeholder}) => {
+  const errorClass = (error, touched) => {
+    return touched && error ? 'input-error' : '';
+  };
   return (
     <div className="form-control">
       <label htmlFor={name}>{label}</label>
-      <Field placeholder={placeholder} type={type} component={component} name={name} id={name} />
+      <Field
+        className={errorClass(error, touched)}
+        placeholder={placeholder}
+        type={type}
+        component={component}
+        name={name}
+        id={name}
+      />
       <ErrorMessage component={Error} name={name}></ErrorMessage>
     </div>
   );
