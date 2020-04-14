@@ -140,7 +140,23 @@
           "kind": "folder",
           "name": "Żółty Pas",
           "children": [
-            {"id": 1, "kind": "person", "name": "Kazimierz Bagrowski"},
+            {
+              "id": 1,
+              "kind": "person",
+              "name": "Kazimierz Bagrowski",
+              "github": "https://github.com/kazbag",
+              "linkedIn": "http://linkedin.com/in/kazimierz-bagrowski-0b1023173",
+              "dateOfBirth": 1997,
+              "stack": [
+                {"id": 1, "title": "Node.js"},
+                {"id": 2, "title": "Express"},
+                {"id": 3, "title": "React"},
+                {"id": 4, "title": "JavaScript"},
+                {"id": 5, "title": "MongoDB"},
+                {"id": 6, "title": "Mongoose (MERN stack)"}
+              ],
+              "description": "Jestem studentem, jak i starostą 3 roku informatyki i dobrze się czuję w środowisku JavaScript zarówno po stronie klienta, jak i serwera. Brakuje mi nieco zdolności artystycznych, więc grafik ze mnie żaden, lecz ekipa mówi że mam dobre pomysły i tym nadrabiam. Chcę tworzyć aplikacje, dzięki którym codzienne czynności stają się prostsze i przyjemniejsze. Wolne chwile spędzam z naszą Panią Grafik, kotem, rowerem oraz oczywiście poszerzam horyzonty czytając różnorakie artykuły techniczne."
+            },
             {
               "id": 2,
               "kind": "person",
@@ -222,7 +238,21 @@
               ],
               "description": "Zawodowo związany ze światem lotniczym, a nie jak można przypuszczać  IT.  Od niedawna jestem wielkim pasjonatem programowania, szczególnie w jezyku Java, i tym co z nią związane. Po godzinach w codziennej pracy piszę swoje małe projekty, które z czasem zamierzam rozbudowywać. Jeżeli tylko mi sie uda, z pomocą CodingTree zamierzam zmienić branżę na IT, głównie na nieograniczoną możliwość rozwoju."
             },
-            {"id": 2, "kind": "person", "avatar": "White Belt", "name": "Paweł Kochowicz"},
+            {
+              "id": 2,
+              "kind": "person",
+              "name": "Paweł Kochowicz",
+              "avatar": "White Belt",
+              "github": "https://github.com/pawelkochowicz",
+              "linkedIn": "https://www.linkedin.com/in/paweł-kochowicz-b78528195/",
+              "dateOfBirth": 1989,
+              "stack": [
+                {"id": 1, "title": "HTML"},
+                {"id": 2, "title": "CSS"},
+                {"id": 3, "title": "JavaScript"}
+              ],
+              "description": "Zawodowo spedytor w transporcie międzynarodowym, z wykształcenia fotoreporter, z zamiłowania do tworzenia czegoś co widać oraz własnego ciągłego rozwoju od początku 2019 uczę się technologii frontendowych. Ostatnio nieco z przypadku również nieco grafiki. Powoli tworzę pierwszy komercyjny projekt oraz w miarę możliwości czasowych również własną aplikację. W planach na przyszłość mam zmianę branży na IT. Poza IT wciągnął mnie Off-road, więc w ramach odpoczynku od komputera topię samochód w błocie"
+            },
             {"id": 3, "kind": "person", "avatar": "White Belt", "name": "Paweł Marciniak"}
           ]
         }
