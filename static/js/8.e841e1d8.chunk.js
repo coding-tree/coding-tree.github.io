@@ -1,2 +1,0 @@
-(this["webpackJsonpcoding-tree-homepage"]=this["webpackJsonpcoding-tree-homepage"]||[]).push([[8],{220:function(e,n,t){"use strict";t.r(n),t.d(n,"default",(function(){return u}));var o=t(0),r=t.n(o);function u(){return r.a.createElement("div",null,r.a.createElement("h1",null,"Not Found works"))}}}]);
-//# sourceMappingURL=8.e841e1d8.chunk.js.map
