@@ -24,7 +24,7 @@ ENV REACT_APP_GIT_COMMIT=${git_commit}
 ENV REACT_APP_GIT_TAG=${git_tag}
 ENV REACT_APP_HOMEPAGE_URL=${homepage_url}
 ENV REACT_APP_BUILD_TIME=${build_time}
-RUN npm run build
+RUN npm run build:staging
 
 FROM nginx
 COPY nginx.conf /etc/nginx/nginx.conf
