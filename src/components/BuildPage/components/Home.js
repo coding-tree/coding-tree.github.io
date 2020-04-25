@@ -1,6 +1,4 @@
-import React, { lazy } from "react";
-
-const Formik = lazy(() => import("./Formik"));
+import React from "react";
 
 const DISCORD_LINK = "https://discord.gg/ZevtyMf";
 const FACEBOOK_LINK = "https://www.facebook.com/CodingTreeFoundation/";
