@@ -1,4 +1,4 @@
-import React, {lazy, Suspense, useEffect} from 'react';
+import React, {lazy, useEffect} from 'react';
 import {Switch, Route, Redirect} from 'react-router-dom';
 
 import './styles/main.scss';
@@ -14,6 +14,8 @@ import {withTheme} from './components/hoc/withTheme';
 import MainWrapper from './components/MainWrapper';
 import WrapperContainer from './components/WrapperContainer';
 import Footer from './components/Footer';
+
+import './styles/main.scss';
 
 const Home = lazy(() => import('./components/Home'));
 const AboutUs = lazy(() => import('./components/AboutUs'));
@@ -43,38 +45,31 @@ function App({dateTime, setDateTime, motive}) {
 
   return (
     <>
-      <Suspense
-        fallback={
-          <div>
-            <h1 style={{color: '#fff'}}>Loading...</h1>
-          </div>
-        }>
-        <DayNight setDateTime={setDateTime} dateTime={dateTime}></DayNight>
-        <MainWrapper motive={motive}>
-          <WrapperContainer>
-            {largeDevice ? (
-              <Navigation>
-                <SocialLinks></SocialLinks>
-              </Navigation>
-            ) : (
-              <NavigationMobile>
-                <SocialLinks></SocialLinks>
-              </NavigationMobile>
-            )}
+      <DayNight setDateTime={setDateTime} dateTime={dateTime}></DayNight>
+      <MainWrapper motive={motive}>
+        <WrapperContainer>
+          {largeDevice ? (
+            <Navigation>
+              <SocialLinks></SocialLinks>
+            </Navigation>
+          ) : (
+            <NavigationMobile>
+              <SocialLinks></SocialLinks>
+            </NavigationMobile>
+          )}
 
-            <Switch>
-              <Route exact strict path="/" component={Home}></Route>
-              <Route exact strict path="/o-nas" component={AboutUs}></Route>
-              {/* Disabled */}
-              {/* <Route exact strict path="/galeria" component={GalleryPage}></Route> */}
-              <Route exact strict path="/kontakt" component={Formik}></Route>
-              <Route exact strict path="/404" component={NotFound}></Route>
-              <Redirect to="/404"></Redirect>
-            </Switch>
-          </WrapperContainer>
-          <Footer></Footer>
-        </MainWrapper>
-      </Suspense>
+          <Switch>
+            <Route exact strict path="/" component={Home}></Route>
+            <Route exact strict path="/o-nas" component={AboutUs}></Route>
+            {/* Disabled */}
+            {/* <Route exact strict path="/galeria" component={GalleryPage}></Route> */}
+            <Route exact strict path="/kontakt" component={Formik}></Route>
+            <Route exact strict path="/404" component={NotFound}></Route>
+            <Redirect to="/404"></Redirect>
+          </Switch>
+        </WrapperContainer>
+        <Footer></Footer>
+      </MainWrapper>
     </>
   );
 }

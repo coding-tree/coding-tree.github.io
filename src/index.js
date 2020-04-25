@@ -1,11 +1,11 @@
-import React from 'react';
+import React, {lazy, Suspense} from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import '@fortawesome/fontawesome-free/css/all.min.css';
 import {unregister} from './serviceWorker';
+
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
 import {BrowserRouter} from 'react-router-dom';
 import {ThemeProvider} from './components/contexts/ThemeContext';
-import './styles/main.scss';
 import 'react-toastify/dist/ReactToastify.min.css';
 
 window.buildDetails = {
@@ -16,14 +16,42 @@ window.buildDetails = {
   buildTime: process.env.REACT_APP_BUILD_TIME,
 };
 
-ReactDOM.render(
-  <BrowserRouter>
-    <ThemeProvider>
-      <App />
-    </ThemeProvider>
-  </BrowserRouter>,
-  document.getElementById('root')
-);
+const env = process.env.NODE_ENV;
+console.log('ENV', env);
+if (env === 'production') {
+  const App = lazy(() => import('./components/BuildPage/BuildApp'));
+  ReactDOM.render(
+    <Suspense
+      fallback={
+        <div>
+          <h1 style={{color: '#fff'}}>Loading...</h1>
+        </div>
+      }>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Suspense>,
+    document.getElementById('root')
+  );
+} else {
+  const App = lazy(() => import('./App'));
+
+  ReactDOM.render(
+    <Suspense
+      fallback={
+        <div>
+          <h1 style={{color: '#fff'}}>Loading...</h1>
+        </div>
+      }>
+      <BrowserRouter>
+        <ThemeProvider>
+          <App />
+        </ThemeProvider>
+      </BrowserRouter>
+    </Suspense>,
+    document.getElementById('root')
+  );
+}
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
