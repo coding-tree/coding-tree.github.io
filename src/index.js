@@ -16,9 +16,8 @@ window.buildDetails = {
   buildTime: process.env.REACT_APP_BUILD_TIME,
 };
 
-const env = process.env.NODE_ENV;
-console.log('ENV', env);
-if (env === 'production') {
+const showInProgress = process.env.REACT_APP_SHOW_IN_PROGRESS;
+if (showInProgress !== 'true') {
   const App = lazy(() => import('./components/BuildPage/BuildApp'));
   ReactDOM.render(
     <Suspense
@@ -35,7 +34,6 @@ if (env === 'production') {
   );
 } else {
   const App = lazy(() => import('./App'));
-
   ReactDOM.render(
     <Suspense
       fallback={
