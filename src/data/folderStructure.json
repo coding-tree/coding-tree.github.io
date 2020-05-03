@@ -26,12 +26,13 @@
               "landscape": "Damian Ospara - Landscape",
               "dateOfBirth": 1990,
               "stack": [
-                {"id": 1, "title": "JavaScript"},
-                {"id": 2, "title": "Node.js"},
-                {"id": 3, "title": "SCALA"},
-                {"id": 4, "title": "Spark"}
+                {"id": 1, "title": "Scala"},
+                {"id": 2, "title": "Java"},
+                {"id": 3, "title": "JavaScript"},
+                {"id": 4, "title": "Node.js"},
+                {"id": 5, "title": "Python"}
               ],
-              "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat ex consectetur harum non laudantium deserunt, ratione est corrupti porro nesciunt enim minima sed modi repudiandae atque, reiciendis, ipsam adipisci. Sed. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto culpa tempore recusandae, numquam ut ex temporibus nam excepturi, laudantium dolores atque consequatur optio quos dolor modi? Quisquam maiores animi dolore?"
+              "description": "Założyciel i pomysłodawca Coding Tree. Programista z pasji i wykształcenia. Skończyłem Politechnikę Poznańską kierunek Informatyka. Ostatnimi czasy w głównym obszarze moich zainteresowań znajduje się programowanie funkcyjne oraz przetwarzanie danych (Niektórzy powiedzą Big Data lecz to tylko buzz word). Pracuję obecnie w roli Apache Spark Developera. W Coding Tree odgrywam rolę mentora. Pomagam bo sprawia mi to satysfakcje oraz sam mogę uporządkować swoją wiedzę. Wyznaję zasadę \"learning by doing\" jednak wiem, że niezbędna jest również teoria. Często tłumacząc na przykładzie przemycam zalążki wiedzy teoretycznej i podstaw informatyki. W Coding Tree oprócz mentoringu wspólnie z adeptami tworzę ciekawe projekty na które nie miał bym nigdy czasu pracując w pojedynke."
             }
           ]
         },
