@@ -1,3 +1,10 @@
+> [!WARNING]
+> **Deprecated (2026-10-21).** This repository and its Netlify deployment
+> (`coding-tree.netlify.app`) are no longer maintained. The Coding Tree
+> presentation page now lives in the private repository
+> `coding-tree/ctdojo-site`. This repository is archived (read-only); there is
+> currently no public production deployment of the new page.
+
 # Coding Tree Homepage
 
 Homepage of Coding Tree group.
